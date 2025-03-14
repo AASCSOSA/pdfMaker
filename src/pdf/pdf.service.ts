@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import PdfPrinter from "pdfmake";
-import { DeliveryReport } from "./classes/fgo/delivery/delivery-report";
+import PdfPrinter from 'pdfmake';
+import { DeliveryReport } from './classes/fgo/delivery/delivery-report';
 
 @Injectable()
 export class PdfService {
@@ -16,8 +16,8 @@ export class PdfService {
       bold: 'assets/fonts/Roboto-Medium.ttf',
       italics: 'assets/fonts/Roboto-Italic.ttf',
       bolditalics: 'assets/fonts/Roboto-MediumItalic.ttf',
-    }
-  }
+    },
+  };
 
   async generatePdf(): Promise<Buffer> {
     // Definir el contenido del PDF
@@ -57,7 +57,9 @@ export class PdfService {
     //Pero como tal se haria una consulta a bd
     const doc = new DeliveryReport(deliveryId);
     const printer = new PdfPrinter(this.fonts);
-    const pdfDocGenerator = printer.createPdfKitDocument(doc.generateDocumentStructure());
+    const pdfDocGenerator = printer.createPdfKitDocument(
+      doc.generateDocumentStructure(),
+    );
     pdfDocGenerator.info.Title = `${doc.getFileName()}`;
     return pdfDocGenerator;
   }

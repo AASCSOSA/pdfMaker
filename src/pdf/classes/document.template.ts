@@ -1,5 +1,4 @@
-import PdfPrinter from "pdfmake";
-import { Content, TDocumentDefinitions } from "pdfmake/interfaces";
+import { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
 
 export abstract class DocumentTemplate {
   private fileName: string;
@@ -20,7 +19,7 @@ export abstract class DocumentTemplate {
 
   protected abstract createFooter(): Content;
 
-  protected abstract getStyles(): any;
+  protected abstract getStyles(): { [styleName: string]: object };
 
   public setFileName(fileName: string): void {
     this.fileName = fileName;

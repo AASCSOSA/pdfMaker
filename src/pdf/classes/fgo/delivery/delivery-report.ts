@@ -1,5 +1,5 @@
-import { DocumentTemplate } from "../../document.template";
-import { Content } from "pdfmake/interfaces";
+import { DocumentTemplate } from '../../document.template';
+import { Content } from 'pdfmake/interfaces';
 
 export class DeliveryReport extends DocumentTemplate {
   private date: Date = new Date();
@@ -31,10 +31,7 @@ export class DeliveryReport extends DocumentTemplate {
         ],
       },
       {
-        text: [
-          'Delivery Date: ',
-          {text: this.date.toDateString()},
-        ]
+        text: ['Delivery Date: ', { text: this.date.toDateString() }],
       },
       {
         canvas: [
@@ -70,7 +67,7 @@ export class DeliveryReport extends DocumentTemplate {
           style: 'header',
         },
       ],
-    }
+    };
   }
 
   protected createHeader(): Content {
@@ -81,7 +78,7 @@ export class DeliveryReport extends DocumentTemplate {
           style: 'header',
         },
       ],
-    }
+    };
   }
 
   protected getStyles(): any {
@@ -93,5 +90,4 @@ export class DeliveryReport extends DocumentTemplate {
       },
     };
   }
-
 }

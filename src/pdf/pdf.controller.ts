@@ -21,7 +21,10 @@ export class PdfController {
   }
 
   @Get('fgo/delivery/reports/:deliveryId')
-  async getFgoDeliveryReport(@Param('deliveryId') deliveryId: string, @Res() res: Response) {
+  getFgoDeliveryReport(
+    @Param('deliveryId') deliveryId: string,
+    @Res() res: Response,
+  ) {
     try {
       const pdfDoc = this.pdfService.generateDeliveryReportPdf(deliveryId);
       const chunks: Uint8Array[] = [];
