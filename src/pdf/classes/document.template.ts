@@ -1,5 +1,5 @@
 import PdfPrinter from "pdfmake";
-import { Content, TDocumentDefinitions } from "pdfmake/interfaces";
+import { Content, StyleDictionary, TDocumentDefinitions } from "pdfmake/interfaces";
 
 export abstract class DocumentTemplate {
   private fileName: string;
@@ -11,6 +11,7 @@ export abstract class DocumentTemplate {
     return {
       content: [header, body, footer],
       styles: this.getStyles(),
+      pageSize: 'A4',
     };
   }
 
