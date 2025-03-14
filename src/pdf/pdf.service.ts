@@ -1,11 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import PdfPrinter from "pdfmake";
+import { DeliveryReport } from "./classes/fgo/delivery/delivery-report";
 
 @Injectable()
 export class PdfService {
   constructor() {
     pdfMake.vfs = pdfFonts.vfs;
+  }
+
+  fonts = {
+    Roboto: {
+      normal: 'assets/fonts/Roboto-Regular.ttf',
+      bold: 'assets/fonts/Roboto-Medium.ttf',
+      italics: 'assets/fonts/Roboto-Italic.ttf',
+      bolditalics: 'assets/fonts/Roboto-MediumItalic.ttf',
+    }
   }
 
   async generatePdf(): Promise<Buffer> {
@@ -28,7 +39,6 @@ export class PdfService {
         font: 'Times', // Usa Times como fuente por defecto
       },
     };
-
     return new Promise((resolve, reject) => {
       // Generar el PDF en un buffer
       const pdfDocGenerator = pdfMake.createPdf(documentDefinition);
@@ -40,5 +50,14 @@ export class PdfService {
         }
       });
     });
+  }
+
+  generateDeliveryReportPdf(deliveryId: string): PDFKit.PDFDocument {
+    //Aquí se mandaria el objeto yo creo, pero mientras coloco el ID como representativo
+    //Pero como tal se haria una consulta a bd
+    const doc = new DeliveryReport(deliveryId);
+    const printer = new PdfPrinter(this.fonts);
+    const pdfDocGenerator = printer.createPdfKitDocument(doc.generateDocumentStructure());
+    return pdfDocGenerator;
   }
 }
