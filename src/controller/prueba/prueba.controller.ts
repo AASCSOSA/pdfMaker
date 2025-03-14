@@ -9,7 +9,7 @@ export class PruebaController {
   async getReport(@Res() response: Response) {
     const pdfDoc = await this.reportsService.getReport();
     response.setHeader('Content-Type', 'application/pdf');
-    pdfDoc.info.Title = 'Prueba';
+    pdfDoc.info.Title = 'Prueba 2 de cosas';
     pdfDoc.pipe(response);
     pdfDoc.end();
   }

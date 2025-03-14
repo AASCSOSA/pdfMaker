@@ -21,11 +21,16 @@ export class ReportService {
           ],
         },
         {
-          text: 'aly^',
+          image: 'assets/img/logo.png',
           absolutePosition: { x: 40, y: 40 },
-          color: 'white',
-          fontSize: 54.03,
-          bold: true,
+          width: 134,
+          height: 68.29,
+        },
+        {
+          table: {
+            body: [[{ text: 'Columna 1', border: [] }]],
+          },
+          absolutePosition: { x: 40, y: 40 },
         },
       ],
     };
