@@ -1,4 +1,5 @@
-import { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
+import PdfPrinter from "pdfmake";
+import { Content, StyleDictionary, TDocumentDefinitions } from "pdfmake/interfaces";
 
 export abstract class DocumentTemplate {
   private fileName: string;
@@ -10,6 +11,7 @@ export abstract class DocumentTemplate {
     return {
       content: [header, body, footer],
       styles: this.getStyles(),
+      pageSize: 'A4',
     };
   }
 
@@ -19,7 +21,7 @@ export abstract class DocumentTemplate {
 
   protected abstract createFooter(): Content;
 
-  protected abstract getStyles(): { [styleName: string]: object };
+  protected abstract getStyles(): any;
 
   public setFileName(fileName: string): void {
     this.fileName = fileName;
