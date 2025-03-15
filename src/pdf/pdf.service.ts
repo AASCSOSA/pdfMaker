@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import PdfPrinter from "pdfmake";
-import { DeliveryReport } from "./classes/fgo/delivery/delivery-report";
+import PdfPrinter from 'pdfmake';
+import { DeliveryReport } from './classes/fgo/delivery/delivery-report';
 
 @Injectable()
 export class PdfService {
