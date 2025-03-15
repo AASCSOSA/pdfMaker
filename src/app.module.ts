@@ -7,10 +7,12 @@ import { PruebaController } from './controller/prueba/prueba.controller';
 import { PruebaService } from './controller/prueba/prueba.service';
 import { PruebaModule } from './controller/prueba/prueba.module';
 import { ReportService } from './controller/report/report.service';
+import { PdfFactoryController } from './pdf_factory/pdf_factory.controller';
+import { PdfAbstractService } from './pdf_factory/pdf_abstract.service';
 
 @Module({
   imports: [PruebaModule],
-  controllers: [AppController, PdfController, PruebaController],
-  providers: [AppService, PdfService, PruebaService, ReportService],
+  controllers: [AppController, PdfController, PruebaController, PdfFactoryController],
+  providers: [AppService, PdfService, PruebaService, ReportService, PdfAbstractService],
 })
 export class AppModule {}
