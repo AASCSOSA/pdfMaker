@@ -1,4 +1,6 @@
-export class SizedBoxComponent {
+import { RenderableComponent } from "./interfaces/renderable-component.interface";
+
+export class SizedBoxComponent implements RenderableComponent {
   constructor(
     private width: number,
     private height: number,

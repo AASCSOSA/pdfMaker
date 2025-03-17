@@ -1,7 +1,8 @@
 import { ContentTable } from "pdfmake/interfaces";
-import { TableCellComponent } from "./tables/table-cell.component";
+import { TableCellComponent } from "./table-cell.component";
+import { RenderableComponent } from "../interfaces/renderable-component.interface";
 
-export class TableComponent {
+export class TableComponent implements RenderableComponent {
   private x = 0;
   private y = 0;
   private widths: any[] = [];

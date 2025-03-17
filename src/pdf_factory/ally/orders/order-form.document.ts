@@ -1,11 +1,11 @@
 import { HeaderComponent } from "../../components/header.component";
-import { TableComponent } from "../../components/table.component";
+import { TableComponent } from "../../components/tables/table.component";
 import { SectionComponent } from "../../components/section.component";
 import { Content, StyleDictionary, TDocumentDefinitions } from "pdfmake/interfaces";
-import { DocumentTemplate_Abstract } from "../../components/document.template";
+import { DocumentTemplate } from "../../components/document.template";
 import { TableCellComponent } from "../../components/tables/table-cell.component";
 
-export class OrderFormDocument_Abstract extends DocumentTemplate_Abstract {
+export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
     super(`delivery-report-${deliveryData.id}.pdf`);
     this.buildDocument();
@@ -58,8 +58,8 @@ export class OrderFormDocument_Abstract extends DocumentTemplate_Abstract {
     ];
     this.addComponent(new SectionComponent('Desglose de Precio')
       .setWidth(515)
-      .setAxisTextPosition(10, -20)
-      .setTextColor('#ffffff')
+      .setAxisTextPosition(10, -40)
+      .setTextColor('#ff0000')
       .setSectionColor('#13277A')
     );
     this.addComponent(new TableComponent()
@@ -100,6 +100,40 @@ export class OrderFormDocument_Abstract extends DocumentTemplate_Abstract {
       .setData(productRows)
       .setWidths([220, 80, 30, 70, 60, 80])
     );
+    const productRows1 = this.deliveryData.products.map(product => [
+      new TableCellComponent(product.description).setMargin([0, 15, 0, 0]),
+      new TableCellComponent(`$ ${product.unitPrice.toFixed(2)}`).setMargin([0, 15, 0, 0]).setAlignment('right'),
+      new TableCellComponent(product.quantity.toString()).setMargin([0, 15, 0, 0]).setAlignment('center'),
+      new TableCellComponent(`$ ${product.subtotal.toFixed(2)}`).setMargin([0, 15, 0, 0]).setAlignment('right'),
+      new TableCellComponent(`$ ${product.iva.toFixed(2)}`).setMargin([0, 15, 0, 0]).setAlignment('right'),
+      new TableCellComponent(`$ ${product.total.toFixed(2)}`).setMargin([0, 15, 0, 0]).setAlignment('right'),
+    ]);
+    this.addComponent(new SectionComponent('Desglose de Productos')
+      .setSectionColor('#13277A')
+      .setWidth(595)
+      .setAxisSectionPosition(-40, -40)
+      .setAxisTextPosition(10, -35)
+      .setTextColor('#ffffff')
+    );
+    this.addComponent(new TableComponent()
+      .setPosition(-40, -14)
+      .setHeaders(productHeaders)
+      .setData(productRows1)
+      .setWidths([220, 80, 30, 70, 60, 80])
+    );
+    this.addComponent({
+      render: (): Content => ({
+          text: "\n"
+        }
+      )
+    });
+    this.addComponent({
+      render: (): Content => ({
+          text: "Hola",
+          absolutePosition: {x: 30, y: 450},
+        }
+      )
+    });
   }
 
   protected getStyles(): StyleDictionary {

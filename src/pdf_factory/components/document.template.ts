@@ -1,7 +1,7 @@
 // src/pdf/classes/document.template.ts
 import { Content, StyleDictionary, TDocumentDefinitions } from "pdfmake/interfaces";
 
-export abstract class DocumentTemplate_Abstract {
+export abstract class DocumentTemplate {
   private fileName: string;
   protected components: any[] = [];
 

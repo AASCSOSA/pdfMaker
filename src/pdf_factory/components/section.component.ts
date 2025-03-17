@@ -1,16 +1,21 @@
 import { Content } from "pdfmake/interfaces";
+import { RenderableComponent } from "./interfaces/renderable-component.interface";
+import { defaultTheme, PdfTheme } from "../styles/theme.interface";
 
-export class SectionComponent {
+export class SectionComponent implements RenderableComponent {
   private xSection = 0;
   private ySection = 0;
   private xText = 0;
   private yText = 0;
   private w = 0;
   private textColor = 'black';
-  private positionColor = 'white';
+  private positionColor: string = '';
   private bold = false;
+  private height = 26;
+
   constructor(
     private title: string,
+    private theme: PdfTheme = defaultTheme
   ) {
   }
 
@@ -55,8 +60,8 @@ export class SectionComponent {
             x: this.xSection,
             y: this.ySection,
             w: this.w,
-            h: 26,
-            color: this.positionColor,
+            h: this.height,
+            color: this.positionColor === '' ? this.theme.colors.primary : this.positionColor,
           }
         ],
       },
@@ -69,5 +74,10 @@ export class SectionComponent {
         relativePosition: {x: this.xText, y: this.yText},
       },
     ];
+  }
+
+  setHeight(h: number): SectionComponent {
+    this.height = h;
+    return this
   }
 }

@@ -1,10 +1,13 @@
-export class HeaderComponent {
+import { RenderableComponent } from "./interfaces/renderable-component.interface";
+import { Content } from "pdfmake/interfaces";
+
+export class HeaderComponent implements RenderableComponent {
   constructor(
     private logoUrl?: string,
     private companyName?: string
   ) {}
 
-  render() {
+  render(): Content | Content[] {
     return {
       canvas: [
         {
@@ -16,6 +19,7 @@ export class HeaderComponent {
           color: '#026EFA',
         },
       ]
-    };
+    }
   }
+
 }

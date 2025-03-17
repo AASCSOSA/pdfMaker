@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import PdfPrinter from "pdfmake";
+import { TFontDictionary } from "pdfmake/interfaces";
 import { DocumentFactory_Abstract } from "./factories/document.factory";
 
 @Injectable()
@@ -10,7 +11,7 @@ export class PdfAbstractService {
     pdfMake.vfs = pdfFonts.vfs;
   }
 
-  fonts = {
+  fonts: TFontDictionary = {
     Roboto: {
       normal: 'assets/fonts/Roboto-Regular.ttf',
       bold: 'assets/fonts/Roboto-Medium.ttf',
@@ -215,7 +216,7 @@ export class PdfAbstractService {
         },
       ]
     }
-    const document = DocumentFactory_Abstract.createDocument(type, sampleDataDeliveryOrder);
+    const document = DocumentFactory_Abstract.createDocument(type, sampleDataOrderForm);
     const printer = new PdfPrinter(this.fonts);
     const pdfDocGenerator = printer.createPdfKitDocument(document.generateDocumentStructure());
     pdfDocGenerator.info.Title = document.getFileName();
