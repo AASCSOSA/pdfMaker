@@ -1,16 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PdfService } from './pdf/pdf.service';
-import { PdfController } from './pdf/pdf.controller';
-import { PruebaController } from './controller/prueba/prueba.controller';
-import { PruebaService } from './controller/prueba/prueba.service';
-import { PruebaModule } from './controller/prueba/prueba.module';
-import { ReportService } from './controller/report/report.service';
+import { PdfFactoryController } from './pdf.generator/pdf_factory.controller';
+import { OrdersController } from './controller/orders/orders.controller';
+import { OrdersModule } from './controller/orders/orders.module';
+import { PdfService } from "./pdf.generator/pdf.service";
 
 @Module({
-  imports: [PruebaModule],
-  controllers: [AppController, PdfController, PruebaController],
-  providers: [AppService, PdfService, PruebaService, ReportService],
+  imports: [OrdersModule],
+  controllers: [AppController],
+  providers: [AppService, PdfService],
+  //sacas a relucir
 })
 export class AppModule {}

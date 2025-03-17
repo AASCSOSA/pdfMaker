@@ -1,0 +1,118 @@
+import { DocumentTemplate } from "../../components/document.template";
+import { Content, StyleDictionary } from "pdfmake/interfaces";
+import { SectionComponent } from "../../components/section.component";
+import { TableCellComponent } from "../../components/tables/table-cell.component";
+import { TableComponent } from "../../components/tables/table.component";
+
+export class DeliveryReportDocument extends DocumentTemplate {
+
+  constructor(private deliveryData: any) {
+    super()
+    this.buildDocument();
+  }
+
+  private buildDocument(): void {
+    this.addComponent({
+      render(): any {
+        return [
+          {
+            canvas: [
+              {
+                type: 'rect',
+                x: -40,
+                y: -40,
+                w: 595,
+                h: 152,
+                color: '#0C2788',
+              },
+            ],
+          },
+          {
+            image: 'assets/img/logo-ally.png',
+            absolutePosition: {x: 30, y: 20},
+            width: 134,
+            height: 68.29,
+          },
+          {
+            text: [
+              {text: 'Reporte de entrega\n', bold: false, fontSize: 16,},
+              {text: '\n', bold: true, fontSize: 5,},
+              {text: '17-03-2023', bold: true,},
+            ],
+            fontSize: 16,
+            color: '#FFFFFF',
+            absolutePosition: {x: 30, y: 20},
+            alignment: 'right',
+          },
+          {
+            text: 'Entregados por: Juan Perez',
+            fontSize: 14,
+            color: '#ffffff',
+            alignment: 'left',
+            absolutePosition: {x: 30, y: 115},
+          }
+        ]
+      }
+    });
+    this.addComponent(
+      {
+        render() {
+          return {
+            text: '\n'
+          };
+        }
+      }
+    )
+    this.addComponent(
+      new SectionComponent('Venta total desglosada por tipo de pago').setWidth(515).setSectionColor('#0C2788')
+        .setTextColor('#FFFFFF').setAxisTextPosition(0, -20).setHeight(26).setTextBold()
+    )
+    const headers = [
+      new TableCellComponent("Concepto").setFillColor('#DDFCF9').setMargin([0, 10, 0, 10]),
+      new TableCellComponent("Cantidad").setAlignment('left').setFillColor('#DDFCF9'),
+      new TableCellComponent("Venta").setAlignment('right').setFillColor('#DDFCF9')
+    ]
+    const productRows = this.deliveryData.ventaTotalDesglosadaConceptos.map(
+      concept => [
+        new TableCellComponent(`${concept.concepto}`).setMargin([0, 10, 0, 10]).setActivateBorder(true, false, true, true),
+        new TableCellComponent(`${concept.cantidad}`).setMargin([0, 10, 0, 10]).setAlignment('center'),
+        new TableCellComponent(`$ ${concept.venta.toFixed(2)}`).setMargin([0, 10, 0, 10]).setAlignment('right')
+      ],
+    );
+    productRows.push([
+      new TableCellComponent('Total').setMargin([0, 10, 0, 10]).setActivateBorder(true, true, true, true).setBold(),
+      new TableCellComponent(`${this.deliveryData.ventaTotalDesglosadaConceptos.reduce((acc, concept) => acc + concept.cantidad, 0)}`).setMargin([0, 10, 0, 10]).setAlignment('center').setBold(),
+      new TableCellComponent(`$ ${this.deliveryData.ventaTotalDesglosadaConceptos.reduce((acc, concept) => acc + concept.venta, 0).toFixed(2)}`).setMargin([0, 10, 0, 10]).setAlignment('right').setBold()
+    ]);
+    this.addComponent(
+      new TableComponent()
+        .setHeaders(headers)
+        .setData(productRows)
+        .setWidths([300, '*', '*'])
+        .setPosition(0, 0)
+    )
+    this.addComponent(
+      {
+        render() {
+          return {
+            text: '\n'
+          };
+        }
+      }
+    )
+    this.addComponent(
+      new SectionComponent('Pedidos pagados en efectivo')
+        .setWidth(595)
+        .setSectionColor('#267ef6')
+        .setTextColor('#FFFFFF')
+        .setTextBold()
+        .setHeight(26)
+        .setAxisSectionPosition(-40, 250)
+        .setAxisTextPosition(0, -20)
+    )
+  }
+
+  protected getStyles(): StyleDictionary {
+    return {}
+  }
+}
