@@ -5,14 +5,11 @@ import { DocumentFactoryAbstract } from "./document-factory.abstract";
 import { DocumentType } from "../enums/document-type.enums";
 
 export class DocumentFactory_Abstract {
-  static createDocument(type: string, data: any): DocumentTemplate {
+  static createDocument(type: DocumentType, data: any): DocumentTemplate {
     switch (type) {
-      case 'orderForm':
+      case DocumentType.ORDER_FORM:
         return new OrderFormDocument(data);
-      /*case 'invoice':
-        return new InvoiceDocument(data);*/
-      // Add other document types
-      case 'deliveryReport':
+      case DocumentType.DELIVERY_REPORT:
         return new DeliveryReportDocument(data);
       default:
         throw new Error(`Document type ${type} not supported`);

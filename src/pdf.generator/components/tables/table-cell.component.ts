@@ -38,7 +38,7 @@ export class TableCellComponent {
     this.cellConfig.fillColor = color;
     return this;
   }
-
+  //izquierda, arriba, derecha, abajo
   setMargin(marginArray: [number, number, number, number]): this {
     this.cellConfig.margin = marginArray;
     return this;

@@ -57,7 +57,6 @@ export class TableComponent implements RenderableComponent {
               };
             }
           }),
-
           // Procesando filas de datos
           ...this.data.map(row => {
             if (Array.isArray(row)) {
