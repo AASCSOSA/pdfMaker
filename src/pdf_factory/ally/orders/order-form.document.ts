@@ -21,7 +21,7 @@ export class OrderFormDocument extends DocumentTemplate {
               y: -40,
               w: 595,
               h: 245,
-              color: '#026EFA',
+              color: '#3a86e8',
             },
           ],
         },
@@ -185,6 +185,293 @@ export class OrderFormDocument extends DocumentTemplate {
           absolutePosition: {x: 30, y: 450},
         }
       )
+    });
+    this.addComponent({
+      render: (): Content => ([
+        {
+          canvas: [
+            {
+              type: 'rect',
+              x: 0,
+              y: 0,
+              w: 595,
+              h: 305,
+              r: 1,
+              color: '#F9F9FB', //'#F9F9FB'
+            },
+          ],
+          absolutePosition: { x: 0, y: 535 },
+        },
+        {
+          //Customer data fields
+          ul: [
+            {
+              text: 'Nombre del cliente',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Dirección',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Comentarios adicionales',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Forma de pago',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Fecha de entrega',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+          ],
+          absolutePosition: { x: 25, y: 540 },
+        },
+        {
+          ul: [
+            {
+              text: 'Cristopher Encisoo',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: 'Jose Treviño 275 - Celebra, Monterrey, Nuevo León, 77880.',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: 'Opcional',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: 'Pago Online',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: '24-03-2024',
+              listType: 'none',
+              margin: [0, 0, 0, 5],
+              color: '#818181',
+              fontSize: 10,
+            },
+          ],
+          absolutePosition: { x: 150, y: 540 },
+        },
+        {
+          text: 'Términos y Condiciones',
+          bold: true,
+          fontSize: 10,
+          color: '#818181',
+          absolutePosition: { x: 40, y: 638 },
+        },
+        {
+          ol: [
+            'El pago será liquidado antes de la entrega de losproductos y medicamentos.',
+            'Una vez recibido el producto o medicamento no hay cambios ni devoluciones.',
+            'En pagos con transferencia es necesario liquidar antesde recibir los productos y medicamentos.',
+            'En medicamentos controlados es necesario entregarcopia de INE(ambos lados) y receta medica.',
+            'El consumo de cualquier producto o medicamento es responsabilidad de quien lo receta y consume.',
+            'Por políticas internas no se aceptan cambios ni devoluciones en medicamentos controlados y refrigerados.',
+          ],
+          absolutePosition: { x: 40, y: 655 },
+          fontSize: 10,
+          color: '#818181',
+        },
+        {
+          ul: [
+            {
+              text: 'Dirección',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Teléfono',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Correo',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+            {
+              text: 'Sitio web',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+              bold: true,
+            },
+          ],
+          absolutePosition: { x: 25, y: 738 },
+        },
+        {
+          ul: [
+            {
+              text: 'José Treviño 275, Chepevera, 64030 Monterrey, N.L.',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: '(81) 1297-5125; (81) 1936-9060',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: 'contacto@fgo.mx',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+            },
+            {
+              text: 'www.fgo.mx',
+              listType: 'none',
+              margin: [0, 0, 0, 4],
+              color: '#818181',
+              fontSize: 10,
+            },
+          ],
+          absolutePosition: { x: 80, y: 738 },
+        },
+        {
+          text: '',
+          pageBreak: 'after',
+        },
+        {
+          stack: [
+            {
+              canvas: [
+                {
+                  type: 'rect',
+                  x: -40, // Margen izquierdo
+                  y: -40, // Margen superior
+                  w: 595, // Ancho completo - márgenes
+                  h: 26,
+                  color: '#13277A',
+                },
+              ],
+            },
+            {
+              text: 'Desglose de Productos',
+              style: 'sectionHeader',
+              fontSize: 15,
+              absolutePosition: { x: 22, y: 2 }, // Ajuste fino de posición
+            },
+          ],
+        },
+        {
+          table: {
+            widths: [230, 70, 25, 80, 60, 80], // Anchos fijos para columnas
+            heights: function (row) {
+              return 46; // Altura exacta de 26 puntos para cada fila
+            },
+            body: [
+              [
+                {
+                  text: 'Descripción',
+                  style: 'headerCell',
+                  bold: true,
+                  margin: [10, 15, 0, 0],
+                },
+                {
+                  text: 'Precio Unitario',
+                  style: 'headerCell',
+                  alignment: 'center',
+                  bold: true,
+                  margin: [0, 15, 0, 0],
+                },
+                {
+                  text: 'Cant.',
+                  style: 'headerCell',
+                  alignment: 'center',
+                  bold: true,
+                  margin: [0, 15, 0, 0],
+                },
+                {
+                  text: 'Subtotal',
+                  style: 'headerCell',
+                  alignment: 'center',
+                  bold: true,
+                  margin: [0, 15, 0, 0],
+                },
+                {
+                  text: 'IVA',
+                  style: 'headerCell',
+                  alignment: 'center',
+                  bold: true,
+                  margin: [0, 15, 0, 0],
+                },
+                {
+                  text: 'Total',
+                  style: 'headerCell',
+                  alignment: 'center',
+                  bold: true,
+                  margin: [0, 15, 10, 0],
+                },
+              ],
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              ...this.generateProductRows(),
+            ],
+            headerRows: 1,
+            dontBreakRows: true,
+            keepWithHeaderRows: 1,
+          },
+          layout: {
+            hLineWidth: () => 1,
+            vLineWidth: () => 1,
+            hLineColor: () => '#EBF2FE',
+            vLineColor: () => '#EBF2FE',
+            paddingTop: () => 5,
+            paddingBottom: () => 5,
+          },
+          relativePosition: { x: -40, y: -14 },
+        },
+      ])
     });
   }
 
