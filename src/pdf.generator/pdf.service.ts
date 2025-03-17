@@ -13,11 +13,11 @@ export class PdfService {
 
   fonts: TFontDictionary = {
     Roboto: {
-      normal: 'assets/fonts/Roboto-Regular.ttf',
-      bold: 'assets/fonts/Roboto-Medium.ttf',
-      italics: 'assets/fonts/Roboto-Italic.ttf',
-      bolditalics: 'assets/fonts/Roboto-MediumItalic.ttf',
-    }
+      normal: 'assets/fonts/Inter-VariableFont_opsz,wght.ttf',
+      bold: 'assets/fonts/Inter_18pt-Bold.ttf',
+      italics: 'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      bolditalics: 'assets/fonts/Inter_18pt-BoldItalic.ttf',
+    },
   }
 
   async generatePdf(docDefinition: TDocumentDefinitions): Promise<Buffer> {

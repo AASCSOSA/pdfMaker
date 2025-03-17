@@ -12,7 +12,7 @@ export class HeaderComponent implements RenderableComponent {
             y: -40,
             w: 595,
             h: 245,
-            color: '#3a86e8',
+            color: '#026EFA',
           },
         ],
       },
