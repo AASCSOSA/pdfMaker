@@ -4,7 +4,7 @@ export enum Colors {
   WHITE = '#FFFFFF',
   TOREA_BAY = '#0C2788',
   FOAM = '#DDFCF9',
-  BLUE_RIBBON = '#006EFF',
+  BLUE_RIBBON = '#026EFA',
   HAWKES_BLUE = '#EBF2FE',
   MIDNIGHT_BLUE = '#00366A',
   BLACK = '#111118',
@@ -27,23 +27,19 @@ export enum LogoKeys {
   ALLY = 'ALLY',
   FGO = 'FGO',
   GO = 'GO',
+  LOGOBBVA = 'LOGOBBVA',
+  LOGOSANTANDER = 'LOGOSANTANDER',
 }
 
 export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.ALLY]: 'assets/img/logo-ally.png',
   [LogoKeys.FGO]: 'assets/img/logo-fgo.png',
   [LogoKeys.GO]: 'assets/img/go.png',
+  [LogoKeys.LOGOBBVA]: 'assets/img/logo-BBVA.png',
+  [LogoKeys.LOGOSANTANDER]: 'assets/img/logo-santander.png',
 };
 
 export enum Fonts {
-  InterNormal = 'normal',
-  InterBold = 'bold',
-  InterItalics = 'italics',
-  InterBoldItalics = 'bolditalics',
-  RobotoNormal = 'robotoNormal',
-  RobotoBold = 'robotoBold',
-  RobotoBoldItalics = 'robotoBoldItalics',
-  RobotoItalics = 'robotoItalics',
   Inter_400 = 'Inter_400',
   Inter_500 = 'Inter_500',
   Inter_600 = 'Inter_600',

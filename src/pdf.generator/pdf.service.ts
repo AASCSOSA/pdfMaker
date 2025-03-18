@@ -13,14 +13,6 @@ export class PdfService {
   }
 
   fonts: TFontDictionary = {
-    [Fonts.InterNormal]: {
-      normal: path.resolve('assets/fonts/Inter-VariableFont_opsz,wght.ttf'),
-      bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve(
-        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
-      ),
-      bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
-    },
     [Fonts.Inter_400]: {
       normal: path.resolve('assets/fonts/Inter_400.ttf'),
     },
@@ -44,57 +36,6 @@ export class PdfService {
     },
     [Fonts.Roboto_700]: {
       normal: path.resolve('assets/fonts/Roboto_700.ttf'),
-    },
-
-    [Fonts.InterBold]: {
-      normal: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve(
-        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
-      ),
-      bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
-    },
-    [Fonts.InterItalics]: {
-      normal: path.resolve(
-        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
-      ),
-      bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve(
-        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
-      ),
-      bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
-    },
-    [Fonts.InterBoldItalics]: {
-      normal: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
-      bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve(
-        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
-      ),
-      bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
-    },
-    [Fonts.RobotoNormal]: {
-      normal: 'assets/fonts/Roboto-Regular.ttf',
-      bold: path.resolve('assets/fonts/Roboto-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Roboto-Italic.ttf'),
-      bolditalics: path.resolve('assets/fonts/Raleway-BoldItalic.ttf'),
-    },
-    [Fonts.RobotoBold]: {
-      normal: path.resolve('assets/fonts/Roboto-Bold.ttf'),
-      bold: path.resolve('assets/fonts/Roboto-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Roboto-Italic.ttf'),
-      bolditalics: path.resolve('assets/fonts/Roboto-BoldItalic.ttf'),
-    },
-    [Fonts.RobotoItalics]: {
-      normal: path.resolve('assets/fonts/Roboto-Italic.ttf'),
-      bold: path.resolve('assets/fonts/Roboto-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Roboto-Italic.ttf'),
-      bolditalics: path.resolve('assets/fonts/Roboto-BoldItalic.ttf'),
-    },
-    [Fonts.RobotoBoldItalics]: {
-      normal: path.resolve('assets/fonts/Roboto-BoldItalic.ttf'),
-      bold: path.resolve('assets/fonts/Roboto-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Roboto-Italic.ttf'),
-      bolditalics: path.resolve('assets/fonts/Roboto-BoldItalic.ttf'),
     },
   };
 

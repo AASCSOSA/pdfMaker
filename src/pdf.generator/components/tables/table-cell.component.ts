@@ -1,5 +1,11 @@
-import { Alignment, Content, StyleReference, TableCell, TableCellProperties } from "pdfmake/interfaces";
-import { Fonts } from "../../../styles/styles";
+import {
+  Alignment,
+  Content,
+  StyleReference,
+  TableCell,
+  TableCellProperties,
+} from 'pdfmake/interfaces';
+import { Fonts } from '../../../styles/styles';
 
 interface ExtendedTableCellProperties extends TableCellProperties {
   alignment?: 'left' | 'center' | 'right';
@@ -13,17 +19,16 @@ interface ExtendedTableCellProperties extends TableCellProperties {
 export class TableCellComponent {
   private cellConfig: TableCell & ExtendedTableCellProperties;
 
-
   constructor(
     private text: string,
     private styles: Partial<ExtendedTableCellProperties> = {
-      font: Fonts.InterNormal,
-     // border: [false, true, false, true]
-    }
+      font: Fonts.Inter_500,
+      // border: [false, true, false, true]
+    },
   ) {
     this.cellConfig = {
       text: this.text,
-      ...this.styles
+      ...this.styles,
     };
   }
 
@@ -49,7 +54,10 @@ export class TableCellComponent {
 
   //izquierda, arriba, derecha, abajo
   setMargin(marginArray: [number, number, number, number]): this {
-    this.cellConfig.margin = marginArray;
+    if (!this.cellConfig.margin) {
+      this.cellConfig.margin = [0, 0, 0, 0];
+    }
+    this.cellConfig.margin = marginArray; // Aplica el margen solo al texto
     return this;
   }
 
@@ -57,4 +65,3 @@ export class TableCellComponent {
     return this.cellConfig;
   }
 }
-
