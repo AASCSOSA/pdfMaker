@@ -1,5 +1,4 @@
-import * as fs from "node:fs";
-
+//import * as fs from 'node:fs';
 export enum Colors {
   VENICE_BLUE = '#08669B',
   WHITE = '#FFFFFF',
@@ -18,22 +17,22 @@ export enum Alignments {
   CENTER = 'center',
 }
 
-function getSvgAsBase64(filePath: string): string {
+/*function getSvgAsBase64(filePath: string): string {
   const svg = fs.readFileSync(filePath, 'utf8');
   const base64Data = Buffer.from(svg).toString('base64');
   return `data:image/svg+xml;base64,${base64Data}`;
-}
+}*/
 
 export enum LogoKeys {
   ALLY = 'ALLY',
   FGO = 'FGO',
-  GO = 'GO'
+  GO = 'GO',
 }
 
 export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.ALLY]: 'assets/img/logo-ally.png',
   [LogoKeys.FGO]: 'assets/img/logo-fgo.png',
-  [LogoKeys.GO]: 'assets/img/go.png'
+  [LogoKeys.GO]: 'assets/img/go.png',
 };
 
 export enum Fonts {
@@ -57,5 +56,5 @@ export enum Fonts {
 
 export enum PageSizes {
   A4 = 'A4',
-  LETTER = 'LETTER'
+  LETTER = 'LETTER',
 }

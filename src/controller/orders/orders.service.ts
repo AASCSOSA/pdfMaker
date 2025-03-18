@@ -5,40 +5,38 @@ export class OrdersService {
   async getSellingData(sellingId: string) {
     return {
       id: sellingId,
-      subtotal: 1000.00,
-      shipping: 150.00,
-      tax: 190.00,
-      total: 1340.00,
+      subtotal: 1000.0,
+      shipping: 150.0,
+      tax: 190.0,
+      total: 1340.0,
       products: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
-      ]
+      ],
     };
   }
 
-  async sendEmail(sellingId: string, pdfBuffer: any) {
-
-  }
+  async sendEmail(sellingId: string, pdfBuffer: any) {}
 }

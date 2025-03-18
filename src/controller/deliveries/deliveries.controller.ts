@@ -1,29 +1,30 @@
 import { Controller, Get, Param, Query, Res } from '@nestjs/common';
-import { OrdersService } from "../orders/orders.service";
-import { PdfService } from "../../pdf.generator/pdf.service";
-import { Response } from "express";
-import { TDocumentDefinitions } from "pdfmake/interfaces";
-import { DocumentFactory } from "../../pdf.generator/factories/document.factory";
-import { DocumentType } from "../../pdf.generator/factories/enums/document-type.enums";
-import { DeliveriesService } from "./deliveries.service";
+import { PdfService } from '../../pdf.generator/pdf.service';
+import { Response } from 'express';
+import { TDocumentDefinitions } from 'pdfmake/interfaces';
+import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
+import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
+import { DeliveriesService } from './deliveries.service';
 
 @Controller('deliveries')
 export class DeliveriesController {
   constructor(
     private readonly deliveriesService: DeliveriesService,
     private readonly pdfService: PdfService,
-  ) {
-  }
+  ) {}
 
   @Get('report/:sellingId')
   public async invoice(
     @Param() params: { sellingId: string },
-    @Query() query: { sendEmail: boolean } = {sendEmail: false},
-    @Res() res: Response
+    @Query() query: { sendEmail: boolean } = { sendEmail: false },
+    @Res() res: Response,
   ): Promise<void> {
     try {
       const invoiceData = await this.deliveriesService.getReportData(params.sellingId);
-      const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(DocumentType.DELIVERY_REPORT, invoiceData).generateDocumentStructure();
+      const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(
+        DocumentType.DELIVERY_REPORT,
+        invoiceData,
+      ).generateDocumentStructure();
       const pdfBuffer = await this.pdfService.generatePdf(docDefinition);
       if (query.sendEmail) {
         await this.deliveriesService.sendEmail(params.sellingId, pdfBuffer);

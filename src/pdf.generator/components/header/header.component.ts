@@ -1,11 +1,11 @@
-import { RenderableComponent } from "../interfaces/renderable-component.interface";
-import { Content } from "pdfmake/interfaces";
-import { Colors, Fonts, Logos } from "../../../styles/styles";
+import { RenderableComponent } from '../interfaces/renderable-component.interface';
+import { Content } from 'pdfmake/interfaces';
+import { Colors, Fonts, Logos } from '../../../styles/styles';
 
 export class HeaderComponent implements RenderableComponent {
   constructor(
     private logoUrl?: string,
-    private companyName?: string
+    private companyName?: string,
   ) {}
 
   render(): Content | Content[] {
@@ -18,13 +18,13 @@ export class HeaderComponent implements RenderableComponent {
             y: -40,
             w: 595,
             h: 245,
-            color: Colors.BLUE_RIBBON
+            color: Colors.BLUE_RIBBON,
           },
         ],
       },
       {
         image: Logos.ALLY,
-        absolutePosition: {x: 30, y: 20},
+        absolutePosition: { x: 30, y: 20 },
         width: 134,
         height: 68.29,
       },
@@ -36,7 +36,7 @@ export class HeaderComponent implements RenderableComponent {
               'Razón social',
               'CHASE FARMACEUTICAL GROUP S.A DE C.V',
               'Estatus de Pedido',
-              {text: 'Orden'},
+              { text: 'Orden' },
             ],
             ['RFC', 'CFG181003SI1', 'Fecha de cotización', '17-03-2023'],
             ['', '', 'Folio de cotización', '17032023P12'],
@@ -44,9 +44,9 @@ export class HeaderComponent implements RenderableComponent {
           ],
         },
         layout: 'noBorders',
-        absolutePosition: {x: 30, y: 110},
+        absolutePosition: { x: 30, y: 110 },
         font: Fonts.InterNormal,
-        style: {fontSize: 10, color: Colors.WHITE},
+        style: { fontSize: 10, color: Colors.WHITE },
       },
       {
         table: {
@@ -73,10 +73,9 @@ export class HeaderComponent implements RenderableComponent {
           ],
         },
         layout: 'noBorders',
-        absolutePosition: {x: 30, y: 170},
-        style: {fontSize: 10, color: Colors.WHITE, marginTop: 20},
-      }
-    ]
+        absolutePosition: { x: 30, y: 170 },
+        style: { fontSize: 10, color: Colors.WHITE, marginTop: 20 },
+      },
+    ];
   }
-
 }

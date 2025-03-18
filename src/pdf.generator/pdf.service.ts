@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-import PdfPrinter from "pdfmake";
-import { TDocumentDefinitions, TFontDictionary } from "pdfmake/interfaces";
-import { Fonts } from "../styles/styles";
-import path from "path";
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+import PdfPrinter from 'pdfmake';
+import { TDocumentDefinitions, TFontDictionary } from 'pdfmake/interfaces';
+import { Fonts } from '../styles/styles';
+import path from 'path';
 
 @Injectable()
 export class PdfService {
@@ -16,50 +16,60 @@ export class PdfService {
     [Fonts.InterNormal]: {
       normal: path.resolve('assets/fonts/Inter-VariableFont_opsz,wght.ttf'),
       bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+      italics: path.resolve(
+        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      ),
       bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
     },
-    [Fonts.Inter_400] : {
+    [Fonts.Inter_400]: {
       normal: path.resolve('assets/fonts/Inter_400.ttf'),
     },
-    [Fonts.Inter_500] : {
+    [Fonts.Inter_500]: {
       normal: path.resolve('assets/fonts/Inter_500.ttf'),
     },
-    [Fonts.Inter_600] : {
+    [Fonts.Inter_600]: {
       normal: path.resolve('assets/fonts/Inter_600.ttf'),
     },
-    [Fonts.Inter_700] : {
+    [Fonts.Inter_700]: {
       normal: path.resolve('assets/fonts/Inter_700.ttf'),
     },
-    [Fonts.Roboto_400] : {
+    [Fonts.Roboto_400]: {
       normal: path.resolve('assets/fonts/Roboto_400.ttf'),
     },
-    [Fonts.Roboto_500] : {
+    [Fonts.Roboto_500]: {
       normal: path.resolve('assets/fonts/Roboto_500.ttf'),
     },
-    [Fonts.Roboto_600] : {
+    [Fonts.Roboto_600]: {
       normal: path.resolve('assets/fonts/Roboto_600.ttf'),
     },
-    [Fonts.Roboto_700] : {
+    [Fonts.Roboto_700]: {
       normal: path.resolve('assets/fonts/Roboto_700.ttf'),
     },
 
     [Fonts.InterBold]: {
       normal: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
       bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+      italics: path.resolve(
+        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      ),
       bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
     },
     [Fonts.InterItalics]: {
-      normal: path.resolve('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+      normal: path.resolve(
+        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      ),
       bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+      italics: path.resolve(
+        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      ),
       bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
     },
     [Fonts.InterBoldItalics]: {
       normal: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
       bold: path.resolve('assets/fonts/Inter_18pt-Bold.ttf'),
-      italics: path.resolve('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+      italics: path.resolve(
+        'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf',
+      ),
       bolditalics: path.resolve('assets/fonts/Inter_18pt-BoldItalic.ttf'),
     },
     [Fonts.RobotoNormal]: {
@@ -89,7 +99,7 @@ export class PdfService {
   };
 
   async generatePdf(docDefinition: TDocumentDefinitions): Promise<Buffer> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const printer = new PdfPrinter(this.fonts);
       const pdfDoc = printer.createPdfKitDocument(docDefinition);
       const chunks: Buffer[] = [];

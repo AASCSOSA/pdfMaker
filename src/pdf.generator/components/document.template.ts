@@ -57,7 +57,7 @@ export abstract class DocumentTemplate {
           bold: true,
           italics: true,
         },
-        [Fonts.Inter_400] : {
+        [Fonts.Inter_400]: {
           font: 'normal',
         }
       },

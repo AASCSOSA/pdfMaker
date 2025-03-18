@@ -11,163 +11,161 @@ export class DeliveriesService {
         {
           concepto: 'Pago en efectivo',
           cantidad: 0,
-          venta: 30163.62
+          venta: 30163.62,
         },
         {
           concepto: 'Pago online',
           cantidad: 0,
-          venta: 101000.00
+          venta: 101000.0,
         },
         {
           concepto: 'Transferencia',
           cantidad: 0,
-          venta: 412232.38
+          venta: 412232.38,
         },
         {
           concepto: 'Terminal bancaria',
           cantidad: 0,
-          venta: 400005.00
+          venta: 400005.0,
         },
         {
           concepto: 'Crédito',
           cantidad: 0,
-          venta: 0.00
+          venta: 0.0,
         },
       ],
       productsPayedWithCash: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
       ],
       productsPayedOnline: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
       ],
       productsPayedWithTransfer: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
       ],
       productsPayedWithBankTerminal: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
       ],
       productsPayedWithCredit: [
         {
           description: 'Product 1',
-          unitPrice: 250.00,
+          unitPrice: 250.0,
           quantity: 2,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
         {
           description: 'Product 2',
-          unitPrice: 500.00,
+          unitPrice: 500.0,
           quantity: 1,
-          subtotal: 500.00,
-          iva: 95.00,
-          total: 595.00
+          subtotal: 500.0,
+          iva: 95.0,
+          total: 595.0,
         },
-      ]
-    }
+      ],
+    };
   }
 
-  async sendEmail(sellingId: string, pdfBuffer: Buffer) {
-
-  }
+  async sendEmail(sellingId: string, pdfBuffer: Buffer) {}
 }
