@@ -48,6 +48,7 @@ export enum Fonts {
   Roboto_600 = 'Roboto_600',
   Roboto_500 = 'Roboto_500',
   Roboto_400 = 'Roboto_400',
+  Roboto_900 = 'Roboto_900',
 }
 
 export enum PageSizes {
