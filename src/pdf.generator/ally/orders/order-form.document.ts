@@ -29,13 +29,11 @@ export class OrderFormDocument extends DocumentTemplate {
     const precioHeader = new TableCellComponent('Precio')
       .setFillColor(Colors.FOAM)
       .setAlignment('right')
-      .setActivateBorder(false, true, false, true);
     const dataRows = [
       [
         new TableCellComponent('Subtotal').setMargin([0, 10, 0, 10]),
         new TableCellComponent(`$ ${this.deliveryData.subtotal.toFixed(2)}`)
           .setMargin([0, 10, 0, 10])
-          .setActivateBorder(true, false, true, true)
           .setAlignment('right'),
       ],
       [
@@ -62,12 +60,12 @@ export class OrderFormDocument extends DocumentTemplate {
       new SectionComponent(
         {
           title: 'Desglose de Precio',
-          sectionPosition: { x: 0, y: 0 },
-          textPosition: { x: 0, y: -20.35 },
+          sectionPosition: {x: 0, y: 0},
+          textPosition: {x: 0, y: -20.35},
           height: 26,
           weight: 515,
         },
-        { textFont: Fonts.InterBold, textAlignment: Alignments.CENTER, textFontSize: 12 },
+        {textFont: Fonts.InterBold, textAlignment: Alignments.CENTER, textFontSize: 12},
       )
         .setTextColor(Colors.WHITE)
         .setSectionColor(Colors.TOREA_BAY),
@@ -79,10 +77,16 @@ export class OrderFormDocument extends DocumentTemplate {
         .setData(dataRows)
         .setWidths(['*', 80]),
     );
-    this.addComponent(new FooterComponent());
+    this.addComponent({
+      render: () => ({
+        text: '\n',
+        height: 13,
+      }),
+    });
+    //this.addComponent(new FooterComponent());
 
     this.addComponent({
-      render: () => ({ text: '', pageBreak: 'after' }),
+      render: () => ({text: '', pageBreak: 'after'}),
     });
     const productHeaders = [
       new TableCellComponent('Descripción')
@@ -111,21 +115,16 @@ export class OrderFormDocument extends DocumentTemplate {
         .setMargin([0, 8, 0, 0]),
     ];
     const productRows = this.deliveryData.products.map((product) => [
-      new TableCellComponent(product.description).setMargin([0, 15, 0, 0]),
+      new TableCellComponent(product.description),
       new TableCellComponent(`$ ${product.unitPrice.toFixed(2)}`)
-        .setMargin([0, 15, 0, 0])
         .setAlignment('right'),
       new TableCellComponent(product.quantity.toString())
-        .setMargin([0, 15, 0, 0])
         .setAlignment('center'),
       new TableCellComponent(`$ ${product.subtotal.toFixed(2)}`)
-        .setMargin([0, 15, 0, 0])
         .setAlignment('right'),
       new TableCellComponent(`$ ${product.iva.toFixed(2)}`)
-        .setMargin([0, 15, 0, 0])
         .setAlignment('right'),
       new TableCellComponent(`$ ${product.total.toFixed(2)}`)
-        .setMargin([0, 15, 0, 0])
         .setAlignment('right'),
     ]);
     this.addComponent(
@@ -134,8 +133,8 @@ export class OrderFormDocument extends DocumentTemplate {
           title: 'Desglose de Productos',
           height: 36,
           weight: 595,
-          textPosition: { x: 10, y: -35 },
-          sectionPosition: { x: 0, y: -35 },
+          textPosition: {x: 10, y: -35},
+          sectionPosition: {x: 0, y: -35},
         } as SectionConfigurationRequired,
         {
           sectionColor: Colors.BLUE_RIBBON,

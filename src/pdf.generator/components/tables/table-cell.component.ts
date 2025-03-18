@@ -18,7 +18,7 @@ export class TableCellComponent {
     private text: string,
     private styles: Partial<ExtendedTableCellProperties> = {
       font: Fonts.InterNormal,
-      border: [false, true, false, true]
+     // border: [false, true, false, true]
     }
   ) {
     this.cellConfig = {
