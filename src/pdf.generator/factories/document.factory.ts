@@ -2,9 +2,9 @@ import { DocumentTemplate } from "../components/document.template";
 import { OrderFormDocument } from "../ally/orders/order-form.document";
 import { DeliveryReportDocument } from "../fgo/delivery/delivery-report.document";
 import { DocumentFactoryAbstract } from "./document-factory.abstract";
-import { DocumentType } from "../enums/document-type.enums";
+import { DocumentType } from "./enums/document-type.enums";
 
-export class DocumentFactory_Abstract {
+export class DocumentFactory {
   static createDocument(type: DocumentType, data: any): DocumentTemplate {
     switch (type) {
       case DocumentType.ORDER_FORM:

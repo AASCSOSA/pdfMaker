@@ -1,32 +1,32 @@
 import { Controller, Get, Param, Query, Res } from '@nestjs/common';
-import { OrdersService } from "./orders.service";
+import { OrdersService } from "../orders/orders.service";
+import { PdfService } from "../../pdf.generator/pdf.service";
+import { Response } from "express";
+import { TDocumentDefinitions } from "pdfmake/interfaces";
 import { DocumentFactory } from "../../pdf.generator/factories/document.factory";
 import { DocumentType } from "../../pdf.generator/factories/enums/document-type.enums";
-import { Response } from 'express';
-import { PdfService } from "../../pdf.generator/pdf.service";
-import { TDocumentDefinitions } from "pdfmake/interfaces";
+import { DeliveriesService } from "./deliveries.service";
 
-@Controller('orders')
-export class OrdersController {
-
+@Controller('deliveries')
+export class DeliveriesController {
   constructor(
-    private readonly ordersService: OrdersService,
-    private readonly pdfService: PdfService
+    private readonly deliveriesService: DeliveriesService,
+    private readonly pdfService: PdfService,
   ) {
   }
 
-  @Get(':sellingId/invoice')
+  @Get('report/:sellingId')
   public async invoice(
     @Param() params: { sellingId: string },
     @Query() query: { sendEmail: boolean } = {sendEmail: false},
     @Res() res: Response
   ): Promise<void> {
     try {
-      const invoiceData = await this.ordersService.getSellingData(params.sellingId);
-      const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(DocumentType.ORDER_FORM, invoiceData).generateDocumentStructure();
+      const invoiceData = await this.deliveriesService.getReportData(params.sellingId);
+      const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(DocumentType.DELIVERY_REPORT, invoiceData).generateDocumentStructure();
       const pdfBuffer = await this.pdfService.generatePdf(docDefinition);
       if (query.sendEmail) {
-        await this.ordersService.sendEmail(params.sellingId, pdfBuffer);
+        await this.deliveriesService.sendEmail(params.sellingId, pdfBuffer);
         console.log('Email sent');
       }
       res.set({

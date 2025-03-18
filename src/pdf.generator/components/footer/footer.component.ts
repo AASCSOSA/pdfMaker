@@ -16,7 +16,7 @@ export class FooterComponent implements RenderableComponent {
             color: '#F9F9FB', //'#F9F9FB'
           },
         ],
-        absolutePosition: { x: 0, y: 535 },
+        absolutePosition: {x: 0, y: 535},
       },
       {
         //Customer data fields
@@ -27,7 +27,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Dirección',
@@ -35,7 +34,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Comentarios adicionales',
@@ -43,7 +41,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Forma de pago',
@@ -51,7 +48,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Fecha de entrega',
@@ -59,10 +55,9 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
         ],
-        absolutePosition: { x: 25, y: 540 },
+        absolutePosition: {x: 25, y: 540},
       },
       {
         ul: [
@@ -102,14 +97,13 @@ export class FooterComponent implements RenderableComponent {
             fontSize: 10,
           },
         ],
-        absolutePosition: { x: 150, y: 540 },
+        absolutePosition: {x: 150, y: 540},
       },
       {
         text: 'Términos y Condiciones',
-        bold: true,
         fontSize: 10,
         color: '#818181',
-        absolutePosition: { x: 40, y: 638 },
+        absolutePosition: {x: 40, y: 638},
       },
       {
         ol: [
@@ -120,7 +114,7 @@ export class FooterComponent implements RenderableComponent {
           'El consumo de cualquier producto o medicamento es responsabilidad de quien lo receta y consume.',
           'Por políticas internas no se aceptan cambios ni devoluciones en medicamentos controlados y refrigerados.',
         ],
-        absolutePosition: { x: 40, y: 655 },
+        absolutePosition: {x: 40, y: 655},
         fontSize: 10,
         color: '#818181',
       },
@@ -132,7 +126,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 4],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Teléfono',
@@ -140,7 +133,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 4],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Correo',
@@ -148,7 +140,6 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 4],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
           {
             text: 'Sitio web',
@@ -156,10 +147,9 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 4],
             color: '#818181',
             fontSize: 10,
-            bold: true,
           },
         ],
-        absolutePosition: { x: 25, y: 738 },
+        absolutePosition: {x: 25, y: 738},
       },
       {
         ul: [
@@ -192,7 +182,7 @@ export class FooterComponent implements RenderableComponent {
             fontSize: 10,
           },
         ],
-        absolutePosition: { x: 80, y: 738 },
+        absolutePosition: {x: 80, y: 738},
       }
     ]
   }

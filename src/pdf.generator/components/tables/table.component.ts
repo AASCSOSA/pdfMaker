@@ -1,17 +1,14 @@
-import { ContentTable } from "pdfmake/interfaces";
+import { ContentTable, Size } from "pdfmake/interfaces";
 import { TableCellComponent } from "./table-cell.component";
 import { RenderableComponent } from "../interfaces/renderable-component.interface";
+import { Colors, Fonts } from "../../../styles/styles";
 
 export class TableComponent implements RenderableComponent {
   private x = 0;
   private y = 0;
-  private widths: any[] = [];
+  private widths: "*" | "auto" | Size[] = "*";
   private data: (any[] | { [key: string]: any })[] = [];
   private headers: (string | TableCellComponent)[] = [];
-  private styles: any = {
-    header: {},
-    cell: {}
-  };
 
   setHeaders(headers: (string | TableCellComponent)[]): TableComponent {
     this.headers = headers;
@@ -28,11 +25,6 @@ export class TableComponent implements RenderableComponent {
     return this;
   }
 
-  setStyles(styles: any): TableComponent {
-    this.styles = styles;
-    return this;
-  }
-
   setPosition(x: number, y: number): TableComponent {
     this.x = x;
     this.y = y;
@@ -42,7 +34,7 @@ export class TableComponent implements RenderableComponent {
   render(): ContentTable {
     return {
       table: {
-        widths: this.widths.length ? this.widths : Array(this.headers.length).fill('*'),
+        widths: this.widths,
         headerRows: 1,
         body: [
           // Procesando encabezados
@@ -52,8 +44,6 @@ export class TableComponent implements RenderableComponent {
             } else {
               return {
                 text: header,
-                style: 'headerCell',
-                ...this.styles.header
               };
             }
           }),
@@ -77,8 +67,6 @@ export class TableComponent implements RenderableComponent {
 
                 return {
                   text: cellValue || '',
-                  style: 'tableCell',
-                  ...this.styles.cell
                 };
               });
             }
@@ -88,8 +76,8 @@ export class TableComponent implements RenderableComponent {
       layout: {
         hLineWidth: () => 1,
         vLineWidth: () => 1,
-        hLineColor: () => '#EBF2FE',
-        vLineColor: () => '#EBF2FE',
+        hLineColor: () => Colors.HAWKES_BLUE,
+        vLineColor: () => Colors.HAWKES_BLUE
       },
       relativePosition: {x: this.x, y: this.y}
     };

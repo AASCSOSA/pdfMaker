@@ -1,15 +1,28 @@
 import { Alignment, Content, StyleReference, TableCell, TableCellProperties } from "pdfmake/interfaces";
+import { Fonts } from "../../../styles/styles";
+
+interface ExtendedTableCellProperties extends TableCellProperties {
+  alignment?: 'left' | 'center' | 'right';
+  fillColor?: string;
+  margin?: [number, number, number, number];
+  border?: [boolean, boolean, boolean, boolean];
+  font?: string;
+  fontSize?: number;
+}
 
 export class TableCellComponent {
-  private cellConfig: any;
+  private cellConfig: TableCell & ExtendedTableCellProperties;
+
 
   constructor(
     private text: string,
-    private styles: any = {}
+    private styles: Partial<ExtendedTableCellProperties> = {
+      font: Fonts.InterNormal,
+      border: [false, true, false, true]
+    }
   ) {
     this.cellConfig = {
       text: this.text,
-      style: 'tableCell',
       ...this.styles
     };
   }
@@ -20,17 +33,12 @@ export class TableCellComponent {
   }
 
   setActivateBorder(
-    top: boolean = true,
-    right: boolean = true,
-    bottom: boolean = true,
-    left: boolean = true,
+    left: boolean = false,
+    top: boolean = false,
+    right: boolean = false,
+    bottom: boolean = false,
   ): this {
-    this.cellConfig.border = [top, right, bottom, left];
-    return this;
-  }
-
-  setBold(isBold: boolean = true): this {
-    this.cellConfig.bold = isBold;
+    this.cellConfig.border = [left, top, right, bottom];
     return this;
   }
 
@@ -38,6 +46,7 @@ export class TableCellComponent {
     this.cellConfig.fillColor = color;
     return this;
   }
+
   //izquierda, arriba, derecha, abajo
   setMargin(marginArray: [number, number, number, number]): this {
     this.cellConfig.margin = marginArray;
