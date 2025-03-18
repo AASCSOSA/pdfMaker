@@ -1,0 +1,27 @@
+import { DocumentTemplate } from '../../components/document.template';
+import { Colors, PageSizes, Fonts, Logos } from '../../../styles/styles';
+
+import { SectionComponent } from '../../components/section.component';
+import { BackgroundComponent } from '../../components/background.component';
+import { SaleHeaderComponent } from '../../components/header/sale-header.component';
+
+export class SaleReportDocument extends DocumentTemplate {
+  constructor(private saleData: any) {
+    super(`sale-report-${saleData.saleId}.pdf`, PageSizes.A4);
+    this.buildDocument();
+  }
+
+  private buildDocument(): void {
+    this.addComponent(
+      new BackgroundComponent({
+        color: Colors.VENICE_BLUE,
+        width: 595,
+        height: 171,
+        position: { x: 0, y: 0 },
+      }),
+    );
+    this.addComponent(
+      new SaleHeaderComponent(this.saleData)
+    )
+  }
+}
