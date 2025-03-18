@@ -9,7 +9,7 @@ export class TableComponent implements RenderableComponent {
   private widths: '*' | 'auto' | Size[] = '*';
   private data: (any[] | { [key: string]: any })[] = [];
   private headers: (string | TableCellComponent)[] = [];
-
+  private rowHeights: number | ((rowIndex: number) => number) = 46;
   setHeaders(headers: (string | TableCellComponent)[]): TableComponent {
     this.headers = headers;
     return this;
@@ -24,7 +24,12 @@ export class TableComponent implements RenderableComponent {
     this.widths = widths;
     return this;
   }
-
+  setRowHeights(
+    heights: number | ((rowIndex: number) => number),
+  ): TableComponent {
+    this.rowHeights = heights;
+    return this;
+  }
   setPosition(x: number, y: number): TableComponent {
     this.x = x;
     this.y = y;
@@ -36,7 +41,7 @@ export class TableComponent implements RenderableComponent {
       table: {
         widths: this.widths,
         headerRows: 1,
-        heights: 46,
+        heights: this.rowHeights, // Aquí aplicamos la altura
         body: [
           // Procesando encabezados
           this.headers.map((header) => {
@@ -52,12 +57,15 @@ export class TableComponent implements RenderableComponent {
           ...this.data.map((row) => {
             if (Array.isArray(row)) {
               // Si es un array, simplemente procesamos cada celda
-              return row.map((cell) => (cell instanceof TableCellComponent ? cell.render() : cell));
+              return row.map((cell) =>
+                cell instanceof TableCellComponent ? cell.render() : cell,
+              );
             } else {
               // Si es un objeto con propiedades
               return this.headers.map((header, index) => {
                 // Obtenemos el nombre de la propiedad a partir del encabezado
-                const headerText = typeof header === 'string' ? header : header.render().text;
+                const headerText =
+                  typeof header === 'string' ? header : header.render().text;
 
                 const headerKey = headerText.toLowerCase();
                 const cellValue = row[headerKey];
@@ -71,34 +79,29 @@ export class TableComponent implements RenderableComponent {
         ],
       },
       layout: {
-        hLineWidth: function(i, node) {
-          // i=0 is the top border of the first row (header)
-          // i=1 is the bottom border of the first row (header)
-          // i=node.table.body.length is the bottom border of the last row
+        hLineWidth: function (i, node) {
+          // i=0 es el borde superior de la primera fila (encabezado)
+          // i=1 es el borde inferior de la primera fila (encabezado)
+          // i=node.table.body.length es el borde inferior de la última fila
 
-          // Show borders for header and bottom of last row
+          // Mostrar bordes para encabezado y final de la última fila
           if (i === 0 || i === 1 || i === node.table.body.length) {
             return 1;
           }
-          return 1; // Hide all other horizontal borders
+          return 1; // Ocultar todos los demás bordes horizontales
         },
-        vLineWidth: function(i, node) {
-          // i=0 is the top border of the first row (header)
-          // i=1 is the bottom border of the first row (header)
-          // i=node.table.body.length is the bottom border of the last row
-
-          // Show borders for header and bottom of last row
+        vLineWidth: function (i, node) {
           if (i === 1 || i === node.table.body.length) {
             return 0;
           }
-          return 1; // Hide all other horizontal borders
+          return 1; // Mostrar los demás bordes verticales
         },
-        hLineColor: function() {
+        hLineColor: function () {
           return Colors.HAWKES_BLUE;
         },
-        vLineColor: function() {
+        vLineColor: function () {
           return Colors.HAWKES_BLUE;
-        }
+        },
       },
       relativePosition: { x: this.x, y: this.y },
     };

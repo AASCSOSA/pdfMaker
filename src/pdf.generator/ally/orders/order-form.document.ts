@@ -7,7 +7,6 @@ import {
 } from '../../components/section.component';
 import { DocumentTemplate } from '../../components/document.template';
 import { TableCellComponent } from '../../components/tables/table-cell.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
 
 export class OrderFormDocument extends DocumentTemplate {
@@ -24,35 +23,67 @@ export class OrderFormDocument extends DocumentTemplate {
         height: 13,
       }),
     });
-    const conceptoHeader = new TableCellComponent('Concepto').setFillColor(Colors.FOAM);
-
-    const precioHeader = new TableCellComponent('Precio')
+    const conceptoHeader = new TableCellComponent('Concepto', {
+      font: Fonts.Roboto_700,
+      fontSize: 10,
+    })
       .setFillColor(Colors.FOAM)
-      .setAlignment('right')
+      .setMargin([10, 10, 0, 0]);
+    const precioHeader = new TableCellComponent('Precio', {
+      font: Fonts.Inter_700,
+      fontSize: 10,
+    })
+      .setFillColor(Colors.FOAM)
+      .setMargin([0, 10, 10, 0])
+      .setAlignment(Alignments.RIGHT);
     const dataRows = [
       [
-        new TableCellComponent('Subtotal').setMargin([0, 10, 0, 10]),
-        new TableCellComponent(`$ ${this.deliveryData.subtotal.toFixed(2)}`)
-          .setMargin([0, 10, 0, 10])
-          .setAlignment('right'),
+        new TableCellComponent('Subtotal', {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        }).setMargin([10, 18, 0, 0]),
+        new TableCellComponent(`$ ${this.deliveryData.subtotal.toFixed(2)}`, {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        })
+          .setMargin([0, 18, 10, 0])
+          .setAlignment(Alignments.RIGHT),
       ],
       [
-        new TableCellComponent('Envío').setMargin([0, 10, 0, 10]),
-        new TableCellComponent(`$ ${this.deliveryData.shipping.toFixed(2)}`)
-          .setMargin([0, 10, 0, 10])
-          .setAlignment('right'),
+        new TableCellComponent('Envío', {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        }).setMargin([10, 18, 0, 0]),
+        new TableCellComponent(`$ ${this.deliveryData.shipping.toFixed(2)}`, {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        })
+          .setMargin([0, 18, 10, 0])
+          .setAlignment(Alignments.RIGHT),
       ],
       [
-        new TableCellComponent('IVA').setMargin([0, 10, 0, 10]),
-        new TableCellComponent(`$ ${this.deliveryData.tax.toFixed(2)}`)
-          .setMargin([0, 10, 0, 10])
-          .setAlignment('right'),
+        new TableCellComponent('IVA', {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        }).setMargin([10, 18, 0, 0]),
+        new TableCellComponent(`$ ${this.deliveryData.tax.toFixed(2)}`, {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        })
+          .setMargin([0, 18, 10, 0])
+          .setAlignment(Alignments.RIGHT),
       ],
       [
-        new TableCellComponent('Total').setMargin([0, 10, 0, 10]),
-        new TableCellComponent(`$ ${this.deliveryData.total.toFixed(2)}`)
-          .setMargin([0, 10, 0, 10])
-          .setAlignment('right'),
+        new TableCellComponent('Total', {
+          font: Fonts.Inter_600,
+          fontSize: 10,
+        }).setMargin([10, 18, 0, 0]),
+        new TableCellComponent(`$ ${this.deliveryData.total.toFixed(2)}`, {
+          font: Fonts.Inter_400,
+          fontSize: 10,
+        })
+          .setMargin([0, 18, 10, 0])
+          .setAlignment(Alignments.RIGHT),
       ],
     ];
 
@@ -60,12 +91,16 @@ export class OrderFormDocument extends DocumentTemplate {
       new SectionComponent(
         {
           title: 'Desglose de Precio',
-          sectionPosition: {x: 0, y: 0},
-          textPosition: {x: 0, y: -20.35},
+          sectionPosition: { x: 0, y: 0 },
+          textPosition: { x: 0, y: 269 },
           height: 26,
-          weight: 515,
+          weight: 532,
         },
-        {textFont: Fonts.InterBold, textAlignment: Alignments.CENTER, textFontSize: 12},
+        {
+          textFont: Fonts.Inter_700,
+          textAlignment: Alignments.CENTER,
+          textFontSize: 12,
+        },
       )
         .setTextColor(Colors.WHITE)
         .setSectionColor(Colors.TOREA_BAY),
@@ -75,7 +110,13 @@ export class OrderFormDocument extends DocumentTemplate {
         .setPosition(0, 0)
         .setHeaders([conceptoHeader, precioHeader])
         .setData(dataRows)
-        .setWidths(['*', 80]),
+        .setRowHeights((rowIndex) => {
+          if (rowIndex === 0) {
+            return 36;
+          }
+          return 46;
+        })
+        .setWidths(['*', 462]),
     );
     this.addComponent({
       render: () => ({
@@ -86,7 +127,7 @@ export class OrderFormDocument extends DocumentTemplate {
     //this.addComponent(new FooterComponent());
 
     this.addComponent({
-      render: () => ({text: '', pageBreak: 'after'}),
+      render: () => ({ text: '', pageBreak: 'after' }),
     });
     const productHeaders = [
       new TableCellComponent('Descripción')
@@ -116,16 +157,21 @@ export class OrderFormDocument extends DocumentTemplate {
     ];
     const productRows = this.deliveryData.products.map((product) => [
       new TableCellComponent(product.description),
-      new TableCellComponent(`$ ${product.unitPrice.toFixed(2)}`)
-        .setAlignment('right'),
-      new TableCellComponent(product.quantity.toString())
-        .setAlignment('center'),
-      new TableCellComponent(`$ ${product.subtotal.toFixed(2)}`)
-        .setAlignment('right'),
-      new TableCellComponent(`$ ${product.iva.toFixed(2)}`)
-        .setAlignment('right'),
-      new TableCellComponent(`$ ${product.total.toFixed(2)}`)
-        .setAlignment('right'),
+      new TableCellComponent(`$ ${product.unitPrice.toFixed(2)}`).setAlignment(
+        'right',
+      ),
+      new TableCellComponent(product.quantity.toString()).setAlignment(
+        'center',
+      ),
+      new TableCellComponent(`$ ${product.subtotal.toFixed(2)}`).setAlignment(
+        'right',
+      ),
+      new TableCellComponent(`$ ${product.iva.toFixed(2)}`).setAlignment(
+        'right',
+      ),
+      new TableCellComponent(`$ ${product.total.toFixed(2)}`).setAlignment(
+        'right',
+      ),
     ]);
     this.addComponent(
       new SectionComponent(
@@ -133,14 +179,14 @@ export class OrderFormDocument extends DocumentTemplate {
           title: 'Desglose de Productos',
           height: 36,
           weight: 595,
-          textPosition: {x: 10, y: 40},
-          sectionPosition: {x: 0, y: 0},
+          textPosition: { x: 10, y: -35 },
+          sectionPosition: { x: 0, y: -35 },
         } as SectionConfigurationRequired,
         {
           sectionColor: Colors.BLUE_RIBBON,
           textAlignment: Alignments.CENTER,
-          textColor: Colors.RED,
-          textFont: Fonts.InterNormal,
+          textColor: Colors.BLUE_RIBBON,
+          textFont: Fonts.Inter_400,
           textFontSize: 30,
         } as SectionConfigurationOptional,
       ),
@@ -148,7 +194,7 @@ export class OrderFormDocument extends DocumentTemplate {
 
     this.addComponent(
       new TableComponent()
-        .setPosition(-40, -14)
+        .setPosition(-40, 20)
         .setHeaders(productHeaders)
         .setData(productRows)
         .setWidths([220, 80, 30, 70, 60, 80]),
