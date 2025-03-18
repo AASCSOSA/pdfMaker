@@ -28,16 +28,23 @@ export class DeliveryReportDocument extends DocumentTemplate {
 
           {
             image: Logos.GO,
-            relativePosition: {x: 60, y: -100},
+            relativePosition: {x: 40, y: -135},
             width: 39.29,
             height: 23.59,
           },
           {
             text: 'F',
-            style: Fonts.RobotoBold,
+            style: Fonts.Roboto_700,
             color: Colors.WHITE,
             fontSize: 30,
-            relativePosition: {x: 43.5, y: -106},
+            relativePosition: {x: 23.5, y: -137},
+          },
+          {
+            text: 'Repartidores',
+            style: Fonts.Inter_600,
+            color: Colors.WHITE,
+            fontSize: 18,
+            relativePosition: {x: 0, y: -100},
           },
           {
             text: [
@@ -51,8 +58,12 @@ export class DeliveryReportDocument extends DocumentTemplate {
             alignment: Alignments.RIGHT
           },
           {
-            text: 'Entregados por: Juan Perez',
+            text: [
+              'Entregados por   ',
+              {text:'Juan perez', font: Fonts.Inter_600}
+            ],
             fontSize: 14,
+            font: Fonts.Inter_400,
             color: Colors.WHITE,
             alignment: Alignments.LEFT,
             absolutePosition: {x: 30, y: 115},
