@@ -34,7 +34,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
           },
           {
             text: 'F',
-            style: Fonts.Roboto_700,
+            style: {font: Fonts.Inter_700},
             color: Colors.WHITE,
             fontSize: 30,
             relativePosition: { x: 23.5, y: -137 },
@@ -50,7 +50,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
             text: [
               { text: 'Reporte de entrega\n' },
               { text: '\n', fontSize: 5 },
-              { text: '17-03-2023', font: Fonts.InterBold },
+              { text: '17-03-2023', font: Fonts.Inter_400},
             ],
             fontSize: 16,
             color: Colors.WHITE,
@@ -87,7 +87,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         },
         {
           textFontSize: 12,
-          textFont: Fonts.InterBold,
+          textFont: Fonts.Inter_700,
           sectionColor: Colors.TOREA_BAY,
         },
       ),
