@@ -5,7 +5,7 @@ import {
   TableCell,
   TableCellProperties,
 } from 'pdfmake/interfaces';
-import { Fonts } from '../../../styles/styles';
+import { Fonts } from '../../styles/styles';
 
 interface ExtendedTableCellProperties extends TableCellProperties {
   alignment?: 'left' | 'center' | 'right';
@@ -22,7 +22,7 @@ export class TableCellComponent {
   constructor(
     private text: string,
     private styles: Partial<ExtendedTableCellProperties> = {
-      font: Fonts.Inter_500,
+      font: Fonts.InterSemiBold,
       // border: [false, true, false, true]
     },
   ) {

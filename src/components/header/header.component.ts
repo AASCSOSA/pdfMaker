@@ -1,6 +1,6 @@
-import { RenderableComponent } from '../interfaces/renderable-component.interface';
+import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
-import { Colors, Fonts, Logos } from '../../../styles/styles';
+import { Colors, Fonts, Logos } from '../../styles/styles';
 
 export class HeaderComponent implements RenderableComponent {
   constructor(
@@ -33,31 +33,31 @@ export class HeaderComponent implements RenderableComponent {
           widths: [70, 290, 105, 75],
           body: [
             [
-              { text: 'Razon social', font: Fonts.Inter_500 },
+              { text: 'Razon social', font: Fonts.InterMedium },
               {
                 text: 'CHASE FARMACEUTICAL GROUP S.A. DE C.V.',
-                font: Fonts.Inter_400,
+                font: Fonts.InterRegular,
               },
-              { text: 'Estatus de pedido', font: Fonts.Inter_500 },
-              { text: 'Orden', font: Fonts.Inter_700 },
+              { text: 'Estatus de pedido', font: Fonts.InterMedium },
+              { text: 'Orden', font: Fonts.InterBold },
             ],
             [
-              { text: 'RFC', font: Fonts.Inter_500 },
-              { text: 'CFG181003SI1', font: Fonts.Inter_400 },
-              { text: 'Fecha de cotización', font: Fonts.Inter_500 },
-              { text: '17-03-2023', font: Fonts.Inter_400 },
-            ],
-            [
-              '',
-              '',
-              { text: 'Folio de cotización', font: Fonts.Inter_500 },
-              { text: '17032023P12', font: Fonts.Inter_400 },
+              { text: 'RFC', font: Fonts.InterMedium },
+              { text: 'CFG181003SI1', font: Fonts.InterRegular },
+              { text: 'Fecha de cotización', font: Fonts.InterMedium },
+              { text: '17-03-2023', font: Fonts.InterRegular },
             ],
             [
               '',
               '',
-              { text: 'Válido hasta', font: Fonts.Inter_500 },
-              { text: '24-03-2023', font: Fonts.Inter_400 },
+              { text: 'Folio de cotización', font: Fonts.InterSemiBold },
+              { text: '17032023P12', font: Fonts.InterRegular },
+            ],
+            [
+              '',
+              '',
+              { text: 'Válido hasta', font: Fonts.InterSemiBold },
+              { text: '24-03-2023', font: Fonts.InterRegular },
             ],
           ],
         },
@@ -86,16 +86,16 @@ export class HeaderComponent implements RenderableComponent {
               '',
             ],
             [
-              { text: 'Cuenta', font: Fonts.Inter_500 },
-              { text: '65-50720658-9', font: Fonts.Inter_400 },
-              { text: 'Cuenta', font: Fonts.Inter_500 },
-              { text: '0117772076', font: Fonts.Inter_400 },
+              { text: 'Cuenta', font: Fonts.InterMedium },
+              { text: '65-50720658-9', font: Fonts.InterMedium },
+              { text: 'Cuenta', font: Fonts.InterMedium },
+              { text: '0117772076', font: Fonts.InterRegular },
             ],
             [
-              { text: 'CLABE', font: Fonts.Inter_500 },
-              { text: '014580655072065895', font: Fonts.Inter_400 },
-              { text: 'CLABE', font: Fonts.Inter_500 },
-              { text: '012580001177720762', font: Fonts.Inter_400 },
+              { text: 'CLABE', font: Fonts.InterMedium },
+              { text: '014580655072065895', font: Fonts.InterRegular },
+              { text: 'CLABE', font: Fonts.InterMedium },
+              { text: '012580001177720762', font: Fonts.InterRegular },
             ],
           ],
         },

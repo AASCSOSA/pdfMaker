@@ -1,7 +1,7 @@
 import { ContentTable, Size } from 'pdfmake/interfaces';
 import { TableCellComponent } from './table-cell.component';
-import { RenderableComponent } from '../interfaces/renderable-component.interface';
-import { Colors, Fonts } from '../../../styles/styles';
+import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
+import { Colors, Fonts } from '../../styles/styles';
 
 export class TableComponent implements RenderableComponent {
   private x = 0;

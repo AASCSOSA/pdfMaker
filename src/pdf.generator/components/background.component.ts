@@ -1,4 +1,4 @@
-import { RenderableComponent } from "./interfaces/renderable-component.interface";
+import { RenderableComponent } from "../../shared/interfaces/renderable-component.interface";
 import { Content, Position } from "pdfmake/interfaces";
 import { Colors } from "../../styles/styles";
 

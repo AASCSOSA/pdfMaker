@@ -9,9 +9,9 @@ export class SalesService {
       IVA: 0.0,
       shipping: 30.0,
       total: 510.0,
-      customersname: 'Dacero Sapi SA DE CV',
+      customersname: 'Dacero Sapi',
       status: 'Aprobada',
-      quotenumber: '14022024C6', //14022024C6 01062024C28
+      quotenumber: '14022024C623', //14022024C6 01062024C28
       quoteday: '17/03/2023',
       quotevalidity: '17/05/2023',
       products: [
@@ -31,7 +31,16 @@ export class SalesService {
           iva: 0.0,
           total: 400.0,
         },
+        {
+          description: 'Paracetamol 40 tabletas 500 miligramos',
+          barcode: '7898635213123',
+          unitprice: 200.0,
+          quantity: 2,
+          iva: 0.0,
+          total: 400.0,
+        },
       ],
     };
   }
+
 }

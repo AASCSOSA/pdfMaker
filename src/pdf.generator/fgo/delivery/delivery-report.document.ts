@@ -1,8 +1,8 @@
 import { DocumentTemplate } from '../../components/document.template';
 import { Content } from 'pdfmake/interfaces';
 import { SectionComponent } from '../../components/section.component';
-import { TableCellComponent } from '../../components/tables/table-cell.component';
-import { TableComponent } from '../../components/tables/table.component';
+import { TableCellComponent } from '../../../components/tables/table-cell.component';
+import { TableComponent } from '../../../components/tables/table.component';
 import {
   Alignments,
   Colors,
@@ -40,7 +40,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
           },
           {
             text: 'F',
-            style: Fonts.Inter_700,
+            style: Fonts.InterBold,
             color: Colors.WHITE,
             fontSize: 30,
             relativePosition: { x: 43.5, y: -106 },
@@ -49,7 +49,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
             text: [
               { text: 'Reporte de entrega\n' },
               { text: '\n', fontSize: 5 },
-              { text: '17-03-2023', font: Fonts.Roboto_400 },
+              { text: '17-03-2023', font: Fonts.RobotoRegular },
             ],
             fontSize: 16,
             color: Colors.WHITE,
@@ -85,7 +85,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         },
         {
           textFontSize: 12,
-          textFont: Fonts.Inter_500,
+          textFont: Fonts.InterMedium,
           sectionColor: Colors.TOREA_BAY,
         },
       ),
@@ -101,7 +101,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
     );*/
     const headers = [
       new TableCellComponent('Concepto', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -109,7 +109,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setMargin([5, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Cantidad', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -118,7 +118,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Venta', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -131,7 +131,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       (value: { concepto: string; cantidad: number; venta: number }) => {
         return [
           new TableCellComponent(`${value.concepto}`, {
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
             fontSize: 10,
           })
             .setMargin([5, 12, 0, 10])
@@ -148,7 +148,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       },
     );
     productRows.push([
-      new TableCellComponent('Total', { font: Fonts.Inter_600 })
+      new TableCellComponent('Total', { font: Fonts.InterSemiBold })
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(true, true, false, true),
       new TableCellComponent(

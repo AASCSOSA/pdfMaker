@@ -38,15 +38,16 @@ export const Logos: Record<LogoKeys, string> = {
 };
 
 export enum Fonts {
-  Inter_400 = 'Inter_400',
-  Inter_500 = 'Inter_500',
-  Inter_600 = 'Inter_600',
-  Inter_700 = 'Inter_700',
-  Roboto_700 = 'Roboto_700',
-  Roboto_600 = 'Roboto_600',
-  Roboto_500 = 'Roboto_500',
-  Roboto_400 = 'Roboto_400',
-  Roboto_900 = 'Roboto_900',
+  InterBold = 'Inter700',
+  InterSemiBold = 'Inter_600',
+  InterMedium = 'Inter_500',
+  InterRegular = 'Inter_400',
+
+  RobotoBold = 'RobotoBold',
+  RobotoSemiBold = 'RobotoSemiBold',
+  RobotoMedium = 'RobotoMedium',
+  RobotoRegular = 'RobotoRegular',
+  RobotoExtraBold = 'RobotoExtraBold',
 }
 
 export enum PageSizes {
@@ -54,24 +55,6 @@ export enum PageSizes {
   LETTER = 'LETTER',
 }
 export const defaultStyle = {
-  font: Fonts.Inter_400,
+  font: Fonts.InterRegular,
   fontSize: 10,
-};
-
-
-/*Ejemplo de estilo sugerido*/
-
-export const headerStyle400 = {
-  fontSize: 10,
-  color: Colors.WHITE,
-};
-
-export const headerStyle500 = {
-  ...headerStyle400,
-  font: Fonts.Inter_500,
-};
-
-export const regularStyle = {
-  ...headerStyle400,
-  font: Fonts.Inter_400,
 };

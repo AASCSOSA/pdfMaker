@@ -3,7 +3,7 @@ import { Colors, PageSizes, Fonts, Logos } from '../../../styles/styles';
 
 import { SectionComponent } from '../../components/section.component';
 import { BackgroundComponent } from '../../components/background.component';
-import { SaleHeaderComponent } from '../../components/header/sale-header.component';
+import { SaleHeaderTemplate } from '../../../components/sale-header/sale-header.template';
 
 export class SaleReportDocument extends DocumentTemplate {
   constructor(private saleData: any) {
@@ -21,7 +21,7 @@ export class SaleReportDocument extends DocumentTemplate {
       }),
     );
     this.addComponent(
-      new SaleHeaderComponent(this.saleData)
+      new SaleHeaderTemplate(this.saleData)
     )
   }
 }
