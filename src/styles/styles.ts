@@ -4,6 +4,7 @@ export enum Colors {
   WHITE = '#FFFFFF',
   TOREA_BAY = '#0C2788',
   FOAM = '#DDFCF9',
+  DENIM = '#006EFF',
   BLUE_RIBBON = '#026EFA',
   HAWKES_BLUE = '#EBF2FE',
   MIDNIGHT_BLUE = '#00366A',
@@ -24,6 +25,7 @@ export enum LogoKeys {
   GO = 'GO',
   LOGOBBVA = 'LOGOBBVA',
   LOGOSANTANDER = 'LOGOSANTANDER',
+  FARMA_GO = 'FARMA_GO',
 }
 
 export const Logos: Record<LogoKeys, string> = {
@@ -32,6 +34,7 @@ export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.GO]: 'assets/img/go.png',
   [LogoKeys.LOGOBBVA]: 'assets/img/logo-BBVA.png',
   [LogoKeys.LOGOSANTANDER]: 'assets/img/logo-santander.png',
+  [LogoKeys.FARMA_GO]: 'assets/img/FarmaGO.png',
 };
 
 export enum Fonts {
@@ -43,9 +46,32 @@ export enum Fonts {
   Roboto_600 = 'Roboto_600',
   Roboto_500 = 'Roboto_500',
   Roboto_400 = 'Roboto_400',
+  Roboto_900 = 'Roboto_900',
 }
 
 export enum PageSizes {
   A4 = 'A4',
   LETTER = 'LETTER',
 }
+export const defaultStyle = {
+  font: Fonts.Inter_400,
+  fontSize: 10,
+};
+
+
+/*Ejemplo de estilo sugerido*/
+
+export const headerStyle400 = {
+  fontSize: 10,
+  color: Colors.WHITE,
+};
+
+export const headerStyle500 = {
+  ...headerStyle400,
+  font: Fonts.Inter_500,
+};
+
+export const regularStyle = {
+  ...headerStyle400,
+  font: Fonts.Inter_400,
+};
