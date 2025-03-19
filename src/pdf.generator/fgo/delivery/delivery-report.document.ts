@@ -16,10 +16,10 @@ export class DeliveryReportDocument extends DocumentTemplate {
     this.addComponent(
       new SectionComponent({
         title: '',
-        sectionPosition: { x: -40, y: -40 },
-        textPosition: { x: 0, y: -40 },
+        sectionPosition: {x: -40, y: -40},
+        textPosition: {x: 0, y: -40},
         height: 152,
-        weight: 600,
+        weight: 595,
       }).setSectionColor(Colors.TOREA_BAY),
     );
 
@@ -28,7 +28,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         return [
           {
             image: Logos.GO,
-            relativePosition: { x: 40, y: -135 },
+            relativePosition: {x: 32, y: -152+32},
             width: 39.29,
             height: 23.59,
           },
@@ -37,41 +37,42 @@ export class DeliveryReportDocument extends DocumentTemplate {
             style: {font: Fonts.Inter_700},
             color: Colors.WHITE,
             fontSize: 30,
-            relativePosition: { x: 23.5, y: -137 },
+            relativePosition: {x: 15, y: -152+25},
           },
           {
             text: 'Repartidores',
-            style: Fonts.Inter_600,
+            style: {font: Fonts.Inter_600},
             color: Colors.WHITE,
             fontSize: 18,
-            relativePosition: { x: 0, y: -100 },
+            characterSpacing : 1,
+            relativePosition: {x: -40+30, y: -152+57},
           },
           {
             text: [
-              { text: 'Reporte de entrega\n' },
-              { text: '\n', fontSize: 5 },
-              { text: '17-03-2023', font: Fonts.Inter_400},
+              {text: 'Reporte de entrega\n'},
+              {text: '\n', fontSize: 5},
+              {text: '17-03-2023', font: Fonts.Inter_400},
             ],
             fontSize: 16,
             color: Colors.WHITE,
-            absolutePosition: { x: 30, y: 20 },
+            absolutePosition: {x: 30, y: 20},
             alignment: Alignments.RIGHT,
           },
           {
-            text: ['Entregados por   ', { text: 'Juan perez', font: Fonts.Inter_600 }],
+            text: ['Entregados por   ', {text: 'Juan Perez', font: Fonts.Inter_600, fontSize: 14, color: Colors.WHITE}],
             fontSize: 14,
             font: Fonts.Inter_400,
             color: Colors.WHITE,
             alignment: Alignments.LEFT,
-            absolutePosition: { x: 30, y: 115 },
+            absolutePosition: {x: 30, y: 115},
           },
         ];
       },
     });
     this.addComponent({
-      render() {
+      render(): Content {
         return {
-          text: '\n',
+          text: '',
         };
       },
     });
@@ -80,9 +81,9 @@ export class DeliveryReportDocument extends DocumentTemplate {
       new SectionComponent(
         {
           title: 'Venta total desglosada por tipo de pago',
-          textPosition: { x: 0, y: 175 },
+          textPosition: {x: 0, y: 175},
           weight: 532,
-          sectionPosition: { x: -10, y: 0 },
+          sectionPosition: {x: -10, y: 13},
           height: 26,
         },
         {
@@ -150,7 +151,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       },
     );
     productRows.push([
-      new TableCellComponent('Total', { font: Fonts.Inter_600 })
+      new TableCellComponent('Total', {font: Fonts.Inter_600})
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(true, true, false, true),
       new TableCellComponent(
@@ -186,8 +187,8 @@ export class DeliveryReportDocument extends DocumentTemplate {
         title: 'Pedidos pagados en efectivo',
         weight: 595,
         height: 26,
-        sectionPosition: { x: -40, y: 300 },
-        textPosition: { x: 0, y: -20 },
+        sectionPosition: {x: -40, y: 300},
+        textPosition: {x: 0, y: -20},
       })
         .setSectionColor(Colors.VENICE_BLUE)
         .setTextColor(Colors.WHITE),

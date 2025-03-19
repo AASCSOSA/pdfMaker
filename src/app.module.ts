@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { OrdersModule } from './controller/orders/orders.module';
 import { PdfService } from './pdf.generator/pdf.service';
 import { DeliveriesModule } from './controller/deliveries/deliveries.module';
+import { SalesModule } from './controller/sales/sales.module';
 
 @Module({
-  imports: [OrdersModule, DeliveriesModule],
+  imports: [OrdersModule, DeliveriesModule, SalesModule],
   controllers: [AppController],
   providers: [AppService, PdfService],
   //sacas a relucir
