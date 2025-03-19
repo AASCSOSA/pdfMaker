@@ -1,5 +1,5 @@
 import { Content } from 'pdfmake/interfaces';
-import { RenderableComponent } from './interfaces/renderable-component.interface';
+import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Alignments, Colors, Fonts } from '../../styles/styles';
 
 export interface SectionConfigurationRequired {
@@ -30,7 +30,7 @@ export class SectionComponent implements RenderableComponent {
   ) {
     this.options = {
       ...requiredOptions,
-      textFont: optionalOptions.textFont || Fonts.Inter_500,
+      textFont: optionalOptions.textFont || Fonts.InterSemiBold,
       textColor: optionalOptions.textColor || Colors.WHITE,
       sectionColor: optionalOptions.sectionColor || Colors.MIDNIGHT_BLUE,
       textAlignment: optionalOptions.textAlignment || Alignments.CENTER,

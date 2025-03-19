@@ -1,14 +1,14 @@
-import { HeaderComponent } from '../../components/header/header.component';
-import { TableComponent } from '../../components/tables/table.component';
+import { HeaderComponent } from '../../../components/header/header.component';
+import { TableComponent } from '../../../components/tables/table.component';
 import {
   SectionComponent,
   SectionConfigurationOptional,
   SectionConfigurationRequired,
 } from '../../components/section.component';
 import { DocumentTemplate } from '../../components/document.template';
-import { TableCellComponent } from '../../components/tables/table-cell.component';
+import { TableCellComponent } from '../../../components/tables/table-cell.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from '../../../components/footer/footer.component';
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -25,13 +25,13 @@ export class OrderFormDocument extends DocumentTemplate {
       }),
     });
     const conceptoHeader = new TableCellComponent('Concepto', {
-      font: Fonts.Roboto_700,
+      font: Fonts.RobotoBold,
       fontSize: 10,
     })
       .setFillColor(Colors.FOAM)
       .setMargin([10, 10, 0, 0]);
     const precioHeader = new TableCellComponent('Precio', {
-      font: Fonts.Inter_700,
+      font: Fonts.InterBold,
       fontSize: 10,
     })
       .setFillColor(Colors.FOAM)
@@ -40,11 +40,11 @@ export class OrderFormDocument extends DocumentTemplate {
     const dataRows = [
       [
         new TableCellComponent('Subtotal', {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         }).setMargin([10, 18, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.subtotal.toFixed(2)}`, {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         })
           .setMargin([0, 18, 10, 0])
@@ -52,11 +52,11 @@ export class OrderFormDocument extends DocumentTemplate {
       ],
       [
         new TableCellComponent('Envío', {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         }).setMargin([10, 18, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.shipping.toFixed(2)}`, {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         })
           .setMargin([0, 18, 10, 0])
@@ -64,11 +64,11 @@ export class OrderFormDocument extends DocumentTemplate {
       ],
       [
         new TableCellComponent('IVA', {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         }).setMargin([10, 18, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.tax.toFixed(2)}`, {
-          font: Fonts.Inter_400,
+          font: Fonts.InterRegular,
           fontSize: 10,
         })
           .setMargin([0, 18, 10, 0])
@@ -76,11 +76,11 @@ export class OrderFormDocument extends DocumentTemplate {
       ],
       [
         new TableCellComponent('Total', {
-          font: Fonts.Inter_600,
+          font: Fonts.InterSemiBold,
           fontSize: 10,
         }).setMargin([10, 18, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.total.toFixed(2)}`, {
-          font: Fonts.Inter_700,
+          font: Fonts.InterBold,
           fontSize: 10,
         })
           .setMargin([0, 18, 10, 0])
@@ -98,7 +98,7 @@ export class OrderFormDocument extends DocumentTemplate {
           weight: 532,
         },
         {
-          textFont: Fonts.Inter_700,
+          textFont: Fonts.InterBold,
           textAlignment: Alignments.CENTER,
           textFontSize: 12,
         },
@@ -127,42 +127,42 @@ export class OrderFormDocument extends DocumentTemplate {
     });
     const productHeaders = [
       new TableCellComponent('Descripción', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
         .setMargin([10, 12, 0, 0]),
       new TableCellComponent('Precio Unitario', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
         .setMargin([0, 12, 0, 0]),
       new TableCellComponent('Cant.', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
         .setMargin([0, 12, 0, 0]),
       new TableCellComponent('Subtotal', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
         .setMargin([0, 12, 0, 0]),
       new TableCellComponent('IVA', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
         .setMargin([0, 12, 0, 0]),
       new TableCellComponent('Total', {
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         fontSize: 10,
       })
         .setFillColor(Colors.FOAM)
@@ -171,36 +171,36 @@ export class OrderFormDocument extends DocumentTemplate {
     ];
     const productRows = this.deliveryData.products.map((product) => [
       new TableCellComponent('Aciclovir (Aciclovir) 400 mg 35', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setAlignment(Alignments.LEFT)
         .setMargin([10, 16, 0, 0]),
       new TableCellComponent('$120.00', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setMargin([0, 16, 0, 0]),
       new TableCellComponent('2', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setMargin([0, 16, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$240.00', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setMargin([0, 16, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$38.40', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setMargin([0, 16, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$278.40', {
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setMargin([0, 16, 0, 0])
@@ -219,7 +219,7 @@ export class OrderFormDocument extends DocumentTemplate {
           sectionColor: Colors.TOREA_BAY,
           textAlignment: Alignments.CENTER,
           textColor: Colors.WHITE,
-          textFont: Fonts.Inter_700,
+          textFont: Fonts.InterBold,
           textFontSize: 12,
         } as SectionConfigurationOptional,
       ),

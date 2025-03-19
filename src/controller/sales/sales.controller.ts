@@ -1,37 +1,31 @@
 import { Controller, Get, Param, Query, Res } from '@nestjs/common';
-import { OrdersService } from './orders.service';
-import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
-import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
 import { Response } from 'express';
+import { SalesService } from './sales.service';
 import { PdfService } from '../../pdf.generator/pdf.service';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
+import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
+import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
 
-@Controller('orders')
-export class OrdersController {
+@Controller('sales')
+export class SalesController {
   constructor(
-    private readonly ordersService: OrdersService,
+    private readonly salesService: SalesService,
     private readonly pdfService: PdfService,
   ) {}
 
-  @Get(':sellingId/invoice')
+  @Get('invoice/:sellingId')
   public async invoice(
     @Param() params: { sellingId: string },
     @Query() query: { sendEmail: boolean } = { sendEmail: false },
     @Res() res: Response,
   ): Promise<void> {
     try {
-      const invoiceData = await this.ordersService.getSellingData(
-        params.sellingId,
-      );
+      const saleData = await this.salesService.getSaleData(params.sellingId);
       const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(
-        DocumentType.ORDER_FORM,
-        invoiceData,
+        DocumentType.SALE_REPORT,
+        saleData,
       ).generateDocumentStructure();
       const pdfBuffer = await this.pdfService.generatePdf(docDefinition);
-      if (query.sendEmail) {
-        await this.ordersService.sendEmail(params.sellingId, pdfBuffer);
-        console.log('Email sent');
-      }
       res.set({
         'Content-Type': 'application/pdf',
         'Content-Disposition': `inline; filename="invoice-${params.sellingId}.pdf"`,

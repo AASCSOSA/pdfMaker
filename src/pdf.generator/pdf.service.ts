@@ -13,32 +13,32 @@ export class PdfService {
   }
 
   fonts: TFontDictionary = {
-    [Fonts.Inter_400]: {
+    [Fonts.InterRegular]: {
       normal: path.resolve('assets/fonts/Inter_400.ttf'),
     },
-    [Fonts.Inter_500]: {
+    [Fonts.InterMedium]: {
       normal: path.resolve('assets/fonts/Inter_500.ttf'),
     },
-    [Fonts.Inter_600]: {
+    [Fonts.InterSemiBold]: {
       normal: path.resolve('assets/fonts/Inter_600.ttf'),
     },
-    [Fonts.Inter_700]: {
+    [Fonts.InterBold]: {
       normal: path.resolve('assets/fonts/Inter_700.ttf'),
     },
-    [Fonts.Roboto_400]: {
+    [Fonts.RobotoRegular]: {
       normal: path.resolve('assets/fonts/Roboto_400.ttf'),
     },
-    [Fonts.Roboto_500]: {
+    [Fonts.RobotoMedium]: {
       normal: path.resolve('assets/fonts/Roboto_500.ttf'),
     },
-    [Fonts.Roboto_600]: {
+    [Fonts.RobotoSemiBold]: {
       normal: path.resolve('assets/fonts/Roboto_600.ttf'),
     },
-    [Fonts.Roboto_700]: {
+    [Fonts.RobotoBold]: {
       normal: path.resolve('assets/fonts/Roboto_700.ttf'),
     },
 
-    [Fonts.Roboto_900]: {
+    [Fonts.RobotoExtraBold]: {
       normal: path.resolve('assets/fonts/Roboto_900.ttf'),
     },
   };

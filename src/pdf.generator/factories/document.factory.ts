@@ -2,6 +2,7 @@ import { DocumentTemplate } from '../components/document.template';
 import { OrderFormDocument } from '../ally/orders/order-form.document';
 import { DeliveryReportDocument } from '../fgo/delivery/delivery-report.document';
 import { DocumentType } from './enums/document-type.enums';
+import { SaleReportDocument } from '../fgo/sales/sale-report.document';
 
 export class DocumentFactory {
   static createDocument(type: DocumentType, data: any): DocumentTemplate {
@@ -10,6 +11,8 @@ export class DocumentFactory {
         return new OrderFormDocument(data);
       case DocumentType.DELIVERY_REPORT:
         return new DeliveryReportDocument(data);
+      case DocumentType.SALE_REPORT:
+        return new SaleReportDocument(data);
       default:
         throw new Error(`Document type ${type} not supported`);
     }

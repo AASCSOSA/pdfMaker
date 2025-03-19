@@ -1,6 +1,6 @@
-import { RenderableComponent } from '../interfaces/renderable-component.interface';
+import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
-import { Colors, Fonts } from '../../../styles/styles';
+import { Colors, Fonts } from '../../styles/styles';
 
 export class FooterComponent implements RenderableComponent {
   render(): Content | Content[] {
@@ -28,7 +28,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Dirección',
@@ -36,7 +36,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Comentarios adicionales',
@@ -44,7 +44,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Forma de pago',
@@ -52,7 +52,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Fecha de entrega',
@@ -60,7 +60,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
         ],
         absolutePosition: { x: 25, y: 545 },
@@ -73,7 +73,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: 'Jose Treviño 275 - Celebra, Monterrey, Nuevo León, 77880.',
@@ -81,7 +81,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: 'Opcional',
@@ -89,7 +89,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: 'Pago Online',
@@ -97,7 +97,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: '24-03-2024',
@@ -105,7 +105,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
         ],
         absolutePosition: { x: 150, y: 545 },
@@ -114,7 +114,7 @@ export class FooterComponent implements RenderableComponent {
         text: 'Términos y Condiciones',
         fontSize: 10,
         color: '#818181',
-        font: Fonts.Roboto_700,
+        font: Fonts.RobotoBold,
         absolutePosition: { x: 40, y: 658 },
       },
       {
@@ -129,7 +129,7 @@ export class FooterComponent implements RenderableComponent {
         absolutePosition: { x: 40, y: 678 },
         fontSize: 10,
         color: '#818181',
-        font: Fonts.Inter_400,
+        font: Fonts.InterRegular,
       },
       {
         ul: [
@@ -139,7 +139,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Teléfono',
@@ -147,7 +147,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Correo',
@@ -155,7 +155,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
           {
             text: 'Sitio web',
@@ -163,7 +163,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_700,
+            font: Fonts.InterBold,
           },
         ],
         relativePosition: { x: -15, y: 473 },
@@ -176,7 +176,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: '(81) 1297-5125; (81) 1936-9060',
@@ -184,7 +184,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: 'contacto@fgo.mx',
@@ -192,7 +192,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
           {
             text: 'www.fgo.mx',
@@ -200,7 +200,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
-            font: Fonts.Inter_400,
+            font: Fonts.InterRegular,
           },
         ],
         relativePosition: { x: 40, y: 473 },
