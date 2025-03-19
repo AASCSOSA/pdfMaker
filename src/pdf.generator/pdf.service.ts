@@ -37,12 +37,10 @@ export class PdfService {
     [Fonts.Roboto_700]: {
       normal: path.resolve('assets/fonts/Roboto_700.ttf'),
     },
-<<<<<<< Updated upstream
+
     [Fonts.Roboto_900]: {
       normal: path.resolve('assets/fonts/Roboto_900.ttf'),
     },
-=======
->>>>>>> Stashed changes
   };
 
   async generatePdf(docDefinition: TDocumentDefinitions): Promise<Buffer> {

@@ -18,12 +18,6 @@ export enum Alignments {
   CENTER = 'center',
 }
 
-/*function getSvgAsBase64(filePath: string): string {
-  const svg = fs.readFileSync(filePath, 'utf8');
-  const base64Data = Buffer.from(svg).toString('base64');
-  return `data:image/svg+xml;base64,${base64Data}`;
-}*/
-
 export enum LogoKeys {
   ALLY = 'ALLY',
   FGO = 'FGO',
@@ -58,6 +52,14 @@ export enum PageSizes {
   A4 = 'A4',
   LETTER = 'LETTER',
 }
+export const defaultStyle = {
+  font: Fonts.Inter_400,
+  fontSize: 10,
+};
+
+
+/*Ejemplo de estilo sugerido*/
+
 export const headerStyle400 = {
   fontSize: 10,
   color: Colors.WHITE,
