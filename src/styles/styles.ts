@@ -30,6 +30,7 @@ export enum LogoKeys {
   GO = 'GO',
   LOGOBBVA = 'LOGOBBVA',
   LOGOSANTANDER = 'LOGOSANTANDER',
+  FARMA_GO = 'FARMA_GO',
 }
 
 export const Logos: Record<LogoKeys, string> = {
@@ -38,6 +39,7 @@ export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.GO]: 'assets/img/go.png',
   [LogoKeys.LOGOBBVA]: 'assets/img/logo-BBVA.png',
   [LogoKeys.LOGOSANTANDER]: 'assets/img/logo-santander.png',
+  [LogoKeys.FARMA_GO]: 'assets/img/FarmaGO.png',
 };
 
 export enum Fonts {
@@ -49,6 +51,7 @@ export enum Fonts {
   Roboto_600 = 'Roboto_600',
   Roboto_500 = 'Roboto_500',
   Roboto_400 = 'Roboto_400',
+  Roboto_900 = 'Roboto_900',
 }
 
 export enum PageSizes {
