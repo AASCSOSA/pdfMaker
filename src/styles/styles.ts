@@ -18,12 +18,6 @@ export enum Alignments {
   CENTER = 'center',
 }
 
-/*function getSvgAsBase64(filePath: string): string {
-  const svg = fs.readFileSync(filePath, 'utf8');
-  const base64Data = Buffer.from(svg).toString('base64');
-  return `data:image/svg+xml;base64,${base64Data}`;
-}*/
-
 export enum LogoKeys {
   ALLY = 'ALLY',
   FGO = 'FGO',
@@ -31,6 +25,7 @@ export enum LogoKeys {
   FARMA_GO = 'FARMA_GO',
   LOGOBBVA = 'LOGOBBVA',
   LOGOSANTANDER = 'LOGOSANTANDER',
+  FARMA_GO = 'FARMA_GO',
 }
 
 export const Logos: Record<LogoKeys, string> = {
@@ -40,6 +35,7 @@ export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.FARMA_GO]: 'assets/img/FarmaGO.png',
   [LogoKeys.LOGOBBVA]: 'assets/img/logo-BBVA.png',
   [LogoKeys.LOGOSANTANDER]: 'assets/img/logo-santander.png',
+  [LogoKeys.FARMA_GO]: 'assets/img/FarmaGO.png',
 };
 
 export enum Fonts {
@@ -66,3 +62,25 @@ export enum PageSizes {
   A4 = 'A4',
   LETTER = 'LETTER',
 }
+export const defaultStyle = {
+  font: Fonts.Inter_400,
+  fontSize: 10,
+};
+
+
+/*Ejemplo de estilo sugerido*/
+
+export const headerStyle400 = {
+  fontSize: 10,
+  color: Colors.WHITE,
+};
+
+export const headerStyle500 = {
+  ...headerStyle400,
+  font: Fonts.Inter_500,
+};
+
+export const regularStyle = {
+  ...headerStyle400,
+  font: Fonts.Inter_400,
+};

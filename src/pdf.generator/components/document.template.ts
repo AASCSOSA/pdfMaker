@@ -1,12 +1,12 @@
 // src/pdf/classes/document.template.ts
 import { Content, PageSize, StyleDictionary, TDocumentDefinitions } from 'pdfmake/interfaces';
-import { Fonts } from '../../styles/styles';
+import { defaultStyle, Fonts, PageSizes } from "../../styles/styles";
 import { RenderableComponent } from './interfaces/renderable-component.interface';
 
 export abstract class DocumentTemplate {
   private fileName: string;
   protected components: RenderableComponent[] = [];
-  protected pageSize: PageSize = 'A4';
+  protected pageSize: PageSize = PageSizes.A4;
 
   constructor(fileName?: string, pageSize?: PageSize) {
     if (fileName) {
@@ -20,15 +20,7 @@ export abstract class DocumentTemplate {
   public generateDocumentStructure(): TDocumentDefinitions {
     return {
       content: this.components.map((component) => component.render()),
-      defaultStyle: {
-        font: Fonts.Inter_500,
-        fontSize: 15,
-      },
-      styles: {
-        [Fonts.Inter_400]: {
-          font: 'normal',
-        },
-      },
+      defaultStyle: defaultStyle,
       pageSize: this.pageSize,
     };
   }
