@@ -4,6 +4,7 @@ export enum Colors {
   WHITE = '#FFFFFF',
   TOREA_BAY = '#0C2788',
   FOAM = '#DDFCF9',
+  DENIM = '#006EFF',
   BLUE_RIBBON = '#026EFA',
   HAWKES_BLUE = '#EBF2FE',
   MIDNIGHT_BLUE = '#00366A',
