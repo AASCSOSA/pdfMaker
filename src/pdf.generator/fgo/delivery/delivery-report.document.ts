@@ -10,7 +10,6 @@ import {
   Logos,
   PageSizes,
 } from '../../../styles/styles';
-import { BackgroundComponent } from '../../components/background.component';
 
 export class DeliveryReportDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -90,15 +89,6 @@ export class DeliveryReportDocument extends DocumentTemplate {
         },
       ),
     );
-    //RULER
-    /*this.addComponent(
-      new BackgroundComponent({
-        color: Colors.RED,
-        width: 532,
-        height: 36,
-        position: {x: 30, y: 196},
-      })
-    );*/
     const headers = [
       new TableCellComponent('Concepto', {
         font: Fonts.RobotoBold,

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SalesService {
-  async getSaleData(saleId: string){
+  async getSaleData(saleId: string) {
     return {
       id: saleId,
       subtotal: 480.0,
@@ -42,5 +42,4 @@ export class SalesService {
       ],
     };
   }
-
 }

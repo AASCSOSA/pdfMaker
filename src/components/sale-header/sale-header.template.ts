@@ -1,7 +1,7 @@
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
 import { Colors, Fonts, Logos } from '../../styles/styles';
-import { regular, bold, TextClient, costumersName } from "./sale-header.styles";
+import { regular, bold, TextClient, costumersName } from './sale-header.styles';
 
 export class SaleHeaderTemplate implements RenderableComponent {
   constructor(private saleData: any) {}
@@ -22,13 +22,43 @@ export class SaleHeaderTemplate implements RenderableComponent {
       TextClient,
       costumersName(this.saleData.customersname),
 
-      { text: 'Folio de Cotización', style: bold, absolutePosition: { x: 28, y: 132 } },
-      { text: `${this.saleData.status}`, style: regular, absolutePosition: { x: 98, y: 132 } },
-      { text: 'Folio de Cotización', style: bold, absolutePosition: { x: 378, y: 90 } },
-      { text: 'Fecha de Cotización', style: bold, absolutePosition: { x: 378, y: 110 } },
-      { text: 'Válida hasta', style: bold, absolutePosition: { x: 378, y: 130 } },
-      { text: `${this.saleData.quotenumber}`, style: regular,relativePosition: { x: 470, y: 50 }, characterSpacing:0.5 },
-      { text: `${this.saleData.quoteday}`, style: regular, relativePosition: { x: 470, y: 70 }, characterSpacing:0.5 },
+      {
+        text: 'Folio de Cotización',
+        style: bold,
+        absolutePosition: { x: 28, y: 132 },
+      },
+      {
+        text: `${this.saleData.status}`,
+        style: regular,
+        absolutePosition: { x: 98, y: 132 },
+      },
+      {
+        text: 'Folio de Cotización',
+        style: bold,
+        absolutePosition: { x: 378, y: 90 },
+      },
+      {
+        text: 'Fecha de Cotización',
+        style: bold,
+        absolutePosition: { x: 378, y: 110 },
+      },
+      {
+        text: 'Válida hasta',
+        style: bold,
+        absolutePosition: { x: 378, y: 130 },
+      },
+      {
+        text: `${this.saleData.quotenumber}`,
+        style: regular,
+        relativePosition: { x: 470, y: 50 },
+        characterSpacing: 0.5,
+      },
+      {
+        text: `${this.saleData.quoteday}`,
+        style: regular,
+        relativePosition: { x: 470, y: 70 },
+        characterSpacing: 0.5,
+      },
       {
         text: `${this.saleData.quotevalidity}`,
         style: regular,
@@ -37,6 +67,5 @@ export class SaleHeaderTemplate implements RenderableComponent {
         characterSpacing: 0.5,
       },
     ];
-
   }
 }

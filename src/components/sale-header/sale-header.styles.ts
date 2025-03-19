@@ -1,6 +1,4 @@
 import { Colors, Fonts } from '../../styles/styles';
-import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
-import { Content } from 'pdfmake/interfaces';
 
 export const regular = {
   fontSize: 10,

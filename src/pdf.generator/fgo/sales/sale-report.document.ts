@@ -1,7 +1,6 @@
 import { DocumentTemplate } from '../../components/document.template';
-import { Colors, PageSizes, Fonts, Logos } from '../../../styles/styles';
+import { Colors, PageSizes, } from '../../../styles/styles';
 
-import { SectionComponent } from '../../components/section.component';
 import { BackgroundComponent } from '../../components/background.component';
 import { SaleHeaderTemplate } from '../../../components/sale-header/sale-header.template';
 
@@ -20,8 +19,6 @@ export class SaleReportDocument extends DocumentTemplate {
         position: { x: 0, y: 0 },
       }),
     );
-    this.addComponent(
-      new SaleHeaderTemplate(this.saleData)
-    )
+    this.addComponent(new SaleHeaderTemplate(this.saleData));
   }
 }

@@ -1,10 +1,4 @@
-import {
-  Alignment,
-  Content,
-  StyleReference,
-  TableCell,
-  TableCellProperties,
-} from 'pdfmake/interfaces';
+import { TableCell, TableCellProperties } from 'pdfmake/interfaces';
 import { Fonts } from '../../styles/styles';
 
 interface ExtendedTableCellProperties extends TableCellProperties {
