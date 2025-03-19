@@ -27,14 +27,12 @@ export enum LogoKeys {
   ALLY = 'ALLY',
   FGO = 'FGO',
   GO = 'GO',
-  FARMA_GO = 'FARMA_GO',
 }
 
 export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.ALLY]: 'assets/img/logo-ally.png',
   [LogoKeys.FGO]: 'assets/img/logo-fgo.png',
   [LogoKeys.GO]: 'assets/img/go.png',
-  [LogoKeys.FARMA_GO]: 'assets/img/FarmaGO.png',
 };
 
 export enum Fonts {
