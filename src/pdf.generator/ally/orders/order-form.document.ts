@@ -8,6 +8,7 @@ import {
 import { DocumentTemplate } from '../../components/document.template';
 import { TableCellComponent } from '../../components/tables/table-cell.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -79,7 +80,7 @@ export class OrderFormDocument extends DocumentTemplate {
           fontSize: 10,
         }).setMargin([10, 18, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.total.toFixed(2)}`, {
-          font: Fonts.Inter_400,
+          font: Fonts.Inter_700,
           fontSize: 10,
         })
           .setMargin([0, 18, 10, 0])
@@ -92,7 +93,7 @@ export class OrderFormDocument extends DocumentTemplate {
         {
           title: 'Desglose de Precio',
           sectionPosition: { x: 0, y: 0 },
-          textPosition: { x: 0, y: 269 },
+          textPosition: { x: 15, y: 269 },
           height: 26,
           weight: 532,
         },
@@ -118,86 +119,124 @@ export class OrderFormDocument extends DocumentTemplate {
         })
         .setWidths(['*', 462]),
     );
-    this.addComponent({
-      render: () => ({
-        text: '\n',
-        height: 13,
-      }),
-    });
-    //this.addComponent(new FooterComponent());
+
+    this.addComponent(new FooterComponent());
 
     this.addComponent({
       render: () => ({ text: '', pageBreak: 'after' }),
     });
     const productHeaders = [
-      new TableCellComponent('Descripción')
-        .setFillColor('#E6F7F7')
-        .setAlignment('left')
-        .setMargin([0, 8, 0, 0]),
-      new TableCellComponent('Precio Unitario')
-        .setFillColor('#E6F7F7')
-        .setAlignment('left')
-        .setMargin([0, 8, 0, 0]),
-      new TableCellComponent('Cant.')
-        .setFillColor('#E6F7F7')
-        .setAlignment('center')
-        .setMargin([0, 8, 0, 0]),
-      new TableCellComponent('Subtotal')
-        .setFillColor('#E6F7F7')
-        .setAlignment('center')
-        .setMargin([0, 8, 0, 0]),
-      new TableCellComponent('IVA')
-        .setFillColor('#E6F7F7')
-        .setAlignment('center')
-        .setMargin([0, 8, 0, 0]),
-      new TableCellComponent('Total')
-        .setFillColor('#E6F7F7')
-        .setAlignment('center')
-        .setMargin([0, 8, 0, 0]),
+      new TableCellComponent('Descripción', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([10, 12, 0, 0]),
+      new TableCellComponent('Precio Unitario', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([0, 12, 0, 0]),
+      new TableCellComponent('Cant.', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([0, 12, 0, 0]),
+      new TableCellComponent('Subtotal', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([0, 12, 0, 0]),
+      new TableCellComponent('IVA', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([0, 12, 0, 0]),
+      new TableCellComponent('Total', {
+        font: Fonts.Roboto_700,
+        fontSize: 10,
+      })
+        .setFillColor(Colors.FOAM)
+        .setAlignment(Alignments.LEFT)
+        .setMargin([0, 12, 0, 0]),
     ];
     const productRows = this.deliveryData.products.map((product) => [
-      new TableCellComponent(product.description),
-      new TableCellComponent(`$ ${product.unitPrice.toFixed(2)}`).setAlignment(
-        'right',
-      ),
-      new TableCellComponent(product.quantity.toString()).setAlignment(
-        'center',
-      ),
-      new TableCellComponent(`$ ${product.subtotal.toFixed(2)}`).setAlignment(
-        'right',
-      ),
-      new TableCellComponent(`$ ${product.iva.toFixed(2)}`).setAlignment(
-        'right',
-      ),
-      new TableCellComponent(`$ ${product.total.toFixed(2)}`).setAlignment(
-        'right',
-      ),
+      new TableCellComponent('Aciclovir (Aciclovir) 400 mg 35', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setAlignment(Alignments.LEFT)
+        .setMargin([10, 16, 0, 0]),
+      new TableCellComponent('$120.00', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setMargin([0, 16, 0, 0]),
+      new TableCellComponent('2', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setMargin([0, 16, 0, 0])
+        .setAlignment(Alignments.LEFT),
+      new TableCellComponent('$240.00', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setMargin([0, 16, 0, 0])
+        .setAlignment(Alignments.LEFT),
+      new TableCellComponent('$38.40', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setMargin([0, 16, 0, 0])
+        .setAlignment(Alignments.LEFT),
+      new TableCellComponent('$278.40', {
+        font: Fonts.Inter_400,
+        fontSize: 10,
+      })
+        .setMargin([0, 16, 0, 0])
+        .setAlignment(Alignments.LEFT),
     ]);
     this.addComponent(
       new SectionComponent(
         {
           title: 'Desglose de Productos',
-          height: 36,
+          height: 26,
           weight: 595,
-          textPosition: { x: 10, y: -35 },
-          sectionPosition: { x: 0, y: -35 },
+          textPosition: { x: 0, y: 5 },
+          sectionPosition: { x: -40, y: -40 },
         } as SectionConfigurationRequired,
         {
-          sectionColor: Colors.BLUE_RIBBON,
+          sectionColor: Colors.TOREA_BAY,
           textAlignment: Alignments.CENTER,
-          textColor: Colors.BLUE_RIBBON,
-          textFont: Fonts.Inter_400,
-          textFontSize: 30,
+          textColor: Colors.WHITE,
+          textFont: Fonts.Inter_700,
+          textFontSize: 12,
         } as SectionConfigurationOptional,
       ),
     );
 
     this.addComponent(
       new TableComponent()
-        .setPosition(-40, 20)
+        .setPosition(-40, -14)
         .setHeaders(productHeaders)
         .setData(productRows)
-        .setWidths([220, 80, 30, 70, 60, 80]),
+        .setRowHeights((rowIndex) => {
+          if (rowIndex === 0) {
+            return 36;
+          }
+          return 46;
+        })
+        .setWidths([170, 80, 57, 80, 80, 80]),
     );
   }
 }

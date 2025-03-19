@@ -8,6 +8,7 @@ export enum Colors {
   HAWKES_BLUE = '#EBF2FE',
   MIDNIGHT_BLUE = '#00366A',
   BLACK = '#111118',
+  Athens_Gray = '#F9F9FB',
   RED = '#FF0000',
 }
 
@@ -16,12 +17,6 @@ export enum Alignments {
   RIGHT = 'right',
   CENTER = 'center',
 }
-
-/*function getSvgAsBase64(filePath: string): string {
-  const svg = fs.readFileSync(filePath, 'utf8');
-  const base64Data = Buffer.from(svg).toString('base64');
-  return `data:image/svg+xml;base64,${base64Data}`;
-}*/
 
 export enum LogoKeys {
   ALLY = 'ALLY',
