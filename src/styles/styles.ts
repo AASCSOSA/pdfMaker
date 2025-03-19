@@ -58,3 +58,17 @@ export enum PageSizes {
   A4 = 'A4',
   LETTER = 'LETTER',
 }
+export const headerStyle400 = {
+  fontSize: 10,
+  color: Colors.WHITE,
+};
+
+export const headerStyle500 = {
+  ...headerStyle400,
+  font: Fonts.Inter_500,
+};
+
+export const regularStyle = {
+  ...headerStyle400,
+  font: Fonts.Inter_400,
+};

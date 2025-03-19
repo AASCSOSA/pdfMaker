@@ -21,6 +21,7 @@ export abstract class DocumentTemplate {
     return {
       content: this.components.map((component) => component.render()),
       defaultStyle: {
+<<<<<<< Updated upstream
         font: Fonts.Inter_500,
         fontSize: 15,
       },
@@ -28,6 +29,10 @@ export abstract class DocumentTemplate {
         [Fonts.Inter_400]: {
           font: 'normal',
         },
+=======
+        font: Fonts.Inter_400,
+        fontSize: 10,
+>>>>>>> Stashed changes
       },
       pageSize: this.pageSize,
     };
