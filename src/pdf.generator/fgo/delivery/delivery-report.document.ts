@@ -4,7 +4,6 @@ import { SectionComponent } from '../../components/section.component';
 import { TableCellComponent } from '../../components/tables/table-cell.component';
 import { TableComponent } from '../../components/tables/table.component';
 import { Alignments, Colors, Fonts, Logos, PageSizes } from '../../../styles/styles';
-import { BackgroundComponent } from '../../components/background.component';
 
 export class DeliveryReportDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -19,7 +18,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         sectionPosition: {x: -40, y: -40},
         textPosition: {x: 0, y: -40},
         height: 152,
-        weight: 595,
+        weight: 596,
       }).setSectionColor(Colors.TOREA_BAY),
     );
 
@@ -48,19 +47,16 @@ export class DeliveryReportDocument extends DocumentTemplate {
             relativePosition: {x: -40+30, y: -152+57},
           },
           {
-            text: [
-              {text: 'Reporte de entrega\n'},
-              {text: '\n', fontSize: 5},
-              {text: '17-03-2023', font: Fonts.Inter_400},
-            ],
+            text: 'Reporte de Pedidos',
+            font: Fonts.Inter_400,
             fontSize: 16,
+            characterSpacing:0.3,
+            relativePosition: {x: 372, y: -152+29},
             color: Colors.WHITE,
-            absolutePosition: {x: 30, y: 20},
-            alignment: Alignments.RIGHT,
           },
           {
             text: ['Entregados por   ', {text: 'Juan Perez', font: Fonts.Inter_600, fontSize: 14, color: Colors.WHITE}],
-            fontSize: 14,
+            fontSize: 15,
             font: Fonts.Inter_400,
             color: Colors.WHITE,
             alignment: Alignments.LEFT,
