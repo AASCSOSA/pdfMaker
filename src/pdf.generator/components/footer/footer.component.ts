@@ -1,5 +1,6 @@
 import { RenderableComponent } from '../interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
+import { Colors, Fonts } from '../../../styles/styles';
 
 export class FooterComponent implements RenderableComponent {
   render(): Content | Content[] {
@@ -11,12 +12,12 @@ export class FooterComponent implements RenderableComponent {
             x: 0,
             y: 0,
             w: 595,
-            h: 305,
+            h: 295,
             r: 1,
-            color: '#F9F9FB', //'#F9F9FB'
+            color: Colors.Athens_Gray, //'#F9F9FB'
           },
         ],
-        absolutePosition: { x: 0, y: 535 },
+        absolutePosition: { x: 0, y: 547 },
       },
       {
         //Customer data fields
@@ -27,6 +28,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Dirección',
@@ -34,6 +36,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Comentarios adicionales',
@@ -41,6 +44,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Forma de pago',
@@ -48,6 +52,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Fecha de entrega',
@@ -55,9 +60,10 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
         ],
-        absolutePosition: { x: 25, y: 540 },
+        absolutePosition: { x: 25, y: 545 },
       },
       {
         ul: [
@@ -67,6 +73,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: 'Jose Treviño 275 - Celebra, Monterrey, Nuevo León, 77880.',
@@ -74,6 +81,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: 'Opcional',
@@ -81,6 +89,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: 'Pago Online',
@@ -88,6 +97,7 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: '24-03-2024',
@@ -95,15 +105,17 @@ export class FooterComponent implements RenderableComponent {
             margin: [0, 0, 0, 5],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
         ],
-        absolutePosition: { x: 150, y: 540 },
+        absolutePosition: { x: 150, y: 545 },
       },
       {
         text: 'Términos y Condiciones',
         fontSize: 10,
         color: '#818181',
-        absolutePosition: { x: 40, y: 638 },
+        font: Fonts.Roboto_700,
+        absolutePosition: { x: 40, y: 658 },
       },
       {
         ol: [
@@ -114,75 +126,84 @@ export class FooterComponent implements RenderableComponent {
           'El consumo de cualquier producto o medicamento es responsabilidad de quien lo receta y consume.',
           'Por políticas internas no se aceptan cambios ni devoluciones en medicamentos controlados y refrigerados.',
         ],
-        absolutePosition: { x: 40, y: 655 },
+        absolutePosition: { x: 40, y: 678 },
         fontSize: 10,
         color: '#818181',
+        font: Fonts.Inter_400,
       },
       {
         ul: [
           {
             text: 'Dirección',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Teléfono',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Correo',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
           {
             text: 'Sitio web',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_700,
           },
         ],
-        absolutePosition: { x: 25, y: 738 },
+        relativePosition: { x: -15, y: 473 },
       },
       {
         ul: [
           {
             text: 'José Treviño 275, Chepevera, 64030 Monterrey, N.L.',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: '(81) 1297-5125; (81) 1936-9060',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: 'contacto@fgo.mx',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
           {
             text: 'www.fgo.mx',
             listType: 'none',
-            margin: [0, 0, 0, 4],
+            margin: [0, 0, 0, 3],
             color: '#818181',
             fontSize: 10,
+            font: Fonts.Inter_400,
           },
         ],
-        absolutePosition: { x: 80, y: 738 },
+        relativePosition: { x: 40, y: 473 },
       },
     ];
   }

@@ -80,21 +80,15 @@ export class TableComponent implements RenderableComponent {
       },
       layout: {
         hLineWidth: function (i, node) {
-          // i=0 es el borde superior de la primera fila (encabezado)
-          // i=1 es el borde inferior de la primera fila (encabezado)
-          // i=node.table.body.length es el borde inferior de la última fila
-
-          // Mostrar bordes para encabezado y final de la última fila
-          if (i === 0 || i === 1 || i === node.table.body.length) {
-            return 1;
-          }
-          return 1; // Ocultar todos los demás bordes horizontales
+          // Dibujar bordes horizontales en todas las filas (incluyendo encabezado)
+          return 1; // Mostrar bordes horizontales en todas las filas
         },
         vLineWidth: function (i, node) {
-          if (i === 1 || i === node.table.body.length) {
-            return 0;
+          // Dibujar bordes verticales solo en la primera y última columna
+          if (i === 0 || i === node.table.body[0].length) {
+            return 1; // Mostrar la primera y última columna como bordes verticales
           }
-          return 1; // Mostrar los demás bordes verticales
+          return 0; // No mostrar otras líneas verticales internas
         },
         hLineColor: function () {
           return Colors.HAWKES_BLUE;

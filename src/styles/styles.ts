@@ -9,6 +9,7 @@ export enum Colors {
   HAWKES_BLUE = '#EBF2FE',
   MIDNIGHT_BLUE = '#00366A',
   BLACK = '#111118',
+  Athens_Gray = '#F9F9FB',
   RED = '#FF0000',
 }
 
