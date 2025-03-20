@@ -1,5 +1,5 @@
 import { DocumentTemplate } from '../../components/document.template';
-import { Content } from 'pdfmake/interfaces';
+import { Content, ContentText } from 'pdfmake/interfaces';
 import { SectionComponent } from '../../components/section.component';
 import { TableCellComponent } from '../../components/tables/table-cell.component';
 import { TableComponent } from '../../components/tables/table.component';
@@ -27,29 +27,30 @@ export class DeliveryReportDocument extends DocumentTemplate {
         return [
           {
             image: Logos.GO,
-            relativePosition: {x: 32, y: -152+32},
+            relativePosition: {x: 34, y: -152+32},
             width: 39.29,
             height: 23.59,
           },
           {
             text: 'F',
-            style: {font: Fonts.Inter_700},
+            style: {font: Fonts.Roboto_900},
             color: Colors.WHITE,
             fontSize: 30,
-            relativePosition: {x: 15, y: -152+25},
-          },
+            relativePosition: {x: 18, y: -152+26.5},
+          } as ContentText,
           {
             text: 'Repartidores',
             style: {font: Fonts.Inter_600},
             color: Colors.WHITE,
             fontSize: 18,
-            characterSpacing : 1,
-            relativePosition: {x: -40+30, y: -152+57},
+            characterSpacing : 0.5,
+
+            relativePosition: {x: -40+33, y: -152+58.5},
           },
           {
             text: 'Reporte de Pedidos',
             font: Fonts.Inter_400,
-            fontSize: 16,
+            fontSize: 17,
             characterSpacing:0.3,
             relativePosition: {x: 372, y: -152+29},
             color: Colors.WHITE,
@@ -172,11 +173,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setPosition(-10, 0),
     );
     this.addComponent({
-      render() {
-        return {
-          text: '\n',
-        };
-      },
+      render: () => ({ text: '', pageBreak: 'after' }),
     });
     this.addComponent(
       new SectionComponent({
@@ -189,5 +186,6 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setSectionColor(Colors.VENICE_BLUE)
         .setTextColor(Colors.WHITE),
     );
+
   }
 }
