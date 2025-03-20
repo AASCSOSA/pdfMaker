@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Query, Res } from '@nestjs/common';
-import { PdfService } from '../../pdf.generator/pdf.service';
+import { PdfService } from '../../shared/services/pdf/pdf.service';
 import { Response } from 'express';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
 import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
