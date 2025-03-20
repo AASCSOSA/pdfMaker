@@ -3,7 +3,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import PdfPrinter from 'pdfmake';
 import { TDocumentDefinitions, TFontDictionary } from 'pdfmake/interfaces';
-import { Fonts } from '../styles/styles';
+import { Fonts } from '../../../styles/styles';
 import path from 'path';
 
 @Injectable()
