@@ -5,11 +5,13 @@ import { OrdersModule } from './controller/orders/orders.module';
 import { PdfService } from './shared/services/pdf/pdf.service';
 import { DeliveriesModule } from './controller/deliveries/deliveries.module';
 import { SalesModule } from './controller/sales/sales.module';
+import { PdfModule } from "./shared/services/pdf/pdf.module";
+import { PdfPrinterService } from "./shared/services/pdf/pdf-printer.service";
 
 @Module({
-  imports: [OrdersModule, DeliveriesModule, SalesModule],
+  imports: [OrdersModule, DeliveriesModule, SalesModule, PdfModule],
   controllers: [AppController],
-  providers: [AppService, PdfService],
+  providers: [AppService, PdfService, PdfPrinterService],
   //sacas a relucir
 })
 export class AppModule {}
