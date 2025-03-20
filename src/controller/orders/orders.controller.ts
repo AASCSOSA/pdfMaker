@@ -20,7 +20,9 @@ export class OrdersController {
     @Res() res: Response,
   ): Promise<void> {
     try {
-      const invoiceData = await this.ordersService.getSellingData(params.sellingId);
+      const invoiceData = await this.ordersService.getSellingData(
+        params.sellingId,
+      );
       const docDefinition: TDocumentDefinitions = DocumentFactory.createDocument(
         DocumentType.ORDER_FORM,
         invoiceData,

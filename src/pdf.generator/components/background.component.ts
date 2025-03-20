@@ -1,12 +1,12 @@
-import { RenderableComponent } from "./interfaces/renderable-component.interface";
+import { RenderableComponent } from "../../shared/interfaces/renderable-component.interface";
 import { Content, Position } from "pdfmake/interfaces";
 import { Colors } from "../../styles/styles";
 
 export interface BackgroundConfigurations {
-  color: Colors,
-  position: { x: number, y: number },
-  height: number,
-  width: number
+  color: Colors;
+  position: { x: number; y: number };
+  height: number;
+  width: number;
 }
 
 export class BackgroundComponent implements RenderableComponent {
@@ -31,6 +31,6 @@ export class BackgroundComponent implements RenderableComponent {
         ],
         absolutePosition: {x: this.configurations.position.x, y: this.configurations.position.y},
       },
-    ]
+    ];
   }
 }
