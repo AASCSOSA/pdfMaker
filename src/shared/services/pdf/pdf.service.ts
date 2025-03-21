@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
-import { PdfPrinterService } from './pdf-printer.service';
+import PdfPrinter from "pdfmake";
+import { PdfFonts } from "../../../styles/fonts";
 
 @Injectable()
 export class PdfService {
-  constructor(private readonly pdfPrinterService: PdfPrinterService) {}
+  constructor() {}
 
   async generatePdf(docDefinition: TDocumentDefinitions): Promise<Buffer> {
     return new Promise((resolve) => {
-      const pdfDoc = this.pdfPrinterService.createPdfKitDocument(docDefinition);
+      const printer = new PdfPrinter(PdfFonts);
+      const pdfDoc = printer.createPdfKitDocument(docDefinition);
       const chunks: Buffer[] = [];
       pdfDoc.on('data', (chunk) => {
         chunks.push(chunk);

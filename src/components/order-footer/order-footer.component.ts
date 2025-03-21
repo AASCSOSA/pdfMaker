@@ -1,6 +1,5 @@
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
-import { Colors, Fonts } from '../../styles/styles';
 import {
   TermsAndConditions,
   TitleAddress,
@@ -23,6 +22,7 @@ import {
   ValueTermsAndCondition,
   ValueWebSiteCaption,
 } from './order-footer.style';
+import { Colors } from "../../styles/colors";
 
 export class OrderFooterComponent implements RenderableComponent {
   render(): Content | Content[] {

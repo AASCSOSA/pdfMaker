@@ -1,8 +1,9 @@
 import { DocumentTemplate } from '../document.template';
-import { OrderFormDocument } from '../../templates/pdf/orders/order-form.document';
-import { DeliveryReportDocument } from '../../templates/pdf/delivery/delivery-report.document';
-import { SaleReportDocument } from '../../templates/pdf/sales/sale-report.document';
+import { OrderFormDocument } from '../../template/pdf/orders/order-form.document';
+import { DeliveryReportDocument } from '../../template/pdf/delivery/delivery-report.document';
+import { SaleReportDocument } from '../../template/pdf/sales/sale-report.document';
 
+//TODO: Changue the name of the enum to DocumentType
 export enum DocumentType {
   ORDER_FORM = 'order-form',
   DELIVERY_REPORT = 'delivery-report',
