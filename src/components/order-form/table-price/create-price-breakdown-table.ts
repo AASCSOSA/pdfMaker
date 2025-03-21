@@ -1,6 +1,6 @@
 import {
-  SectionComponent,
-} from "../../section/section.component";
+  TitleTableComponent,
+} from "../../section/titleTableComponent";
 
 import { TableComponent } from "../../tables/table.component";
 import { Layouts } from "../../../styles/styles";
@@ -29,7 +29,7 @@ export function CreatePriceBreakdownSection(deliveryData) {
     [TotalRow, TotalValueRow(deliveryData.total)],
   ];
 
-  const section = new SectionComponent(
+  const section = new TitleTableComponent(
     {
       title: 'Desglose de Precio',
       sectionPosition: {x: -9, y: 13.2},

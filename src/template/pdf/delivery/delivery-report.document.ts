@@ -1,5 +1,5 @@
 import { DocumentTemplate } from '../../../shared/document.template';
-import { SectionComponent } from '../../../components/section/section.component';
+import { TitleTableComponent } from '../../../components/section/titleTableComponent';
 import { PageSizes } from '../../../styles/styles';
 import { Colors } from "../../../styles/colors";
 
@@ -11,7 +11,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
 
   private buildDocument(): void {
     this.addComponent(
-      new SectionComponent({
+      new TitleTableComponent({
         title: '',
         sectionPosition: {x: -40, y: -40},
         textPosition: {x: 0, y: -40},
@@ -73,7 +73,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
     });
 
     this.addComponent(
-      new SectionComponent(
+      new TitleTableComponent(
         {
           title: 'Venta total desglosada por tipo de pago',
           textPosition: {x: 0, y: 175},
@@ -174,7 +174,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       render: () => ({ text: '', pageBreak: 'after' }),
     });
     this.addComponent(
-      new SectionComponent({
+      new TitleTableComponent({
         title: 'Pedidos pagados en efectivo',
         weight: 595,
         height: 26,
