@@ -21,7 +21,6 @@ export enum Alignments {
 
 export enum LogoKeys {
   ALLY = 'ALLY',
-  FGO = 'FGO',
   GO = 'GO',
   LOGOBBVA = 'LOGOBBVA',
   LOGOSANTANDER = 'LOGOSANTANDER',
@@ -30,7 +29,6 @@ export enum LogoKeys {
 
 export const Logos: Record<LogoKeys, string> = {
   [LogoKeys.ALLY]: 'assets/img/logo-ally.png',
-  [LogoKeys.FGO]: 'assets/img/logo-fgo.png',
   [LogoKeys.GO]: 'assets/img/go.png',
   [LogoKeys.LOGOBBVA]: 'assets/img/logo-BBVA.png',
   [LogoKeys.LOGOSANTANDER]: 'assets/img/logo-santander.png',

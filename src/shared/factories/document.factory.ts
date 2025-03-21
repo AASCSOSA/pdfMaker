@@ -1,7 +1,7 @@
 import { DocumentTemplate } from '../document.template';
-import { OrderFormDocument } from '../../pdf/documents/orders/order-form.document';
-import { DeliveryReportDocument } from '../../pdf/documents/delivery/delivery-report.document';
-import { SaleReportDocument } from '../../pdf/documents/sales/sale-report.document';
+import { OrderFormDocument } from '../../templates/pdf/orders/order-form.document';
+import { DeliveryReportDocument } from '../../templates/pdf/delivery/delivery-report.document';
+import { SaleReportDocument } from '../../templates/pdf/sales/sale-report.document';
 
 export enum DocumentType {
   ORDER_FORM = 'order-form',
