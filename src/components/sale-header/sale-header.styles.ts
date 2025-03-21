@@ -1,28 +1,96 @@
 import { Colors, Fonts } from '../../styles/styles';
 
-export const regular = {
-  fontSize: 10,
-  color: Colors.WHITE,
+// export const regular = {
+//   fontSize: 10,
+//   color: Colors.WHITE,
+// };
+//
+// export const bold = {
+//   ...regular,
+//   font: Fonts.InterBold,
+// };
+export const FarmaGoLogo
+
+export const FarmaGoAddress = {
+  text: 'José Treviño #275, Col. Chepevera, Monterrey, Nuevo León, C.P. 64030',
+  style: {
+    font: Fonts.InterSemiBold,
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 101,
+    y: 36,
+  },
 };
 
-export const bold = {
-  ...regular,
-  font: Fonts.InterBold,
-};
 export const TextClient = {
   text: 'Cliente',
-  regular,
+  style: {
+    font: Fonts.InterMedium,
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
   absolutePosition: {
-    x: 28,
-    y: 112,
+    x: 15,
+    y: 98,
+  },
+};
+export const TextClientAddress = {
+  text: 'Direccion',
+  style: {
+    font: Fonts.InterMedium,
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 15,
+    y: 119,
+  },
+};
+export const TextDate = {
+  text: 'Fecha',
+  style: {
+    font: Fonts.InterMedium,
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 15,
+    y: 140,
   },
 };
 
 export const costumersName = (name: string) => ({
   text: name,
-  style: regular,
-  absolutePosition: { x: 98, y: 112 },
+  style: {
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 90,
+    y: 98,
+  },
 });
-export interface TextProps {
-  text: string;
-}
+export const clientAddress = (address: string) => ({
+  text: address,
+  style: {
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 90,
+    y: 119,
+  },
+});
+export const saleDate = (saleDate: string) => ({
+  text: saleDate,
+  style: {
+    fontSize: 12,
+    color: Colors.WHITE,
+  },
+  absolutePosition: {
+    x: 90,
+    y: 140,
+  },
+});

@@ -13,9 +13,9 @@ export class SaleReportDocument extends DocumentTemplate {
   private buildDocument(): void {
     this.addComponent(
       new BackgroundComponent({
-        color: Colors.VENICE_BLUE,
+        color: Colors.TOREA_BAY,
         width: 595,
-        height: 171,
+        height: 170,
         position: { x: 0, y: 0 },
       }),
     );
