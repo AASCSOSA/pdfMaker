@@ -1,14 +1,14 @@
+import { DocumentTemplate } from '../../../shared/document.template';
 import { OrderHeaderComponent } from '../../../components/order-header/order-header.component';
-import { TableComponent } from '../../../components/tables/table.component';
 import { TableCellComponent } from '../../../components/tables/table-cell.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
-import { FooterComponent } from '../../../components/footer/footer.component';
-import { DocumentTemplate } from "../../../shared/document.template";
 import {
   SectionComponent,
   SectionConfigurationOptional,
-  SectionConfigurationRequired
-} from "../../../components/section/section.component";
+  SectionConfigurationRequired,
+} from '../../../components/section/section.component';
+import { TableComponent } from '../../../components/tables/table.component';
+import { OrderFooterComponent } from '../../../components/order-footer/order-footer.component';
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -114,7 +114,7 @@ export class OrderFormDocument extends DocumentTemplate {
         .setWidths(['*', 461]),
     );
 
-    this.addComponent(new FooterComponent());
+    this.addComponent(new OrderFooterComponent());
 
     this.addComponent({
       render: () => ({ text: '', pageBreak: 'after' }),
@@ -175,8 +175,7 @@ export class OrderFormDocument extends DocumentTemplate {
       new TableCellComponent('$120.00', {
         font: Fonts.InterRegular,
         fontSize: 10,
-      })
-        .setMargin([0, 16, 0, 0]),
+      }).setMargin([0, 16, 0, 0]),
       new TableCellComponent('2', {
         font: Fonts.InterRegular,
         fontSize: 10,
