@@ -1,8 +1,10 @@
 import { Content } from 'pdfmake/interfaces';
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
-import { Alignments, Colors, Fonts } from '../../styles/styles';
+import { Layouts } from "../../styles/styles";
+import { Colors } from "../../styles/colors";
+import { Fonts } from "../../styles/fonts";
 
-export interface SectionConfigurationRequired {
+export interface TitleTableConfigurationRequired {
   title: string;
   sectionPosition: { x: number; y: number };
   textPosition: { x: number; y: number };
@@ -10,60 +12,60 @@ export interface SectionConfigurationRequired {
   weight: number;
 }
 
-export interface SectionConfigurationOptional {
-  textFont?: Fonts;
-  textColor?: Colors;
-  sectionColor?: Colors;
-  textAlignment?: Alignments;
+export interface TitleTableConfigurationOptional {
+  textFont?: string
+  textColor?: string
+  sectionColor?: string
+  textAlignment?: Layouts;
   textFontSize?: number;
 }
 
-export type SectionOptionsComplete = SectionConfigurationRequired &
-  SectionConfigurationOptional;
+export type TitleTableOptionsComplete = TitleTableConfigurationRequired &
+  TitleTableConfigurationOptional;
 
-export class SectionComponent implements RenderableComponent {
-  private options: SectionOptionsComplete;
+export class TitleTableComponent implements RenderableComponent {
+  private options: TitleTableOptionsComplete;
 
   constructor(
-    requiredOptions: SectionConfigurationRequired,
-    optionalOptions: SectionConfigurationOptional = {},
+    requiredOptions: TitleTableConfigurationRequired,
+    optionalOptions: TitleTableConfigurationOptional = {},
   ) {
     this.options = {
       ...requiredOptions,
-      textFont: optionalOptions.textFont || Fonts.InterSemiBold,
-      textColor: optionalOptions.textColor || Colors.WHITE,
-      sectionColor: optionalOptions.sectionColor || Colors.MIDNIGHT_BLUE,
-      textAlignment: optionalOptions.textAlignment || Alignments.CENTER,
+      textFont: optionalOptions.textFont || Fonts.InterBold,
+      textColor: optionalOptions.textColor || Colors.White,
+      sectionColor: optionalOptions.sectionColor || Colors.MidnightBlue,
+      textAlignment: optionalOptions.textAlignment || Layouts.Center,
       textFontSize: optionalOptions.textFontSize || 15,
     };
   }
 
-  setWidth(w: number): SectionComponent {
+  setWidth(w: number): TitleTableComponent {
     this.options.weight = w;
     return this;
   }
 
-  setTextColor(color: Colors): SectionComponent {
+  setTextColor(color: string): TitleTableComponent {
     this.options.textColor = color;
     return this;
   }
 
-  setSectionColor(color: Colors): SectionComponent {
+  setSectionColor(color: string): TitleTableComponent {
     this.options.sectionColor = color;
     return this;
   }
 
-  setAxisSectionPosition(x: number, y: number): SectionComponent {
-    this.options.sectionPosition = { x, y };
+  setAxisSectionPosition(x: number, y: number): TitleTableComponent {
+    this.options.sectionPosition = {x, y};
     return this;
   }
 
-  setAxisTextPosition(x: number, y: number): SectionComponent {
-    this.options.textPosition = { x, y };
+  setAxisTextPosition(x: number, y: number): TitleTableComponent {
+    this.options.textPosition = {x, y};
     return this;
   }
 
-  setHeight(h: number): SectionComponent {
+  setHeight(h: number): TitleTableComponent {
     this.options.height = h;
     return this;
   }

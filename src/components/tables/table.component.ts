@@ -1,7 +1,7 @@
 import { ContentTable, Size } from 'pdfmake/interfaces';
 import { TableCellComponent } from './table-cell.component';
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
-import { Colors, Fonts } from '../../styles/styles';
+import { Colors } from "../../styles/colors";
 
 export class TableComponent implements RenderableComponent {
   private x = 0;
@@ -104,10 +104,10 @@ export class TableComponent implements RenderableComponent {
           return 0;
         },
         hLineColor: function () {
-          return Colors.HAWKES_BLUE;
+          return Colors.HawkesBlue;
         },
         vLineColor: function () {
-          return Colors.HAWKES_BLUE;
+          return Colors.HawkesBlue;
         },
       },
       relativePosition: { x: this.x, y: this.y },

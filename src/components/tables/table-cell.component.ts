@@ -1,7 +1,8 @@
 import { TableCell, TableCellProperties } from 'pdfmake/interfaces';
-import { Fonts } from '../../styles/styles';
+import { Fonts } from "../../styles/fonts";
 
 interface ExtendedTableCellProperties extends TableCellProperties {
+  text: string;
   alignment?: 'left' | 'center' | 'right';
   fillColor?: string;
   margin?: [number, number, number, number];
@@ -17,7 +18,6 @@ export class TableCellComponent {
     private text: string,
     private styles: Partial<ExtendedTableCellProperties> = {
       font: Fonts.InterSemiBold,
-      // border: [false, true, false, true]
     },
   ) {
     this.cellConfig = {

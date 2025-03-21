@@ -1,4 +1,5 @@
-import { Fonts, Logos } from '../../styles/styles';
+import { Logos } from "../../styles/images";
+import { Fonts } from "../../styles/fonts";
 
 export const LogoAlly = {
   image: Logos.ALLY,
