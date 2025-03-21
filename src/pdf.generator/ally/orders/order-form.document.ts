@@ -1,4 +1,4 @@
-import { HeaderComponent } from '../../../components/header/header.component';
+import { OrderHeaderComponent } from '../../../components/order-header/order-header.component';
 import { TableComponent } from '../../../components/tables/table.component';
 import {
   SectionComponent,
@@ -17,7 +17,7 @@ export class OrderFormDocument extends DocumentTemplate {
   }
 
   private buildDocument(): void {
-    this.addComponent(new HeaderComponent());
+    this.addComponent(new OrderHeaderComponent());
     this.addComponent({
       render: () => ({
         text: ' ',
