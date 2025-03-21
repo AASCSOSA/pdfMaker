@@ -117,7 +117,7 @@ export class OrderFormDocument extends DocumentTemplate {
     this.addComponent(new OrderFooterComponent());
 
     this.addComponent({
-      render: () => ({ text: '', pageBreak: 'after' }),
+      render: () => ({text: '', pageBreak: 'after'}),
     });
     const productHeaders = [
       new TableCellComponent('Descripción', {
@@ -126,89 +126,94 @@ export class OrderFormDocument extends DocumentTemplate {
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([10, 12, 0, 0])
+        .setMargin([10, 10, 0, 0])
         .setActivateBorder(false, false, false, false)
       ,
       new TableCellComponent('Precio Unitario', {
         font: Fonts.RobotoBold,
         fontSize: 10,
       })
+        .setActivateBorder(false, false, false, false)
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([0, 12, 0, 0]),
+        .setMargin([0, 10, 0, 0]),
       new TableCellComponent('Cant.', {
         font: Fonts.RobotoBold,
         fontSize: 10,
       })
+        .setActivateBorder(false, false, false, true)
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([0, 12, 0, 0]),
+        .setMargin([0, 10, 0, 0]),
       new TableCellComponent('Subtotal', {
         font: Fonts.RobotoBold,
         fontSize: 10,
       })
+        .setActivateBorder(false, false, false, false)
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([0, 12, 0, 0]),
+        .setMargin([0, 10, 0, 0]),
       new TableCellComponent('IVA', {
         font: Fonts.RobotoBold,
         fontSize: 10,
       })
+        .setActivateBorder(false, false, false, false)
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([0, 12, 0, 0]),
+        .setMargin([0, 10, 0, 0]),
       new TableCellComponent('Total', {
         font: Fonts.RobotoBold,
         fontSize: 10,
       })
+        .setActivateBorder(false, false, false, false)
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([0, 12, 0, 0]),
+        .setMargin([0, 10, 0, 0]),
     ];
     const productRows = this.deliveryData.products.map((product) => [
-      new TableCellComponent('Aciclovir/ Lidocaina (Aciclovir,Lidocaína)\n5 mg/2 mg 1 Aerosol', {
+      new TableCellComponent(product.description, {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setAlignment(Alignments.LEFT)
-        .setMargin([10, 16, 0, 0]),
-      new TableCellComponent('$120.00', {
+        .setMargin([10, 14, 0, 0]),
+      new TableCellComponent(`\$${product.unitPrice}.00`, {
         font: Fonts.InterRegular,
         fontSize: 10,
-      }).setMargin([0, 16, 0, 0]),
+      }).setMargin([0, 14, 0, 0]),
       new TableCellComponent('2', {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
-        .setMargin([0, 16, 0, 0])
+        .setMargin([0, 14, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$240.00', {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
-        .setMargin([0, 16, 0, 0])
+        .setMargin([0, 14, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$38.40', {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
-        .setMargin([0, 16, 0, 0])
+        .setMargin([0, 14, 0, 0])
         .setAlignment(Alignments.LEFT),
       new TableCellComponent('$278.40', {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
-        .setMargin([0, 16, 0, 0])
+        .setMargin([0, 14, 0, 0])
         .setAlignment(Alignments.LEFT),
     ]);
     this.addComponent(
       new SectionComponent(
         {
           title: 'Desglose de Productos',
-          height: 26,
+          height: 25.7,
           weight: 595,
-          textPosition: { x: 0, y: 5 },
-          sectionPosition: { x: -40, y: -40 },
+          textPosition: {x: 0, y: 5},
+          sectionPosition: {x: -40, y: -40},
         } as SectionConfigurationRequired,
         {
           sectionColor: Colors.TOREA_BAY,
@@ -222,16 +227,21 @@ export class OrderFormDocument extends DocumentTemplate {
 
     this.addComponent(
       new TableComponent()
-        .setPosition(-40, -14)
+        .setPosition(-40, -15)
         .setHeaders(productHeaders)
         .setData(productRows)
         .setRowHeights((rowIndex) => {
           if (rowIndex === 0) {
-            return 32;
+            return 32; //headers
           }
-          return 40;
+          // Get the product description for the current row
+          const product = this.deliveryData.products[rowIndex - 1];
+          if (product && product.description && product.description.length > 40) {
+            return 55; // Taller row for longer descriptions
+          }
+          return 41; // Standard height for shorter descriptions
         })
-        .setWidths([200, 80, 57, 80, 80, 80]),
+        .setWidths([190, 80, 57, 80, 80, 80]),
     );
   }
 }

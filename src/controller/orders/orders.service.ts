@@ -11,29 +11,23 @@ export class OrdersService {
       total: 405.0,
       products: [
         {
-          description: 'Product 1',
-          unitPrice: 250.0,
+          name: 'Aciclovir (Aciclovir)',
+          description: 'Aciclovir (Aciclovir) 400 mg 35 Tab',
+          unitPrice: 120.0,
           quantity: 2,
-          subtotal: 500.0,
-          iva: 95.0,
-          total: 595.0,
+          subtotal: 240.00,
+          iva: 38.40,
+          total: 278.40,
         },
         {
-          description: 'Product 2',
-          unitPrice: 500.0,
+          name: 'Aciclovir/ Lidocaina (Aciclovir,Lidocaína)',
+          description: 'Aciclovir/ Lidocaina (Aciclovir,Lidocaína) 5 mg/2 mg 1 Aerosol',
+          unitPrice: 180.0,
           quantity: 1,
-          subtotal: 500.0,
-          iva: 95.0,
-          total: 595.0,
-        },
-        {
-          description: 'Product 2',
-          unitPrice: 500.0,
-          quantity: 1,
-          subtotal: 500.0,
-          iva: 95.0,
-          total: 595.0,
-        },
+          subtotal: 180.0,
+          iva: 28.80,
+          total: 208.80,
+        }
       ],
     };
   }
