@@ -1,8 +1,13 @@
-import { DocumentTemplate } from '../components/document.template';
-import { OrderFormDocument } from '../ally/orders/order-form.document';
-import { DeliveryReportDocument } from '../fgo/delivery/delivery-report.document';
-import { DocumentType } from './enums/document-type.enums';
-import { SaleReportDocument } from '../fgo/sales/sale-report.document';
+import { DocumentTemplate } from '../document.template';
+import { OrderFormDocument } from '../../pdf/documents/orders/order-form.document';
+import { DeliveryReportDocument } from '../../pdf/documents/delivery/delivery-report.document';
+import { SaleReportDocument } from '../../pdf/documents/sales/sale-report.document';
+
+export enum DocumentType {
+  ORDER_FORM = 'order-form',
+  DELIVERY_REPORT = 'delivery-report',
+  SALE_REPORT = 'sale-report',
+}
 
 export class DocumentFactory {
   static createDocument(type: DocumentType, data: any): DocumentTemplate {

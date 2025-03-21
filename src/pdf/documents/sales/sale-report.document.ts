@@ -1,7 +1,7 @@
-import { DocumentTemplate } from '../../components/document.template';
+import { DocumentTemplate } from '../../../shared/document.template';
 import { Colors, PageSizes, } from '../../../styles/styles';
 
-import { BackgroundComponent } from '../../components/background.component';
+import { BackgroundComponent } from '../../../components/background/background.component';
 import { SaleHeaderTemplate } from '../../../components/sale-header/sale-header.template';
 
 export class SaleReportDocument extends DocumentTemplate {

@@ -1,14 +1,14 @@
 import { OrderHeaderComponent } from '../../../components/order-header/order-header.component';
 import { TableComponent } from '../../../components/tables/table.component';
-import {
-  SectionComponent,
-  SectionConfigurationOptional,
-  SectionConfigurationRequired,
-} from '../../components/section.component';
-import { DocumentTemplate } from '../../components/document.template';
 import { TableCellComponent } from '../../../components/tables/table-cell.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
 import { FooterComponent } from '../../../components/footer/footer.component';
+import { DocumentTemplate } from "../../../shared/document.template";
+import {
+  SectionComponent,
+  SectionConfigurationOptional,
+  SectionConfigurationRequired
+} from "../../../components/section/section.component";
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
