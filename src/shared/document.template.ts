@@ -1,7 +1,7 @@
 // src/pdf/classes/document.template.ts
 import { PageSize, TDocumentDefinitions } from 'pdfmake/interfaces';
-import { defaultStyle, PageSizes } from '../../styles/styles';
-import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
+import { defaultStyle, PageSizes } from '../styles/styles';
+import { RenderableComponent } from './interfaces/renderable-component.interface';
 
 export abstract class DocumentTemplate {
   private fileName: string;

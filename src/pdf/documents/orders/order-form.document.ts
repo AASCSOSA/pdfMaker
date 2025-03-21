@@ -1,13 +1,13 @@
+import { DocumentTemplate } from '../../../shared/document.template';
 import { OrderHeaderComponent } from '../../../components/order-header/order-header.component';
-import { TableComponent } from '../../../components/tables/table.component';
+import { TableCellComponent } from '../../../components/tables/table-cell.component';
+import { Alignments, Colors, Fonts } from '../../../styles/styles';
 import {
   SectionComponent,
   SectionConfigurationOptional,
   SectionConfigurationRequired,
-} from '../../components/section.component';
-import { DocumentTemplate } from '../../components/document.template';
-import { TableCellComponent } from '../../../components/tables/table-cell.component';
-import { Alignments, Colors, Fonts } from '../../../styles/styles';
+} from '../../../components/section/section.component';
+import { TableComponent } from '../../../components/tables/table.component';
 import { OrderFooterComponent } from '../../../components/order-footer/order-footer.component';
 
 export class OrderFormDocument extends DocumentTemplate {
@@ -179,8 +179,7 @@ export class OrderFormDocument extends DocumentTemplate {
       new TableCellComponent('$120.00', {
         font: Fonts.InterRegular,
         fontSize: 10,
-      })
-        .setMargin([0, 16, 0, 0]),
+      }).setMargin([0, 16, 0, 0]),
       new TableCellComponent('2', {
         font: Fonts.InterRegular,
         fontSize: 10,

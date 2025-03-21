@@ -1,15 +1,8 @@
-import { DocumentTemplate } from '../../components/document.template';
-import { Content } from 'pdfmake/interfaces';
-import { SectionComponent } from '../../components/section.component';
-import { TableCellComponent } from '../../../components/tables/table-cell.component';
-import { TableComponent } from '../../../components/tables/table.component';
-import {
-  Alignments,
-  Colors,
-  Fonts,
-  Logos,
-  PageSizes,
-} from '../../../styles/styles';
+import { DocumentTemplate } from '../../../shared/document.template';
+import { Content, ContentText } from 'pdfmake/interfaces';
+import { SectionComponent } from '../../../components/section/section.component';
+import { Alignments, Colors, Fonts, Logos, PageSizes } from '../../../styles/styles';
+import { TableCellComponent } from "../../../components/tables/table-cell.component";
 
 export class DeliveryReportDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -21,54 +14,61 @@ export class DeliveryReportDocument extends DocumentTemplate {
     this.addComponent(
       new SectionComponent({
         title: '',
-        sectionPosition: { x: -40, y: -40 },
-        textPosition: { x: 0, y: -40 },
+        sectionPosition: {x: -40, y: -40},
+        textPosition: {x: 0, y: -40},
         height: 152,
-        weight: 600,
+        weight: 596,
       }).setSectionColor(Colors.TOREA_BAY),
     );
 
-    this.addComponent({
+    /*this.addComponent({
       render(): Content {
         return [
           {
             image: Logos.GO,
-            relativePosition: { x: 60, y: -100 },
+            relativePosition: {x: 34, y: -152+32},
             width: 39.29,
             height: 23.59,
           },
           {
             text: 'F',
-            style: Fonts.InterBold,
+            style: {font: Fonts.Roboto_900},
             color: Colors.WHITE,
             fontSize: 30,
-            relativePosition: { x: 43.5, y: -106 },
-          },
+            relativePosition: {x: 18, y: -152+26.5},
+          } as ContentText,
           {
-            text: [
-              { text: 'Reporte de entrega\n' },
-              { text: '\n', fontSize: 5 },
-              { text: '17-03-2023', font: Fonts.RobotoRegular },
-            ],
-            fontSize: 16,
+            text: 'Repartidores',
+            style: {font: Fonts.Inter_600},
             color: Colors.WHITE,
-            absolutePosition: { x: 30, y: 20 },
-            alignment: Alignments.RIGHT,
+            fontSize: 18,
+            characterSpacing : 0.5,
+
+            relativePosition: {x: -40+33, y: -152+58.5},
           },
           {
-            text: 'Entregados por: Juan Perez',
-            fontSize: 14,
+            text: 'Reporte de Pedidos',
+            font: Fonts.Inter_400,
+            fontSize: 17,
+            characterSpacing:0.3,
+            relativePosition: {x: 372, y: -152+29},
+            color: Colors.WHITE,
+          },
+          {
+            text: ['Entregados por   ', {text: 'Juan Perez', font: Fonts.Inter_600, fontSize: 14, color: Colors.WHITE}],
+            fontSize: 15,
+            font: Fonts.Inter_400,
             color: Colors.WHITE,
             alignment: Alignments.LEFT,
-            absolutePosition: { x: 30, y: 115 },
+            absolutePosition: {x: 30, y: 115},
           },
         ];
       },
     });
     this.addComponent({
-      render() {
+      render(): Content {
         return {
-          text: '\n',
+          text: '',
         };
       },
     });
@@ -77,21 +77,30 @@ export class DeliveryReportDocument extends DocumentTemplate {
       new SectionComponent(
         {
           title: 'Venta total desglosada por tipo de pago',
-          textPosition: { x: 0, y: 175 },
+          textPosition: {x: 0, y: 175},
           weight: 532,
-          sectionPosition: { x: -10, y: 0 },
+          sectionPosition: {x: -10, y: 13},
           height: 26,
         },
         {
           textFontSize: 12,
-          textFont: Fonts.InterMedium,
+          textFont: Fonts.Inter_700,
           sectionColor: Colors.TOREA_BAY,
         },
       ),
     );
+    //RULER
+    /!*this.addComponent(
+      new BackgroundComponent({
+        color: Colors.RED,
+        width: 532,
+        height: 36,
+        position: {x: 30, y: 196},
+      })
+    );*!/
     const headers = [
       new TableCellComponent('Concepto', {
-        font: Fonts.RobotoBold,
+        font: Fonts.Roboto_700,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -99,7 +108,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setMargin([5, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Cantidad', {
-        font: Fonts.RobotoBold,
+        font: Fonts.Roboto_700,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -108,7 +117,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Venta', {
-        font: Fonts.RobotoBold,
+        font: Fonts.Roboto_700,
         fontSize: 10,
         fillColor: Colors.BLACK,
       })
@@ -121,7 +130,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       (value: { concepto: string; cantidad: number; venta: number }) => {
         return [
           new TableCellComponent(`${value.concepto}`, {
-            font: Fonts.InterRegular,
+            font: Fonts.Inter_400,
             fontSize: 10,
           })
             .setMargin([5, 12, 0, 10])
@@ -138,7 +147,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       },
     );
     productRows.push([
-      new TableCellComponent('Total', { font: Fonts.InterSemiBold })
+      new TableCellComponent('Total', {font: Fonts.Inter_600})
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(true, true, false, true),
       new TableCellComponent(
@@ -163,22 +172,19 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setPosition(-10, 0),
     );
     this.addComponent({
-      render() {
-        return {
-          text: '\n',
-        };
-      },
+      render: () => ({ text: '', pageBreak: 'after' }),
     });
     this.addComponent(
       new SectionComponent({
         title: 'Pedidos pagados en efectivo',
         weight: 595,
         height: 26,
-        sectionPosition: { x: -40, y: 300 },
-        textPosition: { x: 0, y: -20 },
+        sectionPosition: {x: -40, y: 300},
+        textPosition: {x: 0, y: -20},
       })
         .setSectionColor(Colors.VENICE_BLUE)
         .setTextColor(Colors.WHITE),
     );
+*/
   }
 }

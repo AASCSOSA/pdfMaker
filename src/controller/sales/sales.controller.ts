@@ -1,10 +1,9 @@
 import { Controller, Get, Param, Query, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { SalesService } from './sales.service';
-import { PdfService } from '../../pdf.generator/pdf.service';
+import { PdfService } from '../../shared/services/pdf/pdf.service';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
-import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
-import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
+import { DocumentFactory, DocumentType } from '../../shared/factories/document.factory';
 
 @Controller('sales')
 export class SalesController {
