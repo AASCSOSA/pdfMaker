@@ -4,7 +4,8 @@ const TextHeaderStyle = {
   margin: [0, 0, 0, 5] as [number, number, number, number],
   color: '#818181',
   listType: 'none' as const,
-  font: Fonts.InterRegular,
+  font: Fonts.InterBold,
+
   fontSize: 10,
 };
 const TextDataStyle = {
@@ -12,30 +13,30 @@ const TextDataStyle = {
   margin: [0, 0, 0, 5] as [number, number, number, number],
   color: '#818181',
   fontSize: 10,
-  font: Fonts.InterBold,
+  font: Fonts.InterRegular,
 };
 export const TitleClientName = {
-  text: 'Client Name',
+  text: 'Nombre del cliente',
   ...TextHeaderStyle,
 } as const;
 
 export const TitleAddress = {
-  text: 'Address',
+  text: 'Dirección',
   ...TextHeaderStyle,
 } as const;
 
 export const TitleOptional = {
-  text: 'Optional',
+  text: 'Comentarios adicionales',
   ...TextHeaderStyle,
 } as const;
 
 export const TitlePaymentMethod = {
-  text: 'Payment Method',
+  text: 'Forma de pago',
   ...TextHeaderStyle,
 } as const;
 
 export const TitleDeliveryDate = {
-  text: 'Delivery Date',
+  text: 'Fecha de entrega',
   ...TextHeaderStyle,
 } as const;
 
@@ -68,28 +69,27 @@ export const TermsAndConditions = {
   fontSize: 10,
   color: '#818181',
   font: Fonts.RobotoBold,
-  absolutePosition: { x: 40, y: 658 },
+  absolutePosition: { x: 35, y: 643 },
 };
 
-const TextTermsAndConditionas: string[] = [
-  'Payment must be settled before the delivery of products and medications.',
-  'Once the product or medication is received, no changes or returns are allowed.',
-  'For payments via bank transfer, the payment must be settled before receiving the products and medications.',
-  'For controlled medications, a copy of the ID (both sides) and a medical prescription are required.',
-  'The consumption of any product or medication is the responsibility of the person prescribing and consuming it.',
-  'Due to internal policies, no changes or returns are accepted for controlled and refrigerated medications.',
-];
-
-export const ValueTermsAndCondition = TextTermsAndConditionas.map((text) => ({
-  text,
-  absolutePosition: { x: 40, y: 678 },
+export const ValueTermsAndCondition = {
+  ol: [
+    'El pago será liquidado antes de la entrega de losproductos y medicamentos',
+    'Una vez recibido el producto o medicamento no hay cambios ni devoluciones.',
+    'En pagos con transferencia es necesario liquidar antesde recibir los productos y medicamentos',
+    'En medicamentos controlados es necesario entregarcopia de INE(ambos lados) y receta medica.',
+    'El consumo de cualquier producto o medicamento es responsabilidad de quien lo receta y consume.',
+    'Por políticas internas no se aceptan cambios ni devoluciones en medicamentos controlados y refrigerados.',
+  ],
+  absolutePosition: { x: 35, y: 663 },
   fontSize: 10,
   color: '#818181',
   font: Fonts.InterRegular,
-}));
+};
+
 export const TextCaptionStyle = {
   listType: 'none' as const,
-  margin: [0, 0, 0, 3] as [number, number, number, number],
+  margin: [0, 0, 0, 5] as [number, number, number, number],
   color: '#818181',
   fontSize: 10,
   font: Fonts.InterBold,
@@ -97,7 +97,7 @@ export const TextCaptionStyle = {
 
 export const ValueCaptionStyle = {
   listType: 'none' as const,
-  margin: [0, 0, 0, 3] as [number, number, number, number],
+  margin: [0, 0, 0, 5] as [number, number, number, number],
   color: '#818181',
   fontSize: 10,
   font: Fonts.InterRegular,

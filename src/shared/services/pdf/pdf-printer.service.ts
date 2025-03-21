@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import PdfPrinter from "pdfmake";
-import { TDocumentDefinitions, TFontDictionary } from "pdfmake/interfaces";
-import { Fonts } from "../../../styles/styles";
-import path from "path";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import PdfPrinter from 'pdfmake';
+import { TDocumentDefinitions, TFontDictionary } from 'pdfmake/interfaces';
+import { Fonts } from '../../../styles/styles';
+import path from 'path';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 
 @Injectable()
 export class PdfPrinterService {
@@ -42,7 +42,7 @@ export class PdfPrinterService {
       },
     };
     this.printer = new PdfPrinter(fonts);
-  };
+  }
 
   createPdfKitDocument(docDefinition: TDocumentDefinitions) {
     return this.printer.createPdfKitDocument(docDefinition);
