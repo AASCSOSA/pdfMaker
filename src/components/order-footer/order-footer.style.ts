@@ -1,4 +1,4 @@
-import { Fonts } from '../../styles/styles';
+import { Fonts } from "../../styles/fonts";
 
 const TextHeaderStyle = {
   margin: [0, 0, 0, 5] as [number, number, number, number],
@@ -83,7 +83,7 @@ export const ValueTermsAndCondition = {
   ],
   absolutePosition: { x: 35, y: 663 },
   fontSize: 10,
-  color: '#818181',
+  color: '#818181', //this.colors.gray
   font: Fonts.InterRegular,
   characterSpacing:0.3,
 

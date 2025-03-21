@@ -1,6 +1,5 @@
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
-import { Colors, Fonts, Logos } from '../../styles/styles';
 import {
   AccountLabel1,
   AccountLabel2,
@@ -24,6 +23,7 @@ import {
   RFCLabel,
   RFCValue,
 } from './order-header.style';
+import { Colors } from "../../styles/colors";
 
 export class OrderHeaderComponent implements RenderableComponent {
   constructor(
@@ -41,7 +41,7 @@ export class OrderHeaderComponent implements RenderableComponent {
             y: -40,
             w: 595,
             h: 245,
-            color: Colors.BLUE_RIBBON,
+            color: Colors.BlueRibbon,
           },
         ],
       },
@@ -58,7 +58,7 @@ export class OrderHeaderComponent implements RenderableComponent {
         },
         layout: 'noBorders',
         absolutePosition: { x: 30, y: 110 },
-        style: { fontSize: 10, color: Colors.WHITE },
+        style: { fontSize: 10, color: Colors.White },
       },
       {
         table: {
@@ -71,7 +71,7 @@ export class OrderHeaderComponent implements RenderableComponent {
         },
         layout: 'noBorders',
         absolutePosition: { x: 30, y: 170 },
-        style: { fontSize: 10, color: Colors.WHITE, marginTop: 20 },
+        style: { fontSize: 10, color: Colors.White, marginTop: 20 },
       },
     ];
   }

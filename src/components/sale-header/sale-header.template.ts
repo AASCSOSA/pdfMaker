@@ -1,27 +1,27 @@
 import { RenderableComponent } from '../../shared/interfaces/renderable-component.interface';
 import { Content } from 'pdfmake/interfaces';
-import { Colors, Fonts, Logos } from '../../styles/styles';
 import { regular, bold, TextClient, costumersName } from './sale-header.styles';
+import { Logos } from "../../styles/images";
+import { Colors } from "../../styles/colors";
+import { Fonts } from "../../styles/fonts";
 
 export class SaleHeaderTemplate implements RenderableComponent {
   constructor(private saleData: any) {}
   render(): Content {
     return [
       {
-        image: Logos.FARMA_GO,
+        image: Logos.FARMAGO,
         absolutePosition: { x: 22, y: 13 },
         width: 84,
         height: 72,
       },
       {
         text: 'Cotización',
-        style: { fontSize: 16, color: Colors.WHITE, font: Fonts.InterRegular },
+        style: { fontSize: 16, color: Colors.White, font: Fonts.InterRegular },
         relativePosition: { x: 460, y: -7 },
       },
-      /*Ejemplo para colocar en estilos*/
       TextClient,
       costumersName(this.saleData.customersname),
-
       {
         text: 'Folio de Cotización',
         style: bold,
