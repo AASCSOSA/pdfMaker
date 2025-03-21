@@ -12,9 +12,7 @@ export class TableComponent implements RenderableComponent {
   private headers: (string | TableCellComponent)[] = [];
   private rowHeights: number | ((rowIndex: number) => number) = 46;
 
-  constructor() {
-
-  }
+  constructor() {}
 
   setHeaders(headers: (string | TableCellComponent)[]): TableComponent {
     this.headers = headers;
@@ -100,7 +98,6 @@ export class TableComponent implements RenderableComponent {
           return 1;
         },
         vLineWidth: function (i, node) {
-
           if (i === 0 || i === node.table.body[0].length) {
             return 1;
           }
@@ -113,7 +110,7 @@ export class TableComponent implements RenderableComponent {
           return Colors.HAWKES_BLUE;
         },
       },
-      relativePosition: {x: this.x, y: this.y},
+      relativePosition: { x: this.x, y: this.y },
     };
   }
 }

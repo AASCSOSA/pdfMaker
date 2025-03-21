@@ -34,12 +34,12 @@ export class OrderFooterComponent implements RenderableComponent {
             x: 0,
             y: 0,
             w: 595,
-            h: 295,
+            h: 326,
             r: 1,
             color: Colors.Athens_Gray, //'#F9F9FB'
           },
         ],
-        absolutePosition: { x: 0, y: 547 },
+        absolutePosition: { x: 0, y: 516 },
       },
       {
         ul: [
@@ -49,7 +49,7 @@ export class OrderFooterComponent implements RenderableComponent {
           TitlePaymentMethod,
           TitleDeliveryDate,
         ],
-        absolutePosition: { x: 25, y: 545 },
+        absolutePosition: { x: 25, y: 529 },
       },
       {
         ul: [
@@ -59,12 +59,10 @@ export class OrderFooterComponent implements RenderableComponent {
           ValuePaymentMethod,
           ValueDeliveryDate,
         ],
-        absolutePosition: { x: 150, y: 545 },
+        absolutePosition: { x: 160, y: 529 },
       },
       TermsAndConditions,
-      {
-        ol: ValueTermsAndCondition,
-      },
+      ValueTermsAndCondition,
       {
         ul: [
           TitleAddressCaption,
