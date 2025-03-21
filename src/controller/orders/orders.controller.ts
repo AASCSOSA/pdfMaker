@@ -3,7 +3,7 @@ import { OrdersService } from './orders.service';
 import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
 import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
 import { Response } from 'express';
-import { PdfService } from '../../pdf.generator/pdf.service';
+import { PdfService } from '../../shared/services/pdf/pdf.service';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
 
 @Controller('orders')
