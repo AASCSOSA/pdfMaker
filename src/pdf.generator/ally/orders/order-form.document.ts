@@ -8,7 +8,7 @@ import {
 import { DocumentTemplate } from '../../components/document.template';
 import { TableCellComponent } from '../../../components/tables/table-cell.component';
 import { Alignments, Colors, Fonts } from '../../../styles/styles';
-import { FooterComponent } from '../../../components/footer/footer.component';
+import { OrderFooterComponent } from '../../../components/order-footer/order-footer.component';
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -120,7 +120,7 @@ export class OrderFormDocument extends DocumentTemplate {
         .setWidths(['*', 462]),
     );
 
-    this.addComponent(new FooterComponent());
+    this.addComponent(new OrderFooterComponent());
 
     this.addComponent({
       render: () => ({ text: '', pageBreak: 'after' }),
