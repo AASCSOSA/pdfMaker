@@ -11,13 +11,6 @@ export class OrderFormDocument extends DocumentTemplate {
     this.buildDocument();
   }
 
-  textOverflow(description: string): string {
-    if (description.length > 60) {
-      return description.slice(0, 38) + ` ${description.slice(38, 75)}…`;
-    }
-    return description;
-  }
-
   private buildDocument(): void {
     this.addComponent(new OrderHeaderComponent());
     const {
@@ -28,7 +21,7 @@ export class OrderFormDocument extends DocumentTemplate {
     this.addComponent(pricesTable);
     this.addComponent(new OrderFooterComponent());
     this.addComponent({render: () => ({text: '', pageBreak: 'after'}),});
-  const {
+    const {
       section: productsSection,
       table: productsTable,
     } = CreateTableProducts(this.deliveryData);

@@ -9,10 +9,10 @@ import {
   productUnitPrice
 } from "./products-table-style";
 import {
-  SectionComponent,
-  SectionConfigurationOptional,
-  SectionConfigurationRequired
-} from "../../section/section.component";
+  TitleTableComponent,
+  TitleTableConfigurationOptional,
+  TitleTableConfigurationRequired
+} from "../../section/titleTableComponent";
 import { Colors } from "../../../styles/colors";
 import { Layouts } from "../../../styles/styles";
 import { Fonts } from "../../../styles/fonts";
@@ -35,21 +35,21 @@ export function CreateTableProducts(deliveryData) {
     productIva(product.iva),
     productTotal(product.total)
   ]);
-  const section = new SectionComponent(
+  const section = new TitleTableComponent(
     {
       title: 'Desglose de Productos',
       height: 25.7,
       weight: 595,
       textPosition: {x: 33, y: 5},
       sectionPosition: {x: -40, y: -40},
-    } as SectionConfigurationRequired,
+    } as TitleTableConfigurationRequired,
     {
       sectionColor: Colors.ToreaBay,
       textAlignment: Layouts.Center,
       textColor: Colors.White,
       textFont: Fonts.InterBold,
       textFontSize: 12,
-    } as SectionConfigurationOptional,
+    } as TitleTableConfigurationOptional,
   );
   const table = new TableComponent()
     .setPosition(-40, -15)

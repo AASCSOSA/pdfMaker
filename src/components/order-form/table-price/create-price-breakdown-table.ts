@@ -1,25 +1,26 @@
-import { SectionComponent } from '../../section/section.component';
+import {
+  TitleTableComponent,
+} from "../../section/titleTableComponent";
 
-import { TableComponent } from '../../tables/table.component';
-import { Layouts } from '../../../styles/styles';
-import { TableCellComponent } from '../../tables/table-cell.component';
-import { Fonts } from '../../../styles/fonts';
-import { Colors } from '../../../styles/colors';
+import { TableComponent } from "../../tables/table.component";
+import { Layouts } from "../../../styles/styles";
+import { TableCellComponent } from "../../tables/table-cell.component";
+import { Fonts } from "../../../styles/fonts";
+import { Colors } from "../../../styles/colors";
 import {
   ConceptoHeader,
   EnvioRow,
-  EnvioValueRow,
-  IVARow,
-  IVAValueRow,
+  EnvioValueRow, IVARow, IVAValueRow,
   PrecioHeader,
   SubtotalRow,
-  SubtotalValueRow,
-  TotalRow,
-  TotalValueRow,
-} from './price-breakdown-style';
+  SubtotalValueRow, TotalRow, TotalValueRow
+} from "./price-breakdown-style";
 
 export function CreatePriceBreakdownSection(deliveryData) {
-  const headers: TableCellComponent[] = [ConceptoHeader, PrecioHeader];
+  const headers: TableCellComponent[] = [
+    ConceptoHeader,
+    PrecioHeader
+  ];
 
   const dataRows = [
     [SubtotalRow, SubtotalValueRow(deliveryData.subtotal)],
@@ -28,11 +29,11 @@ export function CreatePriceBreakdownSection(deliveryData) {
     [TotalRow, TotalValueRow(deliveryData.total)],
   ];
 
-  const section = new SectionComponent(
+  const section = new TitleTableComponent(
     {
       title: 'Desglose de Precio',
-      sectionPosition: { x: -9, y: 13.2 },
-      textPosition: { x: 30, y: 264 },
+      sectionPosition: {x: -9, y: 13.2},
+      textPosition: {x: 30, y: 264},
       height: 25.7,
       weight: 532,
     },
@@ -41,9 +42,7 @@ export function CreatePriceBreakdownSection(deliveryData) {
       textAlignment: Layouts.Center,
       textFontSize: 12,
     },
-  )
-    .setTextColor(Colors.White)
-    .setSectionColor(Colors.ToreaBay);
+  ).setTextColor(Colors.White).setSectionColor(Colors.ToreaBay);
 
   const table = new TableComponent()
     .setPosition(-9, -1)
@@ -58,5 +57,5 @@ export function CreatePriceBreakdownSection(deliveryData) {
     })
     .setWidths(['*', 461]);
 
-  return { section, table };
+  return {section, table};
 }

@@ -4,7 +4,7 @@ import { Layouts } from "../../styles/styles";
 import { Colors } from "../../styles/colors";
 import { Fonts } from "../../styles/fonts";
 
-export interface SectionConfigurationRequired {
+export interface TitleTableConfigurationRequired {
   title: string;
   sectionPosition: { x: number; y: number };
   textPosition: { x: number; y: number };
@@ -12,7 +12,7 @@ export interface SectionConfigurationRequired {
   weight: number;
 }
 
-export interface SectionConfigurationOptional {
+export interface TitleTableConfigurationOptional {
   textFont?: string
   textColor?: string
   sectionColor?: string
@@ -20,15 +20,15 @@ export interface SectionConfigurationOptional {
   textFontSize?: number;
 }
 
-export type SectionOptionsComplete = SectionConfigurationRequired &
-  SectionConfigurationOptional;
+export type TitleTableOptionsComplete = TitleTableConfigurationRequired &
+  TitleTableConfigurationOptional;
 
-export class SectionComponent implements RenderableComponent {
-  private options: SectionOptionsComplete;
+export class TitleTableComponent implements RenderableComponent {
+  private options: TitleTableOptionsComplete;
 
   constructor(
-    requiredOptions: SectionConfigurationRequired,
-    optionalOptions: SectionConfigurationOptional = {},
+    requiredOptions: TitleTableConfigurationRequired,
+    optionalOptions: TitleTableConfigurationOptional = {},
   ) {
     this.options = {
       ...requiredOptions,
@@ -40,32 +40,32 @@ export class SectionComponent implements RenderableComponent {
     };
   }
 
-  setWidth(w: number): SectionComponent {
+  setWidth(w: number): TitleTableComponent {
     this.options.weight = w;
     return this;
   }
 
-  setTextColor(color: string): SectionComponent {
+  setTextColor(color: string): TitleTableComponent {
     this.options.textColor = color;
     return this;
   }
 
-  setSectionColor(color: string): SectionComponent {
+  setSectionColor(color: string): TitleTableComponent {
     this.options.sectionColor = color;
     return this;
   }
 
-  setAxisSectionPosition(x: number, y: number): SectionComponent {
+  setAxisSectionPosition(x: number, y: number): TitleTableComponent {
     this.options.sectionPosition = {x, y};
     return this;
   }
 
-  setAxisTextPosition(x: number, y: number): SectionComponent {
+  setAxisTextPosition(x: number, y: number): TitleTableComponent {
     this.options.textPosition = {x, y};
     return this;
   }
 
-  setHeight(h: number): SectionComponent {
+  setHeight(h: number): TitleTableComponent {
     this.options.height = h;
     return this;
   }
