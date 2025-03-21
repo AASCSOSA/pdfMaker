@@ -1,9 +1,8 @@
-import { DocumentTemplate } from '../../components/document.template';
+import { DocumentTemplate } from '../../../shared/document.template';
 import { Content, ContentText } from 'pdfmake/interfaces';
-import { SectionComponent } from '../../components/section.component';
-import { TableCellComponent } from '../../components/tables/table-cell.component';
-import { TableComponent } from '../../components/tables/table.component';
+import { SectionComponent } from '../../../components/section/section.component';
 import { Alignments, Colors, Fonts, Logos, PageSizes } from '../../../styles/styles';
+import { TableCellComponent } from "../../../components/tables/table-cell.component";
 
 export class DeliveryReportDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -22,7 +21,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
       }).setSectionColor(Colors.TOREA_BAY),
     );
 
-    this.addComponent({
+    /*this.addComponent({
       render(): Content {
         return [
           {
@@ -91,14 +90,14 @@ export class DeliveryReportDocument extends DocumentTemplate {
       ),
     );
     //RULER
-    /*this.addComponent(
+    /!*this.addComponent(
       new BackgroundComponent({
         color: Colors.RED,
         width: 532,
         height: 36,
         position: {x: 30, y: 196},
       })
-    );*/
+    );*!/
     const headers = [
       new TableCellComponent('Concepto', {
         font: Fonts.Roboto_700,
@@ -186,6 +185,6 @@ export class DeliveryReportDocument extends DocumentTemplate {
         .setSectionColor(Colors.VENICE_BLUE)
         .setTextColor(Colors.WHITE),
     );
-
+*/
   }
 }

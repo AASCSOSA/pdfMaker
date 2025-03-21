@@ -2,8 +2,7 @@ import { Controller, Get, Param, Query, Res } from '@nestjs/common';
 import { PdfService } from '../../shared/services/pdf/pdf.service';
 import { Response } from 'express';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
-import { DocumentFactory } from '../../pdf.generator/factories/document.factory';
-import { DocumentType } from '../../pdf.generator/factories/enums/document-type.enums';
+import { DocumentFactory, DocumentType } from '../../shared/factories/document.factory';
 import { DeliveriesService } from './deliveries.service';
 
 @Controller('deliveries')
