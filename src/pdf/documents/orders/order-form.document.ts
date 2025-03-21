@@ -18,72 +18,65 @@ export class OrderFormDocument extends DocumentTemplate {
 
   private buildDocument(): void {
     this.addComponent(new OrderHeaderComponent());
-    this.addComponent({
-      render: () => ({
-        text: ' ',
-        height: 13,
-      }),
-    });
     const conceptoHeader = new TableCellComponent('Concepto', {
       font: Fonts.RobotoBold,
       fontSize: 10,
-    })
-      .setFillColor(Colors.FOAM)
+    }).setFillColor(Colors.FOAM)
+      .setActivateBorder(false, false, false, false)
       .setMargin([10, 10, 0, 0]);
     const precioHeader = new TableCellComponent('Precio', {
       font: Fonts.InterBold,
       fontSize: 10,
-    })
+    }).setActivateBorder(false, false, false, false)
       .setFillColor(Colors.FOAM)
-      .setMargin([0, 10, 10, 0])
+      .setMargin([0, 9, 10, 2])
       .setAlignment(Alignments.RIGHT);
     const dataRows = [
       [
         new TableCellComponent('Subtotal', {
           font: Fonts.InterRegular,
           fontSize: 10,
-        }).setMargin([10, 18, 0, 0]),
+        }).setMargin([10, 14, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.subtotal.toFixed(2)}`, {
           font: Fonts.InterRegular,
           fontSize: 10,
-        })
-          .setMargin([0, 18, 10, 0])
+        }).setMargin([0, 14, 10, 0])
           .setAlignment(Alignments.RIGHT),
       ],
       [
         new TableCellComponent('Envío', {
           font: Fonts.InterRegular,
           fontSize: 10,
-        }).setMargin([10, 18, 0, 0]),
+        }).setMargin([10, 14, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.shipping.toFixed(2)}`, {
           font: Fonts.InterRegular,
           fontSize: 10,
         })
-          .setMargin([0, 18, 10, 0])
+          .setMargin([0, 14, 10, 0])
           .setAlignment(Alignments.RIGHT),
       ],
       [
         new TableCellComponent('IVA', {
           font: Fonts.InterRegular,
           fontSize: 10,
-        }).setMargin([10, 18, 0, 0]),
+        }).setMargin([10, 14, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.tax.toFixed(2)}`, {
           font: Fonts.InterRegular,
           fontSize: 10,
         })
-          .setMargin([0, 18, 10, 0])
+          .setMargin([0, 14, 10, 0])
           .setAlignment(Alignments.RIGHT),
       ],
       [
         new TableCellComponent('Total', {
           font: Fonts.InterSemiBold,
           fontSize: 10,
-        }).setMargin([10, 18, 0, 0]),
+        }).setMargin([10, 14, 0, 0]),
         new TableCellComponent(`$ ${this.deliveryData.total.toFixed(2)}`, {
           font: Fonts.InterBold,
           fontSize: 10,
         })
-          .setMargin([0, 18, 10, 0])
+          .setMargin([0, 14, 10, 0])
           .setAlignment(Alignments.RIGHT),
       ],
     ];
@@ -92,9 +85,9 @@ export class OrderFormDocument extends DocumentTemplate {
       new SectionComponent(
         {
           title: 'Desglose de Precio',
-          sectionPosition: { x: 0, y: 0 },
-          textPosition: { x: 15, y: 269 },
-          height: 26,
+          sectionPosition: {x: -9, y: 13.2},
+          textPosition: {x: 30, y: 264},
+          height: 25.7,
           weight: 532,
         },
         {
@@ -108,16 +101,17 @@ export class OrderFormDocument extends DocumentTemplate {
     );
     this.addComponent(
       new TableComponent()
-        .setPosition(0, 0)
+        .setPosition(-9, -1)
         .setHeaders([conceptoHeader, precioHeader])
         .setData(dataRows)
+        .setWidthOfBorders(2)
         .setRowHeights((rowIndex) => {
           if (rowIndex === 0) {
-            return 36;
+            return 32;
           }
-          return 46;
+          return 40;
         })
-        .setWidths(['*', 462]),
+        .setWidths(['*', 461]),
     );
 
     this.addComponent(new FooterComponent());
@@ -132,7 +126,9 @@ export class OrderFormDocument extends DocumentTemplate {
       })
         .setFillColor(Colors.FOAM)
         .setAlignment(Alignments.LEFT)
-        .setMargin([10, 12, 0, 0]),
+        .setMargin([10, 12, 0, 0])
+        .setActivateBorder(false, false, false, false)
+      ,
       new TableCellComponent('Precio Unitario', {
         font: Fonts.RobotoBold,
         fontSize: 10,
@@ -170,7 +166,7 @@ export class OrderFormDocument extends DocumentTemplate {
         .setMargin([0, 12, 0, 0]),
     ];
     const productRows = this.deliveryData.products.map((product) => [
-      new TableCellComponent('Aciclovir (Aciclovir) 400 mg 35', {
+      new TableCellComponent('Aciclovir/ Lidocaina (Aciclovir,Lidocaína)\n5 mg/2 mg 1 Aerosol', {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
@@ -232,11 +228,11 @@ export class OrderFormDocument extends DocumentTemplate {
         .setData(productRows)
         .setRowHeights((rowIndex) => {
           if (rowIndex === 0) {
-            return 36;
+            return 32;
           }
-          return 46;
+          return 40;
         })
-        .setWidths([170, 80, 57, 80, 80, 80]),
+        .setWidths([200, 80, 57, 80, 80, 80]),
     );
   }
 }

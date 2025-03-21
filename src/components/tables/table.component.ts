@@ -7,9 +7,15 @@ export class TableComponent implements RenderableComponent {
   private x = 0;
   private y = 0;
   private widths: '*' | 'auto' | Size[] = '*';
+  private borderSize: number = 1;
   private data: (any[] | { [key: string]: any })[] = [];
   private headers: (string | TableCellComponent)[] = [];
   private rowHeights: number | ((rowIndex: number) => number) = 46;
+
+  constructor() {
+
+  }
+
   setHeaders(headers: (string | TableCellComponent)[]): TableComponent {
     this.headers = headers;
     return this;
@@ -24,16 +30,27 @@ export class TableComponent implements RenderableComponent {
     this.widths = widths;
     return this;
   }
+
   setRowHeights(
     heights: number | ((rowIndex: number) => number),
   ): TableComponent {
     this.rowHeights = heights;
     return this;
   }
+
   setPosition(x: number, y: number): TableComponent {
     this.x = x;
     this.y = y;
     return this;
+  }
+
+  setWidthOfBorders(width: number): TableComponent {
+    this.borderSize = width;
+    return this;
+  }
+
+  getWidthOfBorders(): number {
+    return this.borderSize;
   }
 
   render(): ContentTable {
@@ -80,15 +97,14 @@ export class TableComponent implements RenderableComponent {
       },
       layout: {
         hLineWidth: function (i, node) {
-          // Dibujar bordes horizontales en todas las filas (incluyendo encabezado)
-          return 1; // Mostrar bordes horizontales en todas las filas
+          return 1;
         },
         vLineWidth: function (i, node) {
-          // Dibujar bordes verticales solo en la primera y última columna
+
           if (i === 0 || i === node.table.body[0].length) {
-            return 1; // Mostrar la primera y última columna como bordes verticales
+            return 1;
           }
-          return 0; // No mostrar otras líneas verticales internas
+          return 0;
         },
         hLineColor: function () {
           return Colors.HAWKES_BLUE;
@@ -97,7 +113,7 @@ export class TableComponent implements RenderableComponent {
           return Colors.HAWKES_BLUE;
         },
       },
-      relativePosition: { x: this.x, y: this.y },
+      relativePosition: {x: this.x, y: this.y},
     };
   }
 }

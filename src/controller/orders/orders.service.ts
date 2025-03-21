@@ -5,10 +5,10 @@ export class OrdersService {
   async getSellingData(sellingId: string) {
     return {
       id: sellingId,
-      subtotal: 1000.0,
-      shipping: 150.0,
-      tax: 190.0,
-      total: 1340.0,
+      subtotal: 363.62,
+      shipping: 100.0,
+      tax: 41.38,
+      total: 405.0,
       products: [
         {
           description: 'Product 1',
