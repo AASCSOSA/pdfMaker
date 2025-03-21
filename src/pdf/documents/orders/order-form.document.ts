@@ -12,8 +12,15 @@ import { OrderFooterComponent } from '../../../components/order-footer/order-foo
 
 export class OrderFormDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
-    super(`delivery-report-${deliveryData.id}.pdf`);
+    super(`order-report-${deliveryData.id}.pdf`);
     this.buildDocument();
+  }
+
+  textDescriptionConverter(description: string): string {
+    if (description.length > 60) {
+      return description.slice(0, 38) + ` ${description.slice(38, 75)}…`;
+    }
+    return description;
   }
 
   private buildDocument(): void {
@@ -171,12 +178,12 @@ export class OrderFormDocument extends DocumentTemplate {
         .setMargin([0, 10, 0, 0]),
     ];
     const productRows = this.deliveryData.products.map((product) => [
-      new TableCellComponent(product.description, {
+      new TableCellComponent(this.textDescriptionConverter(product.description), {
         font: Fonts.InterRegular,
         fontSize: 10,
       })
         .setAlignment(Alignments.LEFT)
-        .setMargin([10, 14, 0, 0]),
+        .setMargin([10, 14, 30, 0]),
       new TableCellComponent(`\$${product.unitPrice}.00`, {
         font: Fonts.InterRegular,
         fontSize: 10,
@@ -212,7 +219,7 @@ export class OrderFormDocument extends DocumentTemplate {
           title: 'Desglose de Productos',
           height: 25.7,
           weight: 595,
-          textPosition: {x: 0, y: 5},
+          textPosition: {x: 33, y: 5},
           sectionPosition: {x: -40, y: -40},
         } as SectionConfigurationRequired,
         {
@@ -234,14 +241,9 @@ export class OrderFormDocument extends DocumentTemplate {
           if (rowIndex === 0) {
             return 32; //headers
           }
-          // Get the product description for the current row
-          const product = this.deliveryData.products[rowIndex - 1];
-          if (product && product.description && product.description.length > 40) {
-            return 55; // Taller row for longer descriptions
-          }
-          return 41; // Standard height for shorter descriptions
+          return 42;
         })
-        .setWidths([190, 80, 57, 80, 80, 80]),
+        .setWidths([221, 80, 40, 70, 70, 70]),
     );
   }
 }

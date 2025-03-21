@@ -85,6 +85,8 @@ export const ValueTermsAndCondition = {
   fontSize: 10,
   color: '#818181',
   font: Fonts.InterRegular,
+  characterSpacing:0.3,
+
 };
 
 export const TextCaptionStyle = {
