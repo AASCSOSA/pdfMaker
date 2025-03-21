@@ -1,8 +1,9 @@
-import { Colors, Fonts } from '../../styles/styles';
+import { Colors } from "../../styles/colors";
+import { Fonts } from "../../styles/fonts";
 
 export const regular = {
   fontSize: 10,
-  color: Colors.WHITE,
+  color: Colors.White,
 };
 
 export const bold = {

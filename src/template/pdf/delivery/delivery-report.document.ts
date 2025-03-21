@@ -1,8 +1,7 @@
 import { DocumentTemplate } from '../../../shared/document.template';
-import { Content, ContentText } from 'pdfmake/interfaces';
 import { SectionComponent } from '../../../components/section/section.component';
-import { Alignments, Colors, Fonts, Logos, PageSizes } from '../../../styles/styles';
-import { TableCellComponent } from "../../../components/tables/table-cell.component";
+import { PageSizes } from '../../../styles/styles';
+import { Colors } from "../../../styles/colors";
 
 export class DeliveryReportDocument extends DocumentTemplate {
   constructor(private deliveryData: any) {
@@ -18,7 +17,7 @@ export class DeliveryReportDocument extends DocumentTemplate {
         textPosition: {x: 0, y: -40},
         height: 152,
         weight: 596,
-      }).setSectionColor(Colors.TOREA_BAY),
+      }).setSectionColor(Colors.ToreaBay),
     );
 
     /*this.addComponent({
@@ -33,14 +32,14 @@ export class DeliveryReportDocument extends DocumentTemplate {
           {
             text: 'F',
             style: {font: Fonts.Roboto_900},
-            color: Colors.WHITE,
+            color: Colors.White,
             fontSize: 30,
             relativePosition: {x: 18, y: -152+26.5},
           } as ContentText,
           {
             text: 'Repartidores',
             style: {font: Fonts.Inter_600},
-            color: Colors.WHITE,
+            color: Colors.White,
             fontSize: 18,
             characterSpacing : 0.5,
 
@@ -52,14 +51,14 @@ export class DeliveryReportDocument extends DocumentTemplate {
             fontSize: 17,
             characterSpacing:0.3,
             relativePosition: {x: 372, y: -152+29},
-            color: Colors.WHITE,
+            color: Colors.White,
           },
           {
-            text: ['Entregados por   ', {text: 'Juan Perez', font: Fonts.Inter_600, fontSize: 14, color: Colors.WHITE}],
+            text: ['Entregados por   ', {text: 'Juan Perez', font: Fonts.Inter_600, fontSize: 14, color: Colors.White}],
             fontSize: 15,
             font: Fonts.Inter_400,
-            color: Colors.WHITE,
-            alignment: Alignments.LEFT,
+            color: Colors.White,
+            alignment: Layouts.Left,
             absolutePosition: {x: 30, y: 115},
           },
         ];
@@ -85,14 +84,14 @@ export class DeliveryReportDocument extends DocumentTemplate {
         {
           textFontSize: 12,
           textFont: Fonts.Inter_700,
-          sectionColor: Colors.TOREA_BAY,
+          sectionColor: Colors.ToreaBay,
         },
       ),
     );
     //RULER
     /!*this.addComponent(
       new BackgroundComponent({
-        color: Colors.RED,
+        color: Colors.Red,
         width: 532,
         height: 36,
         position: {x: 30, y: 196},
@@ -102,27 +101,27 @@ export class DeliveryReportDocument extends DocumentTemplate {
       new TableCellComponent('Concepto', {
         font: Fonts.Roboto_700,
         fontSize: 10,
-        fillColor: Colors.BLACK,
+        fillColor: Colors.Black,
       })
-        .setFillColor(Colors.FOAM)
+        .setFillColor(Colors.Foam)
         .setMargin([5, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Cantidad', {
         font: Fonts.Roboto_700,
         fontSize: 10,
-        fillColor: Colors.BLACK,
+        fillColor: Colors.Black,
       })
-        .setFillColor(Colors.FOAM)
-        .setAlignment(Alignments.CENTER)
+        .setFillColor(Colors.Foam)
+        .setAlignment(Layouts.Center)
         .setMargin([0, 10, 0, 10])
         .setActivateBorder(false, false, false, false),
       new TableCellComponent('Venta', {
         font: Fonts.Roboto_700,
         fontSize: 10,
-        fillColor: Colors.BLACK,
+        fillColor: Colors.Black,
       })
-        .setFillColor(Colors.FOAM)
-        .setAlignment(Alignments.RIGHT)
+        .setFillColor(Colors.Foam)
+        .setAlignment(Layouts.Right)
         .setMargin([0, 10, 5.5, 10])
         .setActivateBorder(false, false, false, false),
     ];
@@ -137,11 +136,11 @@ export class DeliveryReportDocument extends DocumentTemplate {
             .setActivateBorder(true, true, false, true),
           new TableCellComponent(`${value.cantidad}`)
             .setMargin([0, 10, 0, 10])
-            .setAlignment(Alignments.CENTER)
+            .setAlignment(Layouts.Center)
             .setActivateBorder(false, true, false, true),
           new TableCellComponent(`$ ${value.venta.toFixed(2)}`)
             .setMargin([0, 10, 0, 10])
-            .setAlignment(Alignments.RIGHT)
+            .setAlignment(Layouts.Right)
             .setActivateBorder(false, true, true, true),
         ];
       },
@@ -182,8 +181,8 @@ export class DeliveryReportDocument extends DocumentTemplate {
         sectionPosition: {x: -40, y: 300},
         textPosition: {x: 0, y: -20},
       })
-        .setSectionColor(Colors.VENICE_BLUE)
-        .setTextColor(Colors.WHITE),
+        .setSectionColor(Colors.VeniceBlue)
+        .setTextColor(Colors.White),
     );
 */
   }

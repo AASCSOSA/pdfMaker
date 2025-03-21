@@ -1,5 +1,5 @@
 import { DocumentTemplate } from '../../../shared/document.template';
-import { Colors, PageSizes, } from '../../../styles/styles';
+import { PageSizes, } from '../../../styles/styles';
 
 import { BackgroundComponent } from '../../../components/background/background.component';
 import { SaleHeaderTemplate } from '../../../components/sale-header/sale-header.template';
@@ -13,7 +13,7 @@ export class SaleReportDocument extends DocumentTemplate {
   private buildDocument(): void {
     this.addComponent(
       new BackgroundComponent({
-        color: Colors.VENICE_BLUE,
+        color: 'VENICE_BLUE',
         width: 595,
         height: 171,
         position: { x: 0, y: 0 },

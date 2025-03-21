@@ -1,9 +1,8 @@
 import { RenderableComponent } from "../../shared/interfaces/renderable-component.interface";
-import { Content, Position } from "pdfmake/interfaces";
-import { Colors } from "../../styles/styles";
+import { Content } from "pdfmake/interfaces";
 
 export interface BackgroundConfigurations {
-  color: Colors;
+  color: string;
   position: { x: number; y: number };
   height: number;
   width: number;
