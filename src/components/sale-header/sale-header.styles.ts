@@ -1,5 +1,3 @@
-import { Colors, Fonts } from '../../styles/styles';
-
 // export const regular = {
 //   fontSize: 10,
 //   color: Colors.WHITE,
@@ -9,14 +7,15 @@ import { Colors, Fonts } from '../../styles/styles';
 //   ...regular,
 //   font: Fonts.InterBold,
 // };
-export const FarmaGoLogo
+import { Fonts } from '../../styles/fonts';
+import { Colors } from '../../styles/colors';
 
 export const FarmaGoAddress = {
   text: 'José Treviño #275, Col. Chepevera, Monterrey, Nuevo León, C.P. 64030',
   style: {
     font: Fonts.InterSemiBold,
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 101,
@@ -29,7 +28,7 @@ export const TextClient = {
   style: {
     font: Fonts.InterMedium,
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 15,
@@ -41,7 +40,7 @@ export const TextClientAddress = {
   style: {
     font: Fonts.InterMedium,
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 15,
@@ -53,7 +52,7 @@ export const TextDate = {
   style: {
     font: Fonts.InterMedium,
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 15,
@@ -65,7 +64,7 @@ export const costumersName = (name: string) => ({
   text: name,
   style: {
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 90,
@@ -76,7 +75,7 @@ export const clientAddress = (address: string) => ({
   text: address,
   style: {
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 90,
@@ -87,7 +86,7 @@ export const saleDate = (saleDate: string) => ({
   text: saleDate,
   style: {
     fontSize: 12,
-    color: Colors.WHITE,
+    color: Colors.White,
   },
   absolutePosition: {
     x: 90,
