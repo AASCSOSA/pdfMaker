@@ -8,19 +8,18 @@ import {
   TextDate,
   saleDate,
   clientAddress,
+  FarmaGoLogo,
+  BackGroundConfig,
 } from './sale-header.styles';
-import { Logos } from '../../styles/images';
+import { BackgroundComponent } from '../background/background.component';
 
 export class SaleHeaderTemplate implements RenderableComponent {
   constructor(private saleData: any) {}
-  render(): Content {
+  backgroundComponent = new BackgroundComponent(BackGroundConfig);
+  render(): Content[] {
     return [
-      {
-        image: Logos.FARMAGO,
-        absolutePosition: { x: 14, y: 18 },
-        width: 67,
-        height: 57,
-      },
+      this.backgroundComponent.render(),
+      FarmaGoLogo,
       FarmaGoAddress,
       TextClient,
       costumersName(this.saleData.costumersname),
